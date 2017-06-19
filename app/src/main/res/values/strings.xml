@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ClasificadorMusical</string>
+    <string name="pick_from_your_songs">¡Cárgala de tu dispositivo!</string>
+    <string name="record_from_microphone">¡Grábala con el micrófono!</string>
+    <string name="send_audio">Clasificar Audio</string>
+    <string name="info_classifier">Carga una canción desde tu dispositivo o grábala con el micrófono.</string>
+    <string name="recording_audio">Grabando…</string>
+    <string name="btn_txt_stop_recording">Parar la grabación</string>
+    <string name="btn_txt_start_recording">Empezar la grabación</string>
+    <string name="playing_song">Reproduciendo…</string>
+    <string name="status_classified_OK_title">¡Éxito!</string>
+    <string name="status_classified_OK_subtitle">La canción ha sido clasificada como:</string>
+    <string name="status_classified_KO_title">¡Error!</string>
+    <string name="status_classified_KO_subtitle">La canción no pudo ser clasificada. Por favor, intentalo de nuevo.</string>
+
+
+    <string name="record_time_desc">Graba audio durante 2\'</string>
+    <string name="img_desc">img</string>
+    <string name="reclasify_audio">Volver a clasificar audio</string>
+
+</resources>

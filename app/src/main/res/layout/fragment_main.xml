@@ -1,0 +1,74 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.p4r4d0x.clasificadormusical.fragments.MainFragment">
+
+
+    <LinearLayout
+        android:id="@+id/llClasifySong"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGreyBackground"
+        android:elevation="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_top_space"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.10"
+            android:elevation="0dp"
+            android:orientation="horizontal"/>
+
+        <LinearLayout
+            android:id="@+id/ll_pick_audio"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.40"
+            android:orientation="horizontal"
+            android:padding="40sp">
+
+            <ImageView
+                android:id="@+id/iv_pick_song"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30dp"
+                app:srcCompat="@drawable/ic_album_white_48dp"
+                android:contentDescription="@string/img_desc" />
+
+
+            <ImageView
+                android:id="@+id/iv_record_audio"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="30dp"
+                app:srcCompat="@drawable/ic_mic_white_48dp"
+                android:contentDescription="@string/img_desc" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_description"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.50"
+            android:orientation="horizontal"
+            android:padding="30sp">
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top|center_horizontal"
+                android:text="@string/info_classifier"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

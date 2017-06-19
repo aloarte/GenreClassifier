@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ClasificadorMusical</string>
+    <string name="pick_from_your_songs">Pick from your songs</string>
+    <string name="record_from_microphone">Record from microphone</string>
+    <string name="send_audio">Clasify Audio</string>
+    <string name="info_classifier">Load a song from your phone or record it with the microphone</string>
+    <string name="recording_audio">Recording...</string>
+    <string name="btn_txt_stop_recording">Stop recording</string>
+    <string name="btn_txt_start_recording">Start recording</string>
+    <string name="playing_song">Playing...</string>
+    <string name="status_classified_OK">Success! The song have been classified.</string>
+    <string name="status_classified_KO">Error! The son couldnt be classified. Please try again.</string>
+
+</resources>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/llClasifySong"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGreyBackground"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_description"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.20"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvColorSuccess"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:gravity="center"
+                android:padding="20sp"
+                android:text="@string/status_classified_OK_title"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_pickAudio"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.50"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="40sp">
+
+            <LinearLayout
+                android:id="@+id/ll_square_genre"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.9"
+                android:background="@color/colorGenreRed"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvSongGenreDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:text="@string/status_classified_OK_subtitle"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSongGenre"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.7"
+                    android:gravity="top|center_horizontal"
+                    android:text="Dubstep"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="40sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_classifyAgain"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.30"
+            android:gravity="center"
+            android:padding="40sp">
+
+            <Button
+                android:id="@+id/btnReclassifyAudio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorGenreRed"
+                android:text="@string/reclasify_audio"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
