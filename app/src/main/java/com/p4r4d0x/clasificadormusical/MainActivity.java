@@ -269,9 +269,9 @@ public class MainActivity extends AppCompatActivity implements AsynkTaskClasifyS
 
     }
 
-    public DataClasifySongResponse clasifySong(String name, Uri song){
+    public DataClasifySongResponse clasifySong(String name, Uri song,String uristring){
 
-        new AsynkTaskClasifySong(this).execute(new SongDescription(name,song,getApplicationContext()));
+        new AsynkTaskClasifySong(this).execute(new SongDescription(name,null,getApplicationContext(),uristring));
 
 
         return null;

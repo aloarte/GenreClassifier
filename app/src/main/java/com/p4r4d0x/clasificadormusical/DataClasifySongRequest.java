@@ -13,7 +13,7 @@ public class DataClasifySongRequest {
     @Expose
     public String songName;
 
-    @SerializedName("songGenre")
+    @SerializedName("songData")
     @Expose
     public Object songData;
 

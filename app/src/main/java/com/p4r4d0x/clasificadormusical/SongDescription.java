@@ -12,11 +12,13 @@ public class SongDescription {
     private String  sonngName;
     private Uri     songURI;
     private Context parentContext;
+    private String songStringUri;
 
-    public SongDescription(String sonngName, Uri songURI, Context ctx) {
+    public SongDescription(String sonngName, Uri songURI, Context ctx, String stringUri) {
         this.sonngName = sonngName;
         this.songURI = songURI;
         this.parentContext = ctx;
+        this.songStringUri = stringUri;
     }
 
     public String getSonngName() {
@@ -41,5 +43,13 @@ public class SongDescription {
 
     public void setParentContext(Context parentContext) {
         this.parentContext = parentContext;
+    }
+
+    public String getSongStringUri() {
+        return songStringUri;
+    }
+
+    public void setSongStringUri(String songStringUri) {
+        this.songStringUri = songStringUri;
     }
 }

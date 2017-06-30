@@ -5,7 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,12 +15,18 @@ import com.google.gson.GsonBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
 /*
@@ -55,111 +63,70 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
         int bytesRead, bytesAvailable, bufferSize;
         byte[] buffer;
         int maxBufferSize = 1 * 1024 * 1024;
-
         try {
 
             /*
              * Build the JSON from the GSON from the POJO
              */
+            File sourceFile = new File(/*getPath(songDescriptions[0].getSongURI()*/songDescriptions[0].getSongStringUri()/*, songDescriptions[0].getParentContext())*/);
+            String fileName = sourceFile.getName() ;
+            FileInputStream fileInputStream = new FileInputStream(sourceFile);
+            String request = "http://192.168.1.129:8081/clasify";
+            byte[] bytes = readFileToByteArray(sourceFile);
+
+            String audioEncoded = Base64.encodeToString(bytes, 0);
+
             Gson gsonBuilder                     = new GsonBuilder().create();
-            DataClasifySongRequest pojoClasifySongRequest   = new DataClasifySongRequest(name,song);
+            DataClasifySongRequest pojoClasifySongRequest   = new DataClasifySongRequest(name,audioEncoded);
             String stringJSONClasifySongRequest             = gsonBuilder.toJson(pojoClasifySongRequest);
             JSONObject JSONClassifySongRequest              = new JSONObject(stringJSONClasifySongRequest);
 
-//            File sourceFile = new File(getPath(songDescriptions[0].getSongURI(), songDescriptions[0].getParentContext()));
 
 
 
 
-
-
-//            String fileName = sourceFile.getName() ;
-//            FileInputStream fileInputStream = new FileInputStream(sourceFile);
-
-
-            String request = "http://192.168.1.129:8080/clasify/";
+            //byte[] decoded = Base64.decode(encoded, 0);
 
             /*
              * Build the connection
              */
             url = new URL(request);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            //connection.setRequestProperty("Content-Type", "application/json");
-            connection.setRequestProperty("charset", "utf-8");
 
-            connection.setRequestProperty("Connection", "Keep-Alive");
-            //  conn.setRequestProperty("ENCTYPE", "multipart/form-data");
-//            connection.setRequestProperty("Content-Type","multipart/form-data;boundary=" + boundary);
-//            connection.setRequestProperty("uploaded_file", fileName);
-
-
-
-            connection.setUseCaches (false);
-            connection.setDoOutput(true);
-            connection.setDoInput(true);
-            connection.setInstanceFollowRedirects(false);
-
-            /*
-             * Build the dataoutputstream with the json and aditional info
-             */
-            DataOutputStream wr = new DataOutputStream(connection.getOutputStream ());
-            wr.writeBytes(JSONClassifySongRequest.toString());
-            wr.flush();
-            wr.close();
+                //connection.setUseCaches (false);
+                connection.setDoOutput(true);
+                connection.setDoInput(true);
+                connection.setRequestMethod("POST");
+                //connection.setInstanceFollowRedirects(false);
+                connection.setRequestProperty("Content-Type", "application/json");
+                connection.setRequestProperty("charset", "utf-8");
+               // connection.setRequestProperty("Connection", "Keep-Alive");
 
 
-//
-//
-//            //Adding Parameter media file(audio,video and image)
-//            wr.writeBytes(twoHyphens + boundary + lineEnd);
-//
-//            wr.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\""+ fileName + "\"" + lineEnd);
-//            wr.writeBytes(lineEnd);
-//            // create a buffer of maximum size
-//            bytesAvailable = fileInputStream.available();
-//            bufferSize = Math.min(bytesAvailable, maxBufferSize);
-//            buffer = new byte[bufferSize];
-//            // read file and write it into form...
-//            bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-//
-//            while (bytesRead > 0)
-//            {
-//                wr.write(buffer, 0, bufferSize);
-//                bytesAvailable = fileInputStream.available();
-//                bufferSize = Math.min(bytesAvailable, maxBufferSize);
-//                bytesRead = fileInputStream.read(buffer, 0, bufferSize);
-//            }
-//
-//            // send multipart form data necesssary after file data...
-//            wr.writeBytes(lineEnd);
-//            wr.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+                /*
+                 * Build the dataoutputstream with the json and aditional info
+                 */
+                DataOutputStream wr = new DataOutputStream(connection.getOutputStream ());
+                wr.writeBytes(JSONClassifySongRequest.toString());
+                wr.flush();
+                wr.close();
 
 
+                if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
+                    String line = null;
+                    while ((line = br.readLine()) != null) {
+                        sb.append(line + "\n");
+                    }
+                    br.close();
 
-
-
-
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(),"utf-8"));
-                String line = null;
-                while ((line = br.readLine()) != null) {
-                    sb.append(line + "\n");
+                    System.out.println("" + sb.toString());
+                    try {
+                        pojoResponse = (DataClasifySongResponse) gsonBuilder.fromJson(sb.toString(), DataClasifySongResponse.class);
+                    } catch (Exception e) {
+                        return null;
+                    }
                 }
-                br.close();
-
-                System.out.println(""+sb.toString());
-                try{
-                    pojoResponse = (DataClasifySongResponse) gsonBuilder.fromJson(sb.toString(), DataClasifySongResponse.class);
-                }
-                catch(Exception e){
-                    return null;
-                }
-
-
-            }
-
-            //pojoResponse = (DataClasifySongResponse) gsonBuilder.fromJson(sb.toString(), DataClasifySongResponse.class);
 
 
             return pojoResponse;
@@ -174,6 +141,24 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
         }
 
 
+    }
+
+    private byte[] readFileToByteArray(File sourceFile) {
+
+        int size = (int) sourceFile.length();
+        byte[] bytes = new byte[size];
+        try {
+            BufferedInputStream buf = new BufferedInputStream(new FileInputStream(sourceFile));
+            buf.read(bytes, 0, bytes.length);
+            buf.close();
+            return bytes;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return bytes;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return bytes;
+        }
     }
 
 

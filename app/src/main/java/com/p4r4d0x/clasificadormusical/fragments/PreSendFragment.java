@@ -78,7 +78,7 @@ public class PreSendFragment extends Fragment {
                             ((parentActivity.audioPicked != null) || (parentActivity.audioRecordedMicrophone != null ))){
 
                         stopAudio();
-                        parentActivity.clasifySong("The island", parentActivity.audioPicked);
+                        parentActivity.clasifySong("The island", null,parentActivity.audioRecordedMicrophone/*parentActivity.audioPicked*/);
 
                     }
                     else{

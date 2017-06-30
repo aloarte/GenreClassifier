@@ -39,7 +39,7 @@ public class RecordAudioFragment extends Fragment {
     }
 
     private CountDownTimer countDownTimer =
-            new CountDownTimer(120000, 100) { //120000 (02:00)
+            new CountDownTimer(/*120*/1000, 100) { //120000 (02:00)
                 public void onTick(long millisUntilFinished) {
                     //Get the time in seconds and invert it
                     long timeInSeconds = millisUntilFinished /1000;
