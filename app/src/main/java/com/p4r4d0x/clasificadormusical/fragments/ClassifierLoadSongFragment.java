@@ -1,7 +1,5 @@
 package com.p4r4d0x.clasificadormusical.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,12 +9,16 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.p4r4d0x.clasificadormusical.MainActivity;
+import com.p4r4d0x.clasificadormusical.ClassifierActivity;
 import com.p4r4d0x.clasificadormusical.R;
 
-public class PreSendFragment extends Fragment {
+/**
+ * Fragment associated with ClassifierActivity.
+ * Shows info about the loadSong multimedia to classify it
+ */
+public class ClassifierLoadSongFragment extends Fragment {
 
-    private MainActivity parentActivity;
+    private ClassifierActivity parentActivity;
 
     private ImageView      ivPauseAudio;
     private ImageView      ivPlayAudio;
@@ -28,7 +30,7 @@ public class PreSendFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View inflatedView = inflater.inflate(R.layout.fragment_pre_send, container, false);
+        View inflatedView = inflater.inflate(R.layout.fragment_classifier_load_song, container, false);
         initLayoutElements(inflatedView);
         return inflatedView;
     }
@@ -74,7 +76,7 @@ public class PreSendFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if(getParentActivity()!=null){
-                    if(!(parentActivity.audioSelected == MainActivity.AudioSelected.NONE) &&
+                    if(!(parentActivity.audioSelected == ClassifierActivity.AudioSelected.NONE) &&
                             ((parentActivity.audioPicked != null) || (parentActivity.audioRecordedMicrophone != null ))){
 
                         stopAudio();
@@ -95,11 +97,11 @@ public class PreSendFragment extends Fragment {
     private void startAudio() {
         if(!parentActivity.isPlayingASong){
             rlPlayingSong.setVisibility(View.VISIBLE);
-            if(parentActivity.audioSelected == MainActivity.AudioSelected.AUDIO_FROM_MICROPHONE){
+            if(parentActivity.audioSelected == ClassifierActivity.AudioSelected.AUDIO_FROM_MICROPHONE){
                 parentActivity.onPlayRecorded(true);
                 parentActivity.isPlayingASong = true;
             }
-            else if(parentActivity.audioSelected == MainActivity.AudioSelected.AUDIO_FROM_SONG){
+            else if(parentActivity.audioSelected == ClassifierActivity.AudioSelected.AUDIO_FROM_SONG){
                 parentActivity.onPlaySongPicked(true);
                 parentActivity.isPlayingASong = true;
             }
@@ -109,23 +111,23 @@ public class PreSendFragment extends Fragment {
     public void stopAudio(){
         if(parentActivity.isPlayingASong){
             rlPlayingSong.setVisibility(View.INVISIBLE);
-            if(parentActivity.audioSelected == MainActivity.AudioSelected.AUDIO_FROM_MICROPHONE){
+            if(parentActivity.audioSelected == ClassifierActivity.AudioSelected.AUDIO_FROM_MICROPHONE){
                 parentActivity.onPlayRecorded(false);
                 parentActivity.isPlayingASong = false;
 
             }
-            else if(parentActivity.audioSelected == MainActivity.AudioSelected.AUDIO_FROM_SONG){
+            else if(parentActivity.audioSelected == ClassifierActivity.AudioSelected.AUDIO_FROM_SONG){
                 parentActivity.onPlaySongPicked(false);
                 parentActivity.isPlayingASong = false;
             }
         }
     }
 
-    public MainActivity getParentActivity() {
+    public ClassifierActivity getParentActivity() {
         return parentActivity;
     }
 
-    public void setParentActivity(MainActivity parentActivity) {
+    public void setParentActivity(ClassifierActivity parentActivity) {
         this.parentActivity = parentActivity;
     }
 }

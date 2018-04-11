@@ -1,7 +1,5 @@
 package com.p4r4d0x.clasificadormusical.fragments;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,16 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.p4r4d0x.clasificadormusical.MainActivity;
+import com.p4r4d0x.clasificadormusical.ClassifierActivity;
 import com.p4r4d0x.clasificadormusical.R;
 
-
-public class MainFragment extends Fragment {
+/**
+ * Fragment associated with ClassifierActivity.
+ * Shows a wait view while the multimedia is sended to the server
+ */
+public class ClassifierSendingFragment extends Fragment {
 
     private ImageView      ivPickSong;
     private ImageView      ivRecordAudio;
 
-    private MainActivity parentActivity;
+    private ClassifierActivity parentActivity;
 
     protected static final int INTENT_PICK_SONG    = 101;
 
@@ -27,7 +28,7 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View inflatedView = inflater.inflate(R.layout.fragment_main, container, false);
+        View inflatedView = inflater.inflate(R.layout.fragment_classifier_sending, container, false);
         initLayoutElements(inflatedView);
         return inflatedView;
     }
@@ -60,11 +61,11 @@ public class MainFragment extends Fragment {
 
 
 
-    public MainActivity getParentActivity() {
+    public ClassifierActivity getParentActivity() {
         return parentActivity;
     }
 
-    public void setParentActivity(MainActivity parentActivity) {
+    public void setParentActivity(ClassifierActivity parentActivity) {
         this.parentActivity = parentActivity;
     }
 }

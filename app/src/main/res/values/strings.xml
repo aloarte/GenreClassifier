@@ -17,5 +17,6 @@
     <string name="record_time_desc">Graba audio durante 2\'</string>
     <string name="img_desc">img</string>
     <string name="reclasify_audio">Volver a clasificar audio</string>
+    <string name="title_activity_starter">StarterActivity</string>
 
 </resources>

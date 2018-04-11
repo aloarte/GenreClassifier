@@ -1,12 +1,11 @@
-package com.p4r4d0x.clasificadormusical;
+package com.p4r4d0x.clasificadormusical.rest;
 
 import android.content.Context;
 import android.net.Uri;
 
 /**
- * Created by aloarte on 17/06/2017.
+ * Pojo to send all the song info to the asynctask
  */
-
 public class SongDescription {
 
     private String  sonngName;

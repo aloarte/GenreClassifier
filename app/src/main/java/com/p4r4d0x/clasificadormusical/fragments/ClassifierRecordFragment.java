@@ -2,23 +2,23 @@ package com.p4r4d0x.clasificadormusical.fragments;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.p4r4d0x.clasificadormusical.MainActivity;
+import com.p4r4d0x.clasificadormusical.ClassifierActivity;
 import com.p4r4d0x.clasificadormusical.R;
 
-public class RecordAudioFragment extends Fragment {
+/**
+ * Fragment associated with ClassifierActivity.
+ * Shows info about the multimedia recorded to classify it
+ */
+public class ClassifierRecordFragment extends Fragment {
 
-    private MainActivity parentActivity;
+    private ClassifierActivity parentActivity;
 
     private ProgressBar pbhStatusAudioRecorded;
 
@@ -27,7 +27,7 @@ public class RecordAudioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View inflatedView = inflater.inflate(R.layout.fragment_record_audio, container, false);
+        View inflatedView = inflater.inflate(R.layout.fragment_classifier_record, container, false);
         initLayoutElements(inflatedView);
         startRecording();
         return inflatedView;
@@ -90,11 +90,11 @@ public class RecordAudioFragment extends Fragment {
 
     }
 
-    public MainActivity getParentActivity() {
+    public ClassifierActivity getParentActivity() {
         return parentActivity;
     }
 
-    public void setParentActivity(MainActivity parentActivity) {
+    public void setParentActivity(ClassifierActivity parentActivity) {
         this.parentActivity = parentActivity;
     }
 

@@ -1,16 +1,19 @@
-package com.p4r4d0x.clasificadormusical;
+package com.p4r4d0x.clasificadormusical.async;
 
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Base64;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.p4r4d0x.clasificadormusical.rest.DataClassifySongRequest;
+import com.p4r4d0x.clasificadormusical.rest.DataClassifySongResponse;
+import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
+import com.p4r4d0x.clasificadormusical.rest.SongDescription;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,20 +24,15 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.concurrent.ExecutionException;
 
-/*
- * Created by aloarte on 14/06/2017.
+/**
+ * AsyncTask to send the audio to the server
  */
-
-
-public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataClasifySongResponse> {
+public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataClassifySongResponse> {
 
     private OnSongClassified callbackListener;
 
@@ -50,9 +48,9 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
     }
 
     @Override
-    protected DataClasifySongResponse doInBackground(SongDescription... songDescriptions) {
+    protected DataClassifySongResponse doInBackground(SongDescription... songDescriptions) {
         URL url;
-        DataClasifySongResponse pojoResponse = null;
+        DataClassifySongResponse pojoResponse = null;
         StringBuilder sb = new StringBuilder();
         String name="The island", song="Dubstep";
         String boundary = "*****";
@@ -77,7 +75,7 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
             String audioEncoded = Base64.encodeToString(bytes, 0);
 
             Gson gsonBuilder                     = new GsonBuilder().create();
-            DataClasifySongRequest pojoClasifySongRequest   = new DataClasifySongRequest(name,audioEncoded);
+            DataClassifySongRequest pojoClasifySongRequest   = new DataClassifySongRequest(name,audioEncoded);
             String stringJSONClasifySongRequest             = gsonBuilder.toJson(pojoClasifySongRequest);
             JSONObject JSONClassifySongRequest              = new JSONObject(stringJSONClasifySongRequest);
 
@@ -122,7 +120,7 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
 
                     System.out.println("" + sb.toString());
                     try {
-                        pojoResponse = (DataClasifySongResponse) gsonBuilder.fromJson(sb.toString(), DataClasifySongResponse.class);
+                        pojoResponse = (DataClassifySongResponse) gsonBuilder.fromJson(sb.toString(), DataClassifySongResponse.class);
                     } catch (Exception e) {
                         return null;
                     }
@@ -169,10 +167,10 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
     }
 
     @Override
-    protected void onPostExecute(DataClasifySongResponse dataClasifySongResponse) {
-        super.onPostExecute(dataClasifySongResponse);
-        if(dataClasifySongResponse!=null){
-            callbackListener.onSongClassifiedSuccess(dataClasifySongResponse.getSonGenre());
+    protected void onPostExecute(DataClassifySongResponse dataClassifySongResponse) {
+        super.onPostExecute(dataClassifySongResponse);
+        if(dataClassifySongResponse !=null){
+            callbackListener.onSongClassifiedSuccess(dataClassifySongResponse.getSonGenre());
         }
         else{
             callbackListener.onSongClassifiedError("Song couldn't be classified");

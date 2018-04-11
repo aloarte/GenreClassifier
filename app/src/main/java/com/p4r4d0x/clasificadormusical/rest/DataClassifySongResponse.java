@@ -1,13 +1,13 @@
-package com.p4r4d0x.clasificadormusical;
+package com.p4r4d0x.clasificadormusical.rest;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by PCCom on 14/06/2017.
- */
 
-public class DataClasifySongResponse {
+/**
+ * Pojo to make the main classify response
+ */
+public class DataClassifySongResponse {
 
     @SerializedName("songName")
     @Expose
@@ -17,7 +17,7 @@ public class DataClasifySongResponse {
     @Expose
     public MusicGenres songGenre;
 
-    public DataClasifySongResponse (String name, MusicGenres genre){
+    public DataClassifySongResponse(String name, MusicGenres genre){
         this.songName= name;
         this.songGenre = genre;
     }
@@ -35,7 +35,7 @@ public class DataClasifySongResponse {
         return songGenre;
     }
 
-    public void setSonGenre(MusicGenres sonGenre) {
+    public void setSongGenre(MusicGenres sonGenre) {
         this.songGenre = sonGenre;
     }
 }

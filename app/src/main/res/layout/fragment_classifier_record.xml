@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.p4r4d0x.clasificadormusical.fragments.MainFragment">
+    tools:context="com.p4r4d0x.clasificadormusical.fragments.ClassifierRecordFragment">
 
 
     <LinearLayout

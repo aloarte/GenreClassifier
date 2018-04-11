@@ -1,7 +1,6 @@
 package com.p4r4d0x.clasificadormusical;
 
 import android.Manifest;
-import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
@@ -14,25 +13,23 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.p4r4d0x.clasificadormusical.fragments.MainFragment;
-import com.p4r4d0x.clasificadormusical.fragments.PreSendFragment;
-import com.p4r4d0x.clasificadormusical.fragments.RecordAudioFragment;
-import com.p4r4d0x.clasificadormusical.fragments.ResultFragment;
+import com.p4r4d0x.clasificadormusical.async.AsynkTaskClasifySong;
+import com.p4r4d0x.clasificadormusical.fragments.ClassifierSendingFragment;
+import com.p4r4d0x.clasificadormusical.fragments.ClassifierLoadSongFragment;
+import com.p4r4d0x.clasificadormusical.fragments.ClassifierRecordFragment;
+import com.p4r4d0x.clasificadormusical.fragments.ClassifierResultFragment;
+import com.p4r4d0x.clasificadormusical.rest.DataClassifySongResponse;
+import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
+import com.p4r4d0x.clasificadormusical.rest.SongDescription;
 
 import java.io.IOException;
 
-
-public class MainActivity extends AppCompatActivity implements AsynkTaskClasifySong.OnSongClassified{
+/**
+ * Activity that handles fragment to make the complete classify process
+ */
+public class ClassifierActivity extends AppCompatActivity implements AsynkTaskClasifySong.OnSongClassified{
 
     private MediaRecorder mediaRecorder = null;
     private MediaPlayer   mediaPlayerRecorded = null;
@@ -78,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements AsynkTaskClasifyS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_classifier);
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
 
         doFragmentMain();
@@ -133,34 +130,34 @@ public class MainActivity extends AppCompatActivity implements AsynkTaskClasifyS
         audioRecordedMicrophone += "/audiorecordtest.3gp";
         resetRecordingAudio();
 
-        MainFragment mainFragment= new MainFragment();
-        mainFragment.setParentActivity(this);
+        ClassifierSendingFragment classifierSendingFragment = new ClassifierSendingFragment();
+        classifierSendingFragment.setParentActivity(this);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.flFragmentContainer,mainFragment);
+        transaction.replace(R.id.flFragmentContainer, classifierSendingFragment);
         transaction.commit();
     }
 
     public void doFragmentResult(MusicGenres genre){
         isFragmentMain = false;
 
-        ResultFragment resultFragment= new ResultFragment();
-        resultFragment.setGenre(genre);
-        resultFragment.setParentActivity(this);
+        ClassifierResultFragment classifierResultFragment = new ClassifierResultFragment();
+        classifierResultFragment.setGenre(genre);
+        classifierResultFragment.setParentActivity(this);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.flFragmentContainer,resultFragment);
+        transaction.replace(R.id.flFragmentContainer, classifierResultFragment);
         transaction.commit();
     }
 
     public void doFragmentRecordAudio(){
         isFragmentMain = false;
 
-        RecordAudioFragment recordAudioFragment= new RecordAudioFragment();
-        recordAudioFragment.setParentActivity(this);
+        ClassifierRecordFragment classifierRecordFragment = new ClassifierRecordFragment();
+        classifierRecordFragment.setParentActivity(this);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.flFragmentContainer,recordAudioFragment);
+        transaction.replace(R.id.flFragmentContainer, classifierRecordFragment);
         transaction.commit();
 
     }
@@ -168,11 +165,11 @@ public class MainActivity extends AppCompatActivity implements AsynkTaskClasifyS
     public void doFragmentPreSendAudio(){
         isFragmentMain = false;
 
-        PreSendFragment preSendFragment= new PreSendFragment();
-        preSendFragment.setParentActivity(this);
+        ClassifierLoadSongFragment classifierLoadSongFragment = new ClassifierLoadSongFragment();
+        classifierLoadSongFragment.setParentActivity(this);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.flFragmentContainer,preSendFragment);
+        transaction.replace(R.id.flFragmentContainer, classifierLoadSongFragment);
         transaction.commit();
     }
 
@@ -269,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements AsynkTaskClasifyS
 
     }
 
-    public DataClasifySongResponse clasifySong(String name, Uri song,String uristring){
+    public DataClassifySongResponse clasifySong(String name, Uri song, String uristring){
 
         new AsynkTaskClasifySong(this).execute(new SongDescription(name,null,getApplicationContext(),uristring));
 

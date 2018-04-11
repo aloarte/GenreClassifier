@@ -1,13 +1,13 @@
-package com.p4r4d0x.clasificadormusical;
+package com.p4r4d0x.clasificadormusical.rest;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by PCCom on 14/06/2017.
+ * Pojo to make the main classify request
  */
 
-public class DataClasifySongRequest {
+public class DataClassifySongRequest {
 
     @SerializedName("songName")
     @Expose
@@ -17,7 +17,7 @@ public class DataClasifySongRequest {
     @Expose
     public Object songData;
 
-    public DataClasifySongRequest (String name, Object data){
+    public DataClassifySongRequest(String name, Object data){
         this.songName = name;
         this.songData = data;
     }

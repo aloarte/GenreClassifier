@@ -9,28 +9,32 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.p4r4d0x.clasificadormusical.MainActivity;
-import com.p4r4d0x.clasificadormusical.MusicGenres;
+import com.p4r4d0x.clasificadormusical.ClassifierActivity;
+import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
 import com.p4r4d0x.clasificadormusical.R;
 
-public class ResultFragment extends Fragment {
+/**
+ * Fragment associated with ClassifierActivity.
+ * Shows the result of the classification
+ */
+public class ClassifierResultFragment extends Fragment {
 
     private MusicGenres resultSongGenre = MusicGenres.NONE;
 
-    private MainActivity parentActivity;
+    private ClassifierActivity parentActivity;
 
 
     private Button backButton;
     private TextView tvSongGenre;
 
-    ResultFragment self = this;
+    ClassifierResultFragment self = this;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View inflatedView = inflater.inflate(R.layout.fragment_result, container, false);
+        View inflatedView = inflater.inflate(R.layout.fragment_classifier_result, container, false);
         initLayoutElements(inflatedView);
         return inflatedView;
     }
@@ -165,11 +169,11 @@ public class ResultFragment extends Fragment {
         btnReclassifyAudio.setBackgroundColor(colorPrimary);
     }
 
-    public MainActivity getParentActivity() {
+    public ClassifierActivity getParentActivity() {
         return parentActivity;
     }
 
-    public void setParentActivity(MainActivity parentActivity) {
+    public void setParentActivity(ClassifierActivity parentActivity) {
         this.parentActivity = parentActivity;
     }
 

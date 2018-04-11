@@ -1,9 +1,8 @@
-package com.p4r4d0x.clasificadormusical;
+package com.p4r4d0x.clasificadormusical.rest;
 
 /**
- * Created by aloarte on 14/06/2017.
+ * Enum to identify all the genres returned by the service
  */
-
 public enum MusicGenres {
     BigRoom,
     Breaks,
