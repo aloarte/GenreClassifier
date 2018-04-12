@@ -7,11 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.p4r4d0x.clasificadormusical.R;
+import com.p4r4d0x.clasificadormusical.StarterActivity;
+
 /**
  * Fragment associated with StarterActivity.
  * Shows the application login
  */
 public class StarterLoginFragment extends Fragment {
+
+    /**
+     * Reference to the parent activity
+     */
+    StarterActivity parentActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,5 +35,13 @@ public class StarterLoginFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    /**
+     * Set the value of the parent activity when the fragment is created by the activity
+     * @param parentActivity    parent Activity that hold this fragment
+     */
+    public void setParentActivity(StarterActivity parentActivity) {
+        this.parentActivity = parentActivity;
     }
 }

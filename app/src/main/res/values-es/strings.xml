@@ -11,4 +11,7 @@
     <string name="status_classified_OK">¡Éxito! La canción ha sido clasificada.</string>
     <string name="status_classified_KO">¡Error! La canción no pudo ser clasificada. Por favor, intentalo de nuevo.</string>
 
+    <string name="starter_banner_try_app_descr">Prueba la aplicación sin loguearte </string>
+    <string name="starter_banner_try_app_link">aquí</string>
+
 </resources>

@@ -19,4 +19,15 @@
     <string name="reclasify_audio">Volver a clasificar audio</string>
     <string name="title_activity_starter">StarterActivity</string>
 
+
+
+    <string name="starter_banner_try_app_descr">Try the app without a login </string>
+    <string name="starter_banner_try_app_link">here</string>
+
+    <string name="starter_dots_login" translatable="false">*        ·        ·</string>
+    <string name="starter_dots_info"  translatable="false">·        *        ·</string>
+    <string name="starter_dots_about" translatable="false">·        ·        *</string>
+
+
+
 </resources>
