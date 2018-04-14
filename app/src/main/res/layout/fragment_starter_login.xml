@@ -2,9 +2,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorGenreBlueGrey"
+    android:layout_height="wrap_content"
     tools:context="com.p4r4d0x.clasificadormusical.fragments.StarterLoginFragment">
 
+
+    <LinearLayout
+        android:id="@+id/ll_body_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="50sp"
+        android:paddingEnd="60sp"
+        android:paddingStart="60sp"
+        android:paddingTop="50sp">
+
+        <Button
+            android:id="@+id/btn_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Google Login" />
+
+        <Button
+            android:id="@+id/btn_facebook"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Facebook Login" />
+    </LinearLayout>
 
 </FrameLayout>

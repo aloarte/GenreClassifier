@@ -1,5 +1,7 @@
 package com.p4r4d0x.clasificadormusical;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,15 +20,19 @@ import com.p4r4d0x.clasificadormusical.fragments.StarterLoginFragment;
 public class StarterActivity extends AppCompatActivity {
 
     /**
-     * The pager widget, which handles animation and allows swiping horizontally to access previous
-     * and next wizard steps.
+     * Pager to hold the different fragment views
      */
     private ViewPager mPager;
 
     /**
-     * The pager adapter, which provides the pages to the view pager widget.
+     * Pager adapter of the fragment pager
      */
     private PagerAdapter mPagerAdapter;
+
+    /**
+     * Activity context
+     */
+    private StarterActivity myselfContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +40,11 @@ public class StarterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_starter);
 
         // Instantiate a ViewPager and a PagerAdapter.
-        mPager = (ViewPager) findViewById(R.id.starterPager);
+        mPager = (ViewPager) findViewById(R.id.vp_starter_fragments);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+
+        myselfContext = this;
     }
 
 //    public void doFragmentLogin(){
@@ -68,11 +76,18 @@ public class StarterActivity extends AppCompatActivity {
 //        transaction.commit();
 //    }
 
-    /**
-     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
-     * sequence.
-     */
 
+    public void onLoginPerformed(){
+        Intent classifierActivity = new Intent(this, ClassifierActivity.class);
+        startActivity(classifierActivity);
+        overridePendingTransition(R.anim.slide_up_info,R.anim.no_change);
+
+    }
+
+
+    /**
+     * A page adapter that make appear the login fragments
+     */
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
@@ -80,15 +95,26 @@ public class StarterActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+            StarterLoginFragment starterLoginFragment;
+            StarterInfoFragment starterInfoFragment;
+            StarterAboutFragment starterAboutFragment;
             switch (position){
                 case 0:
-                    return new StarterLoginFragment();
+                    starterLoginFragment = new StarterLoginFragment();
+                    starterLoginFragment.setParentActivity(myselfContext);
+                    return starterLoginFragment;
                 case 1:
-                    return new StarterInfoFragment();
+                    starterInfoFragment = new StarterInfoFragment();
+                    starterInfoFragment.setParentActivity(myselfContext);
+                    return starterInfoFragment;
                 case 2:
-                    return new StarterAboutFragment();
+                    starterAboutFragment = new StarterAboutFragment();
+                    starterAboutFragment.setParentActivity(myselfContext);
+                    return starterAboutFragment;
                 default:
-                    return new StarterLoginFragment();
+                    starterLoginFragment = new StarterLoginFragment();
+                    starterLoginFragment.setParentActivity(myselfContext);
+                    return starterLoginFragment;
             }
         }
 

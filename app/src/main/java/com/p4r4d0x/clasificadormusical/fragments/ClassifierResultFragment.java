@@ -13,6 +13,8 @@ import com.p4r4d0x.clasificadormusical.ClassifierActivity;
 import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
 import com.p4r4d0x.clasificadormusical.R;
 
+import static com.p4r4d0x.clasificadormusical.rest.MusicGenres.BigRoom;
+
 /**
  * Fragment associated with ClassifierActivity.
  * Shows the result of the classification
@@ -51,11 +53,11 @@ public class ClassifierResultFragment extends Fragment {
             }
         });
 
-        if(resultSongGenre!=MusicGenres.NONE){
+
             tvSongGenre.setText(resultSongGenre.toString());
             changeColorByGenre(resultSongGenre,inflatedView);
 
-        }
+
     }
 
 
@@ -63,99 +65,103 @@ public class ClassifierResultFragment extends Fragment {
         LinearLayout llColored= inflatedView.findViewById(R.id.ll_square_genre);
         Button btnReclassifyAudio = inflatedView.findViewById(R.id.btnReclassifyAudio);
 
-        switch(resultSongGenre.toString()){
-            case "BigRoom":
+        switch(resultSongGenre){
+            case BigRoom:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreRed));
                 break;
-            case "Breaks":
+            case Breaks:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenrePink));
                 break;
-            case "Dance":
+            case Dance:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenrePurple));
                 break;
-            case "DeepHouse":
+            case DeepHouse:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreDeepPurple));
                 break;
-            case "DrumAndBass":
+            case DrumAndBass:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreIndigo));
                 break;
-            case "Dubstep":
+            case Dubstep:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreBlue));
                 break;
-            case "ElectroHouse":
+            case ElectroHouse:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreLightBlue));
                 break;
-            case "ElectronicaDowntempo":
+            case ElectronicaDowntempo:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreGrey));
                 break;
-            case "FunkRAndB":
+            case FunkRAndB:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreBrown));
                 break;
-            case "FutureHouse":
+            case FutureHouse:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreGreen));
                 break;
-            case "GlitchHop":
+            case GlitchHop:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreLightGreen));
                 break;
-            case "HardcoreHardTechno":
+            case HardcoreHardTechno:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreLime));
                 break;
-            case "HardDance":
+            case HardDance:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreAmber));
                 break;
-            case "HipHop":
+            case HipHop:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreAmber));
                 break;
-            case "House":
+            case House:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreOrange));
                 break;
-            case "IndieDanceNuDusco":
+            case IndieDanceNuDusco:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreDeepOrange));
                 break;
-            case "Minimal":
+            case Minimal:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreBrown));
                 break;
-            case "ProgresiveHouse":
+            case ProgresiveHouse:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreGrey));
                 break;
-            case "PsyTrance":
+            case PsyTrance:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreGrey));
                 break;
-            case "ReggaeDub":
+            case ReggaeDub:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreBrown));
                 break;
-            case "TechHouse":
+            case TechHouse:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreTeal));
                 break;
-            case "Techno":
+            case Techno:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenreTeal));
                 break;
-            case "Trance":
+            case Trance:
                 colorElements(llColored,btnReclassifyAudio,
                         getActivity().getResources().getColor(R.color.colorGenrePink));
                 break;
+
+            case NONE:
+                colorElements(llColored,btnReclassifyAudio,
+                        getActivity().getResources().getColor(R.color.colorPrimaryDark));
             default:
                 break;
 

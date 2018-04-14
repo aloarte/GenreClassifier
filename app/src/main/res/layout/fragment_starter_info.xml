@@ -6,22 +6,24 @@
     tools:context="com.p4r4d0x.clasificadormusical.fragments.StarterLoginFragment">
 
     <LinearLayout
+        android:id="@+id/ll_body_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingStart="100sp"
-        android:paddingEnd="100sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/btn_google"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/btn_facebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+        android:paddingBottom="50sp"
+        android:paddingEnd="60sp"
+        android:paddingStart="60sp"
+        android:paddingTop="50sp">
 
+        <TextView
+            android:id="@+id/tv_starter_info_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="This application recovers audio media from your microphone or by an existing song from your phone to retrieve its EDM genre." />
+
+    </LinearLayout>
 
 
 </LinearLayout>

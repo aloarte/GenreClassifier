@@ -70,6 +70,8 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
     @Override
     public void onSongClassifiedError(String errorMessage) {
         Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
+        doFragmentResult(MusicGenres.NONE);
+
     }
 
     @Override
@@ -152,7 +154,6 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
 
     public void doFragmentRecordAudio(){
         isFragmentMain = false;
-
         ClassifierRecordFragment classifierRecordFragment = new ClassifierRecordFragment();
         classifierRecordFragment.setParentActivity(this);
 
@@ -172,6 +173,7 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
         transaction.replace(R.id.flFragmentContainer, classifierLoadSongFragment);
         transaction.commit();
     }
+
 
     public void onPlaySongPicked(boolean play){
         if(play){
