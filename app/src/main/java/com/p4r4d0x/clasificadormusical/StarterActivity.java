@@ -1,6 +1,5 @@
 package com.p4r4d0x.clasificadormusical;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -40,56 +39,28 @@ public class StarterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_starter);
 
         // Instantiate a ViewPager and a PagerAdapter.
-        mPager = (ViewPager) findViewById(R.id.vp_starter_fragments);
-        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPager = findViewById(R.id.vp_starter_fragments);
+        mPagerAdapter = new StarterScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
-
+        //Save the context
         myselfContext = this;
     }
 
-//    public void doFragmentLogin(){
-//        StarterLoginFragment starterLoginFragment = new StarterLoginFragment();
-//        starterLoginFragment.setParentActivity(this);
-//
-//        popFragment(starterLoginFragment,R.id.flFragmentContainer);
-//
-//    }
-//
-//    public void doFragmentInfo(){
-//
-//        StarterInfoFragment starterInfoFragment = new StarterInfoFragment();
-//        starterInfoFragment.setParentActivity(this);
-//
-//        popFragment(starterInfoFragment,R.id.flFragmentContainer);
-//    }
-//
-//    public void doFragmentAbout(){
-//        StarterLoginFragment starterLoginFragment = new StarterLoginFragment();
-//        starterLoginFragment.setParentActivity(this);
-//
-//        popFragment(starterLoginFragment,R.id.flFragmentContainer);
-//    }
-//
-//    public void popFragment(Fragment fragment, int resContainer){
-//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//        transaction.replace(resContainer, fragment);
-//        transaction.commit();
-//    }
-
-
+    /**
+     * Function to start the application after a login
+     */
     public void onLoginPerformed(){
-        Intent classifierActivity = new Intent(this, ClassifierActivity.class);
-        startActivity(classifierActivity);
+        Intent selectorActivity = new Intent(this, SelectorActivity.class);
+        startActivity(selectorActivity);
+        //Set the animation
         overridePendingTransition(R.anim.slide_up_info,R.anim.no_change);
-
     }
-
 
     /**
      * A page adapter that make appear the login fragments
      */
-    private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
-        public ScreenSlidePagerAdapter(FragmentManager fm) {
+    private class StarterScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
+        StarterScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
 

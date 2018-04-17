@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:background="@color/colorGreyBackground"
         android:elevation="10dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:id="@+id/ll_top_space"
@@ -35,7 +36,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.7"
-                android:visibility="visible">
+                android:visibility="visible"
+                tools:ignore="NestedWeights">
 
                 <TextView
                     android:id="@+id/tvPlayingAudio"
@@ -65,6 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
+                    android:contentDescription="@string/acc_discard_audio_icon"
                     android:src="@drawable/ic_cancel_white_24dp" />
 
                 <ImageView
@@ -73,6 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
+                    android:contentDescription="@string/acc_play_selected_audio_icon"
                     android:src="@drawable/ic_play_circle_filled_white_24dp" />
 
                 <ImageView
@@ -81,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
+                    android:contentDescription="@string/acc_pause_audio_icon"
                     android:src="@drawable/ic_pause_circle_filled_white_24dp" />
             </LinearLayout>
 

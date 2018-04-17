@@ -27,7 +27,35 @@
     <string name="starter_dots_login" translatable="false">*        ·        ·</string>
     <string name="starter_dots_info"  translatable="false">·        *        ·</string>
     <string name="starter_dots_about" translatable="false">·        ·        *</string>
+    <string name="record_audio_initial_time" translatable="false">00:00</string>
+    <string name="record_audio_slash_time" translatable="false">/</string>
+    <string name="record_audio_max_time" translatable="false">02:00</string>
 
+
+    <string name="load_song_descr">Load song from your phone</string>
+    <string name="record_audio_descr">Record audio from the micro</string>
+    <string name="record_title">Record</string>
+    <string name="load_audio_title">Load Audio</string>
+    <string name="application_brief_description">Clasifica everywhere</string>
+    <string name="application_title">Classifikeitor</string>
+    <string name="none_str" translatable="false">NONE</string>
+    <string name="about_mail_label">Contact us on the following mail:</string>
+    <string name="about_mail">example@examplemail.com</string>
+    <string name="about_social_media_label">Or follow us in our social media</string>
+    <string name="info_descr_text">This application recovers audio media from your microphone or by an existing song from your phone to retrieve its EDM genre.</string>
+    <string name="btn_google_login" translatable="false">Google Login</string>
+    <string name="btn_facebook_login" translatable="false">Facebook Login</string>
+
+
+    <string name="acc_album_image">Album image</string>
+    <string name="acc_microphone_image">Microphone image</string>
+    <string name="acc_application_logo">The application logo</string>
+    <string name="acc_discard_audio_icon">Discard audio icon.</string>
+    <string name="acc_play_selected_audio_icon">Play selected audio icon</string>
+    <string name="acc_pause_audio_icon">Pause audio icon</string>
+    <string name="acc_about_twitter_icon">Twitter icon</string>
+    <string name="acc_about_youtube_icon">YouTube icon</string>
+    <string name="acc_about_facebook_icon">Facebook icon</string>
 
 
 </resources>

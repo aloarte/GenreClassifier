@@ -1,25 +1,26 @@
 package com.p4r4d0x.clasificadormusical;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.p4r4d0x.clasificadormusical.async.AsynkTaskClasifySong;
-import com.p4r4d0x.clasificadormusical.fragments.ClassifierSendingFragment;
 import com.p4r4d0x.clasificadormusical.fragments.ClassifierLoadSongFragment;
 import com.p4r4d0x.clasificadormusical.fragments.ClassifierRecordFragment;
 import com.p4r4d0x.clasificadormusical.fragments.ClassifierResultFragment;
+import com.p4r4d0x.clasificadormusical.fragments.ClassifierSendingFragment;
 import com.p4r4d0x.clasificadormusical.rest.DataClassifySongResponse;
 import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
 import com.p4r4d0x.clasificadormusical.rest.SongDescription;
@@ -196,6 +197,7 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
 
     }
 
+    @SuppressLint("ShowToast")
     public void onRecordRecorded(boolean start) {
         if (start) {
             if( mediaRecorder == null ) {
@@ -218,8 +220,7 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
                 }
 
             }
-        }
-        else {
+        } else {
             if( mediaRecorder != null ) {
                 mediaRecorder.stop();
                 mediaRecorder.release();
@@ -280,6 +281,9 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
     public void onBackPressed() {
         if(isFragmentMain){
             super.onBackPressed();
+            overridePendingTransition(R.anim.no_change, R.anim.slide_down_info);
+
+
         }
         else{
             doFragmentMain();

@@ -7,6 +7,10 @@
     <color name="backgroundSelected">#E0E0E0</color>
 
 
+    <color name="backgroundRecordTheme">#006064</color>
+    <color name="backgroundLoadSongTheme">#004D40</color>
+
+
     <color name="colorGenreRedLight">#E57373</color>
     <color name="colorGenreRed">#F44336</color>
 

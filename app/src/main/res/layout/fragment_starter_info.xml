@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -14,14 +13,15 @@
         android:paddingBottom="50sp"
         android:paddingEnd="60sp"
         android:paddingStart="60sp"
-        android:paddingTop="50sp">
+        android:paddingTop="50sp"
+        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/tv_starter_info_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="This application recovers audio media from your microphone or by an existing song from your phone to retrieve its EDM genre." />
+            android:text="@string/info_descr_text" />
 
     </LinearLayout>
 

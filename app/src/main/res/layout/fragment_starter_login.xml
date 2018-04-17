@@ -1,5 +1,4 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,20 +14,21 @@
         android:paddingBottom="50sp"
         android:paddingEnd="60sp"
         android:paddingStart="60sp"
-        android:paddingTop="50sp">
+        android:paddingTop="50sp"
+        tools:ignore="UselessParent">
 
         <Button
             android:id="@+id/btn_google"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Google Login" />
+            android:text="@string/btn_google_login" />
 
         <Button
             android:id="@+id/btn_facebook"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Facebook Login" />
+            android:text="@string/btn_facebook_login" />
     </LinearLayout>
 
 </FrameLayout>

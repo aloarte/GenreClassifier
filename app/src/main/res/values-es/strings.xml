@@ -14,4 +14,26 @@
     <string name="starter_banner_try_app_descr">Prueba la aplicación sin loguearte </string>
     <string name="starter_banner_try_app_link">aquí</string>
 
+    <string name="load_song_descr">Carga la canción</string>
+    <string name="record_audio_descr">Grábala con el micrófono.</string>
+    <string name="record_title">Grabar</string>
+    <string name="load_audio_title">Cargar audio</string>
+    <string name="application_title">Classifikeitor</string>
+    <string name="application_brief_description">Clasifica everywhere</string>
+    <string name="about_mail_label">Contacta con nosotros en el siguiente correo:</string>
+    <string name="about_mail">example@examplemail.com</string>
+    <string name="about_social_media_label">O siguenos en nuestras redes sociales</string>
+    <string name="info_descr_text">La aplicación clasifica en un género del EDM el audio mediante la grabación de tu micrófono o mediante la carga de una canción existente en tu teléfono.</string>
+
+    <string name="acc_album_image">Imáaen de un disco de música</string>
+    <string name="acc_microphone_image">Imagen de un micrófono</string>
+    <string name="acc_application_logo">Logo de la aplicación</string>
+    <string name="acc_play_selected_audio_icon">Icono de iniciar la reproducción de audio</string>
+    <string name="acc_pause_audio_icon">Icono de pausa de audio</string>
+    <string name="acc_discard_audio_icon">Icono para descartar el audio</string>
+    <string name="acc_about_youtube_icon">Icono de YouTube</string>
+    <string name="acc_about_twitter_icon">Icono de Twitter</string>
+    <string name="acc_about_facebook_icon">Icono de Facebook</string>
+
+
 </resources>

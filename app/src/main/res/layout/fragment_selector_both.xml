@@ -1,9 +1,174 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.p4r4d0x.clasificadormusical.fragments.SelectorBothFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/ll_body_selector_both_background_gradient"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_color_selector"
+            android:orientation="horizontal"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/ll_body_selector_both_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:ignore="DisableBaselineAlignment">
+
+            <LinearLayout
+                android:id="@+id/ll_selector_load_song_background"
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@color/backgroundLoadSongTheme"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:id="@+id/ll_selector_record_background"
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:background="@color/backgroundRecordTheme"
+                android:orientation="horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_body_selector_both"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            tools:ignore="DisableBaselineAlignment">
+
+            <LinearLayout
+                android:id="@+id/ll_selector_load_song"
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="0.2"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights,UselessLeaf" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="0.4"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_load_song_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/load_audio_title" />
+
+                    <ImageView
+                        android:id="@+id/iv_load_song"
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        android:layout_alignParentTop="false"
+                        android:layout_below="@+id/tv_load_song_title"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/acc_album_image"
+                        android:src="@drawable/ic_album_white_48dp" />
+
+                    <TextView
+                        android:id="@+id/tv_load_song_descr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="false"
+                        android:layout_below="@+id/iv_load_song"
+                        android:layout_centerInParent="true"
+                        android:text="@string/load_song_descr" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="0.4"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessLeaf">
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_selector_record"
+                android:layout_width="0sp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="0.2"
+                    android:orientation="horizontal"
+                    tools:ignore="NestedWeights,UselessLeaf" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="0.4"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_record_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:text="@string/record_title" />
+
+                    <ImageView
+                        android:id="@+id/iv_record"
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        android:layout_alignParentTop="false"
+                        android:layout_below="@+id/tv_record_title"
+                        android:layout_centerInParent="true"
+                        android:contentDescription="@string/acc_microphone_image"
+                        android:src="@drawable/ic_mic_white_48dp" />
+
+                    <TextView
+                        android:id="@+id/tv_record_descr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="false"
+                        android:layout_below="@+id/iv_record"
+                        android:layout_centerInParent="true"
+                        android:text="@string/record_audio_descr" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="0.4"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessLeaf">
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 
 </FrameLayout>

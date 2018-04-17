@@ -4,14 +4,34 @@
     <string name="record_from_microphone">Record from microphone</string>
     <string name="send_audio">Clasify Audio</string>
     <string name="info_classifier">Load a song from your phone or record it with the microphone</string>
-    <string name="recording_audio">Recording...</string>
+    <string name="recording_audio">Recording…</string>
     <string name="btn_txt_stop_recording">Stop recording</string>
     <string name="btn_txt_start_recording">Start recording</string>
-    <string name="playing_song">Playing...</string>
+    <string name="playing_song">Playing…</string>
     <string name="status_classified_OK">Success! The song have been classified.</string>
-    <string name="status_classified_KO">Error! The son couldnt be classified. Please try again.</string>
-
+    <string name="status_classified_KO">Error! The song couldnt be classified. Please try again.</string>
     <string name="starter_banner_try_app_descr">Try the app without a login </string>
     <string name="starter_banner_try_app_link">here</string>
+    <string name="load_song_descr">Load song from your phone</string>
+    <string name="record_audio_descr">Record audio from the micro</string>
+    <string name="record_title">Record</string>
+    <string name="load_audio_title">Load Audio</string>
+    <string name="application_brief_description">Clasifica everywhere</string>
+    <string name="application_title">Classifikeitor</string>
+    <string name="about_mail_label">Contact us on the following mail:</string>
+    <string name="about_mail">example@examplemail.com</string>
+    <string name="about_social_media_label">Or follow us in our social media</string>
+    <string name="info_descr_text">This application recovers audio media from your microphone or by an existing song from your phone to retrieve its EDM genre.</string>
+
+
+    <string name="acc_album_image">Album image</string>
+    <string name="acc_microphone_image">Microphone image</string>
+    <string name="acc_application_logo">The application logo</string>
+    <string name="acc_discard_audio_icon">Discard audio icon.</string>
+    <string name="acc_play_selected_audio_icon">Play selected audio icon</string>
+    <string name="acc_pause_audio_icon">Pause audio icon</string>
+    <string name="acc_about_twitter_icon">Twitter icon</string>
+    <string name="acc_about_youtube_icon">YouTube icon</string>
+    <string name="acc_about_facebook_icon">Facebook icon</string>
 
 </resources>

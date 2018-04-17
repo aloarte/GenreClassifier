@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorGreyBackground"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:id="@+id/ll_description"
@@ -48,7 +49,8 @@
                 android:layout_weight="0.9"
                 android:background="@color/colorGenreRed"
                 android:gravity="center_vertical|center_horizontal"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="NestedWeights,UselessParent">
 
                 <TextView
                     android:id="@+id/tvSongGenreDesc"
@@ -66,7 +68,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="0.7"
                     android:gravity="top|center_horizontal"
-                    android:text="Dubstep"
+                    android:text="@string/none_str"
                     android:textAllCaps="true"
                     android:textColor="@android:color/white"
                     android:textSize="40sp"
