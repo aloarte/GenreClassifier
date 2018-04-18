@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimaryDark">#303f9f</color>
     <color name="colorAccent">#FF4081</color>
     <color name="backgroundLight">#FAFAFA</color>
     <color name="backgroundSelected">#E0E0E0</color>
@@ -29,7 +29,7 @@
     <color name="colorGenreBlueLight">#90CAF9</color>
     <color name="colorGenreBlue">#2196F3</color>
 
-    <color name="colorGenreLightBlueLight">#81D4FA</color>
+    <color name="colorGenreLightBlueLight">#81d4fa</color>
     <color name="colorGenreLightBlue">#03A9F4</color>
 
     <color name="colorGenreCyanLight">#80DEEA</color>

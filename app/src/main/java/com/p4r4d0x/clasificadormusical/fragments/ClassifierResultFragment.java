@@ -10,10 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.p4r4d0x.clasificadormusical.ClassifierActivity;
-import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
 import com.p4r4d0x.clasificadormusical.R;
-
-import static com.p4r4d0x.clasificadormusical.rest.MusicGenres.BigRoom;
+import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
 
 /**
  * Fragment associated with ClassifierActivity.
@@ -48,7 +46,7 @@ public class ClassifierResultFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                parentActivity.doFragmentMain();
+                parentActivity.doFragmentGetAudio();
 
             }
         });

@@ -50,8 +50,8 @@ public class StarterActivity extends AppCompatActivity {
      * Function to start the application after a login
      */
     public void onLoginPerformed(){
-        Intent selectorActivity = new Intent(this, SelectorActivity.class);
-        startActivity(selectorActivity);
+        Intent classifierActivity = new Intent(this, ClassifierActivity.class);
+        startActivity(classifierActivity);
         //Set the animation
         overridePendingTransition(R.anim.slide_up_info,R.anim.no_change);
     }
