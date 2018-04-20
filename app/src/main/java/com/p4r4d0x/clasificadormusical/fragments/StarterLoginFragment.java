@@ -1,6 +1,5 @@
 package com.p4r4d0x.clasificadormusical.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.p4r4d0x.clasificadormusical.ClassifierActivity;
 import com.p4r4d0x.clasificadormusical.R;
 import com.p4r4d0x.clasificadormusical.StarterActivity;
+import com.p4r4d0x.clasificadormusical.rest.stats.SResponse;
 
 /**
  * Fragment associated with StarterActivity.
@@ -27,6 +26,7 @@ public class StarterLoginFragment extends Fragment {
      * Loggin buttons from the UI
      */
     Button fbButton, googleButton;
+    private SResponse userStats;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,8 +56,9 @@ public class StarterLoginFragment extends Fragment {
         googleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                parentActivity.onLoginPerformed();
+                //parentActivity.onLoginPerformed();
 
+                parentActivity.getUserStats();
 
             }
         });
@@ -75,4 +76,5 @@ public class StarterLoginFragment extends Fragment {
     public void setParentActivity(StarterActivity parentActivity) {
         this.parentActivity = parentActivity;
     }
+
 }

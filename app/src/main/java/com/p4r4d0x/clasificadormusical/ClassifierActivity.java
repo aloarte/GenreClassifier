@@ -20,9 +20,9 @@ import com.p4r4d0x.clasificadormusical.async.AsynkTaskClasifySong;
 import com.p4r4d0x.clasificadormusical.fragments.ClassifierGetAudioFragment;
 import com.p4r4d0x.clasificadormusical.fragments.ClassifierResultFragment;
 import com.p4r4d0x.clasificadormusical.fragments.ClassifierSendingFragment;
-import com.p4r4d0x.clasificadormusical.rest.DataClassifySongResponse;
-import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
-import com.p4r4d0x.clasificadormusical.rest.SongDescription;
+import com.p4r4d0x.clasificadormusical.rest.old_rest.DataClassifySongResponse;
+import com.p4r4d0x.clasificadormusical.rest.old_rest.MusicGenres;
+import com.p4r4d0x.clasificadormusical.rest.old_rest.SongDescription;
 
 import java.io.IOException;
 

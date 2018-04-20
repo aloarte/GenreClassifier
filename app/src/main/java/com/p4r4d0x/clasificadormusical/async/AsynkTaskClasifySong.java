@@ -10,10 +10,10 @@ import android.util.Base64;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.p4r4d0x.clasificadormusical.rest.DataClassifySongRequest;
-import com.p4r4d0x.clasificadormusical.rest.DataClassifySongResponse;
-import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
-import com.p4r4d0x.clasificadormusical.rest.SongDescription;
+import com.p4r4d0x.clasificadormusical.rest.old_rest.DataClassifySongRequest;
+import com.p4r4d0x.clasificadormusical.rest.old_rest.DataClassifySongResponse;
+import com.p4r4d0x.clasificadormusical.rest.old_rest.MusicGenres;
+import com.p4r4d0x.clasificadormusical.rest.old_rest.SongDescription;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -120,7 +120,7 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
 
                     System.out.println("" + sb.toString());
                     try {
-                        pojoResponse = (DataClassifySongResponse) gsonBuilder.fromJson(sb.toString(), DataClassifySongResponse.class);
+                        pojoResponse = gsonBuilder.fromJson(sb.toString(), DataClassifySongResponse.class);
                     } catch (Exception e) {
                         return null;
                     }

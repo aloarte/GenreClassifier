@@ -9,14 +9,16 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.p4r4d0x.clasificadormusical.async.AsynkTaskRetrieveProfileStats;
 import com.p4r4d0x.clasificadormusical.fragments.StarterAboutFragment;
 import com.p4r4d0x.clasificadormusical.fragments.StarterInfoFragment;
 import com.p4r4d0x.clasificadormusical.fragments.StarterLoginFragment;
+import com.p4r4d0x.clasificadormusical.rest.stats.SResponse;
 
 /**
  * Activity that handles fragments to perform a login in the application
  */
-public class StarterActivity extends AppCompatActivity {
+public class StarterActivity extends AppCompatActivity implements AsynkTaskRetrieveProfileStats.OnStatsRetrieved {
 
     /**
      * Pager to hold the different fragment views
@@ -54,6 +56,22 @@ public class StarterActivity extends AppCompatActivity {
         startActivity(classifierActivity);
         //Set the animation
         overridePendingTransition(R.anim.slide_up_info,R.anim.no_change);
+    }
+
+
+    public SResponse getUserStats() {
+        new AsynkTaskRetrieveProfileStats(this).execute();
+        return null;
+    }
+
+    @Override
+    public void onStatsRetrieved() {
+
+    }
+
+    @Override
+    public void onStatsFailed(String errorMessage) {
+
     }
 
     /**

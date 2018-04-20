@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.p4r4d0x.clasificadormusical.ClassifierActivity;
 import com.p4r4d0x.clasificadormusical.R;
-import com.p4r4d0x.clasificadormusical.rest.MusicGenres;
+import com.p4r4d0x.clasificadormusical.rest.old_rest.MusicGenres;
 
 /**
  * Fragment associated with ClassifierActivity.

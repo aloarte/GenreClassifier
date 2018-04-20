@@ -1,4 +1,4 @@
-package com.p4r4d0x.clasificadormusical.rest;
+package com.p4r4d0x.clasificadormusical.rest.old_rest;
 
 /**
  * Enum to identify all the genres returned by the service
