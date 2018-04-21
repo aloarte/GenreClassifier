@@ -18,7 +18,7 @@ import com.p4r4d0x.clasificadormusical.rest.stats.SResponse;
 /**
  * Activity that handles fragments to perform a login in the application
  */
-public class StarterActivity extends AppCompatActivity implements AsynkTaskRetrieveProfileStats.OnStatsRetrieved {
+public class StarterActivity extends AppCompatActivity {
 
     /**
      * Pager to hold the different fragment views
@@ -58,21 +58,6 @@ public class StarterActivity extends AppCompatActivity implements AsynkTaskRetri
         overridePendingTransition(R.anim.slide_up_info,R.anim.no_change);
     }
 
-
-    public SResponse getUserStats() {
-        new AsynkTaskRetrieveProfileStats(this).execute();
-        return null;
-    }
-
-    @Override
-    public void onStatsRetrieved() {
-
-    }
-
-    @Override
-    public void onStatsFailed(String errorMessage) {
-
-    }
 
     /**
      * A page adapter that make appear the login fragments

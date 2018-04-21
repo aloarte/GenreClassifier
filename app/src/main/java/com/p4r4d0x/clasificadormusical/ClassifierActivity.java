@@ -20,11 +20,18 @@ import com.p4r4d0x.clasificadormusical.async.AsynkTaskClasifySong;
 import com.p4r4d0x.clasificadormusical.fragments.ClassifierGetAudioFragment;
 import com.p4r4d0x.clasificadormusical.fragments.ClassifierResultFragment;
 import com.p4r4d0x.clasificadormusical.fragments.ClassifierSendingFragment;
+import com.p4r4d0x.clasificadormusical.rest.classify.CResponse;
+import com.p4r4d0x.clasificadormusical.rest.classify.ClassifyRequest;
+import com.p4r4d0x.clasificadormusical.rest.classify.SongInfo;
+import com.p4r4d0x.clasificadormusical.rest.classify.User;
 import com.p4r4d0x.clasificadormusical.rest.old_rest.DataClassifySongResponse;
 import com.p4r4d0x.clasificadormusical.rest.old_rest.MusicGenres;
 import com.p4r4d0x.clasificadormusical.rest.old_rest.SongDescription;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Activity that handles fragment to make the complete classify process
@@ -58,8 +65,8 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
     }
 
     @Override
-    public void onSongClassifiedSuccess(MusicGenres genre) {
-        doFragmentResult(genre);
+    public void onSongClassifiedSuccess(CResponse classifyResponse) {
+        doFragmentResult(MusicGenres.Dubstep);
     }
 
     @Override
@@ -218,9 +225,19 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
     }
 
     public DataClassifySongResponse clasifySong(String name, Uri song, String uristring) {
+        try {
+            SongInfo requestSongInfo = new SongInfo();
+            User user = new User();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZZZZ");
+            Date currentTime = formatter.parse("2011-07-19T18:23:20+0000");
+            long millisecondsSinceEpoch0 = currentTime.getTime();
 
-        new AsynkTaskClasifySong(this).execute(new SongDescription(name, null, getApplicationContext(), uristring));
-        doFragmentSending();
+
+            new AsynkTaskClasifySong(this,"http://192.168.1.43:8081/").execute(new ClassifyRequest(requestSongInfo,user,millisecondsSinceEpoch0));
+            doFragmentSending();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

@@ -1,126 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project xmlns:con="http://eviware.com/soapui/config" name="REST Project 2"
-    abortOnError="false" activeEnvironment="Default" id="7a26ce05-f487-48f2-a87d-0c30515035b0"
-    resourceRoot="" runType="SEQUENTIAL" soapui-version="5.3.0">
-    <con:settings />
-    <con:interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        name="http://localhost:8080" id="d61b6daf-498f-49fa-a741-1bde1af19ed1" type="rest"
-        wadlVersion="http://wadl.dev.java.net/2009/02" xsi:type="con:RestService">
-        <con:settings />
-        <con:definitionCache rootPart="" type="TEXT" />
+<con:soapui-project name="REST Project 2" abortOnError="false" activeEnvironment="Default" id="7a26ce05-f487-48f2-a87d-0c30515035b0" resourceRoot="" runType="SEQUENTIAL" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface name="http://localhost:8080" id="d61b6daf-498f-49fa-a741-1bde1af19ed1" type="rest" wadlVersion="http://wadl.dev.java.net/2009/02" xsi:type="con:RestService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache rootPart="" type="TEXT"/>
         <con:endpoints>
             <con:endpoint>http://DESKTOP-5JJIR34:8089/</con:endpoint>
             <con:endpoint>http://localhost:8081/</con:endpoint>
         </con:endpoints>
-        <con:resource name="MusicClasifier" id="bdc27357-75ef-41d2-95f7-91e3b01351c1"
-            path="/classifier/clasifygenre/">
-            <con:settings />
-            <con:parameters />
+        <con:resource name="MusicClasifier" id="bdc27357-75ef-41d2-95f7-91e3b01351c1" path="/classifier/clasifygenre/">
+            <con:settings/>
+            <con:parameters/>
             <con:method name="Method 1" id="0300f0dd-f2a3-4c9b-818e-bf41c21437b2" method="POST">
-                <con:settings />
-                <con:parameters />
+                <con:settings/>
+                <con:parameters/>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="REQUEST">
                     <con:mediaType>application/json</con:mediaType>
-                    <con:params />
+                    <con:params/>
                 </con:representation>
                 <con:representation type="RESPONSE">
                     <con:mediaType>application/xml</con:mediaType>
                     <con:status>200</con:status>
-                    <con:params />
+                    <con:params/>
                 </con:representation>
                 <con:representation type="RESPONSE">
                     <con:mediaType>application/json</con:mediaType>
                     <con:status>200 201</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element xmlns:mus="http://localhost/MusicClasifier">mus:Response
                     </con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="FAULT">
                     <con:mediaType>text/html</con:mediaType>
                     <con:status>400 500 404</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>html</con:element>
                 </con:representation>
                 <con:representation type="FAULT">
                     <con:mediaType>application/json</con:mediaType>
                     <con:status>400</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element xmlns:mus="http://localhost/MusicClasifier">mus:Fault</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
                     <con:mediaType>text/html; charset=iso-8859-1</con:mediaType>
                     <con:status>200</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>html</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
                 <con:representation type="RESPONSE">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>0</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
-                <con:request name="Request wUser/Picked" id="e9f6bbf4-de8c-4a9d-83e3-d336b5977906"
-                    mediaType="application/json" postQueryString="false">
+                <con:request name="Request wUser/Picked" id="e9f6bbf4-de8c-4a9d-83e3-d336b5977906" mediaType="application/json" postQueryString="false">
                     <con:settings>
                         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">
                             &lt;xml-fragment/>
@@ -147,13 +141,11 @@
                     <con:credentials>
                         <con:authType>No Authorization</con:authType>
                     </con:credentials>
-                    <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
-                    <con:jmsPropertyConfig />
-                    <con:parameters />
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
                 </con:request>
-                <con:request name="Request woUser\Recorded"
-                    id="e9f6bbf4-de8c-4a9d-83e3-d336b5977906" mediaType="application/json"
-                    postQueryString="false">
+                <con:request name="Request woUser\Recorded" id="e9f6bbf4-de8c-4a9d-83e3-d336b5977906" mediaType="application/json" postQueryString="false">
                     <con:settings>
                         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">
                             &lt;xml-fragment/>
@@ -180,51 +172,48 @@
                     <con:credentials>
                         <con:authType>No Authorization</con:authType>
                     </con:credentials>
-                    <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
-                    <con:jmsPropertyConfig />
-                    <con:parameters />
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
                 </con:request>
             </con:method>
         </con:resource>
-        <con:resource name="UserStats" id="37da020a-b4db-44d4-ad24-219934bc9e96"
-            path="/classifier/stats/">
-            <con:settings />
+        <con:resource name="UserStats" id="37da020a-b4db-44d4-ad24-219934bc9e96" path="/classifier/stats/">
+            <con:settings/>
             <con:parameters>
                 <con:parameter>
                     <con:name>userID</con:name>
-                    <con:value />
+                    <con:value/>
                     <con:style>QUERY</con:style>
-                    <con:default />
-                    <con:description xsi:nil="true" />
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
                 </con:parameter>
             </con:parameters>
             <con:method name="Method 1" id="6b485520-a0c3-4158-824b-7a007b3d2a2d" method="GET">
-                <con:settings />
-                <con:parameters />
+                <con:settings/>
+                <con:parameters/>
                 <con:representation type="FAULT">
-                    <con:mediaType xsi:nil="true" />
+                    <con:mediaType xsi:nil="true"/>
                     <con:status>404</con:status>
-                    <con:params />
+                    <con:params/>
                     <con:element>data</con:element>
                 </con:representation>
-                <con:request name="Request 1" id="c8103c6c-974e-488b-80b8-05737fadc38e"
-                    mediaType="application/json">
+                <con:request name="Request 1" id="c8103c6c-974e-488b-80b8-05737fadc38e" mediaType="application/json">
                     <con:settings>
                         <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">
                             &lt;xml-fragment/>
                         </con:setting>
                     </con:settings>
                     <con:endpoint>http://localhost:8081/</con:endpoint>
-                    <con:request />
+                    <con:request/>
                     <con:originalUri>http://localhost/classifier/stats/</con:originalUri>
                     <con:credentials>
                         <con:authType>No Authorization</con:authType>
                     </con:credentials>
-                    <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
-                    <con:jmsPropertyConfig />
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
                     <con:parameters>
-                        <entry key="userID" value="11223344556677"
-                            xmlns="http://eviware.com/soapui/config" />
+                        <entry key="userID" value="11223344556677" xmlns="http://eviware.com/soapui/config"/>
                     </con:parameters>
                     <con:parameterOrder>
                         <con:entry>userID</con:entry>
@@ -233,13 +222,11 @@
             </con:method>
         </con:resource>
     </con:interface>
-    <con:restMockService name="REST MockService 1" docroot="" host="DESKTOP-5JJIR34"
-        id="4d91ccb4-b8a5-4eca-8822-b0b4837ef69f" path="/" port="8081">
-        <con:settings />
-        <con:properties />
-        <con:restMockAction name="/MusicClasifier" id="3352403b-b965-40a2-8f02-ee2b401ab2df"
-            method="POST" resourcePath="/classifier/clasifygenre/">
-            <con:settings />
+    <con:restMockService name="REST MockService 1" docroot="" host="DESKTOP-5JJIR34" id="4d91ccb4-b8a5-4eca-8822-b0b4837ef69f" path="/" port="8081">
+        <con:settings/>
+        <con:properties/>
+        <con:restMockAction name="/MusicClasifier" id="3352403b-b965-40a2-8f02-ee2b401ab2df" method="POST" resourcePath="/classifier/clasifygenre/">
+            <con:settings/>
             <con:defaultResponse>Response 1</con:defaultResponse>
             <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
             <con:dispatchPath>/*
@@ -307,9 +294,8 @@ if( requestBody.contains("some data") )
 
         </con:responseContent>
         </con:response>
-            <con:response name="Response 2" httpResponseStatus="200"
-                id="2d2e7a29-b399-4db7-a142-372a9b909af7" mediaType="application/json">
-                <con:settings />
+            <con:response name="Response 2" httpResponseStatus="200" id="2d2e7a29-b399-4db7-a142-372a9b909af7" mediaType="application/json">
+                <con:settings/>
                 <con:responseContent>{
 	"songGenre":"Breaks",
 	"songName":"The island"
@@ -376,18 +362,16 @@ if( requestBody.contains("some data") )
             }
         </con:responseContent>
         </con:response>
-            <con:response name="Response 23" httpResponseStatus="200"
-                id="bd1719fc-f600-450b-a285-d848b60552ce" mediaType="application/json">
-                <con:settings />
+            <con:response name="Response 23" httpResponseStatus="200" id="bd1719fc-f600-450b-a285-d848b60552ce" mediaType="application/json">
+                <con:settings/>
                 <con:responseContent>
                     {"songData":"AAAAGGZ0eXAzZ3A0AAAAAGlzb20zZ3A0AAAC+G1vb3YAAABsbXZoZAAAAADVcGWe1XBlngAAA+gA\nAAIIAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAB3bWV0YQAAACFoZGxyAAAAAAAAAABtZHRhAAAA\nAAAAAAAAAAAAAAAAACtrZXlzAAAAAAAAAAEAAAAbbWR0YWNvbS5hbmRyb2lkLnZlcnNpb24AAAAj\naWxzdAAAABsAAAABAAAAE2RhdGEAAAABAAAAADcuMAAAAg10cmFrAAAAXHRraGQAAAAH1XBlntVw\nZZ4AAAABAAAAAAAAAggAAAAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA\nAAAAAABAAAAAAAAAAAAAAAAAAAGpbWRpYQAAACBtZGhkAAAAANVwZZ7VcGWeAAAfQAAAEEAAAAAA\nAAAALGhkbHIAAAAAAAAAAHNvdW4AAAAAAAAAAAAAAABTb3VuZEhhbmRsZQAAAAFVbWluZgAAABBz\nbWhkAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEZc3RibAAA\nAEVzdHNkAAAAAAAAAAEAAAA1c2FtcgAAAAAAAAABAAAAAAAAAAAAAQAQAAAAAB9AAAAAAAARZGFt\nciAgIAAAg/8AAQAAACBzdHRzAAAAAAAAAAIAAAABAAAAoAAAABkAAACgAAAAfHN0c3oAAAAAAAAA\nAAAAABoAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAg\nAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAABxz\ndHNjAAAAAAAAAAEAAAABAAAAGgAAAAEAAAAUc3RjbwAAAAAAAAABAAAMmQAACYFmcmVlAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0htZGF0PAi4WIiaY4PISoJ/wgABUUAAbzD3mqN8\nAAArVlZCpRA8UkIlPKjIS+F5iPdXT3JrTctgC461tx9PS86UDLIPMDwaNi1GqaqH4N7Tz3j+tdiB\nRxf8jo0+dW6LsjwkI1JAPDrHbI/6lC0B7Md+iXaBhPR9hW+LLemYsuFp++pXJQA8IEt2j98tH2Hl\nkDpP58iSjaHTiVqTRMv3Z0W6OxtY8Dw+XC+z/ciHAeuSOR6x2p2lQscjmHWO1/6AoT3JvfhAPB5S\nhbffLAlh9ta41aik0OKQHxFll9SUMgqB0WIJ1BA8YEIw/3eOH4HvlV+8aNLqf53KHdGWvkg6U7D2\npPtC8DzgU2yeUEwQ4f2CeEfoIXlT9QUMzMgdzeejElWxvRIAPGRSMvvyCh4B/sBaAwJKuUnvCSzu\n40SZjQbw8+OJLgA84DZYNzP6Q6HtNtm7LjOjjFgR37vrCYB/XIuJVBV50DxWVC9GAxAcZbNwWQTd\n3PqpLdNYxFzSsk6yTV7ZmsuAPN5UWD//jYDh7yoebTWuRNYbMjbDfZz5uueIro6mq2A8SlNwP/+S\nMOPYevoWVucavivrA4UEEjbGRkf1rsGVwDzeVFo//4UCwf+imQe5hKqgnAuA2AZQ+ZtOzME05iqg\nPEQ+h6//hhah/sEKIlZ/HFDMVmD1yFx0+rDv4Y6yYVA8HmNzP/3AWaH/hloPit8mgjQkPgSUTFcH\nkajetpwr0DwOs3uJhoEDsOd+yXWfexy4z5Y48AtM9EWfGhB4KYbAPCxLdEScOLDJZkk/+yGNZ2Ng\nBaViC+AJp1QJYG7PX7A8FjN4Mw0OEuH+Pdqsu3jmrKp5ZzwTgM8WdVw3b27X0DwicXtGHMgp4fyT\nvv+sXlrM9n9+Vdql/iKlwBxykoiwPCS6YUQWghLQ7vIohXchqPe14a8E8CM4iJBv5RSMBAA8GlWj\nhhgpAuH3wrl2r+KYix2P+013Mz4IMSTxouVP4DwgaSVEOGAY0O+Kp0PZlNiBqnLecdPad7AIsA1i\naHrwPNg9bZJYlhhh/4oPTvYTFLDx/ctI6mkgHUFBGx3LKuA8JGd4Oq6eEMl2XtmQRXR9gLgh0+J4\nm4ms+agVPLNf8A\u003d\u003d\n","songName":"The
                     island"}
                 </con:responseContent>
             </con:response>
         </con:restMockAction>
-        <con:restMockAction name="/classifier/stats/" id="ec3f4bd2-6aa2-4bb5-b4d7-6a1ceb274b0f"
-            method="GET" resourcePath="/classifier/stats/">
-            <con:settings />
+        <con:restMockAction name="/classifier/stats/" id="ec3f4bd2-6aa2-4bb5-b4d7-6a1ceb274b0f" method="GET" resourcePath="/classifier/stats/">
+            <con:settings/>
             <con:defaultResponse>Response Loged USer</con:defaultResponse>
             <con:dispatchStyle>SEQUENCE</con:dispatchStyle>
             <con:dispatchPath>/*
@@ -445,26 +429,23 @@ if( requestBody.contains("some data") )
                 }
                 */
             </con:dispatchPath>
-            <con:response name="Response Loged USer" httpResponseStatus="200"
-                id="be88327a-e4fe-4e74-b1cc-6ec15e198124" mediaType="application/json">
-                <con:settings />
-                <con:responseContent>{
-                    "statsResponse":{
-                    "userId":11223344556677,
-                    "classifiyStats":{
-                    "avgSampleTime": 180000,
-                    "avgAudioType": "PICK",
-                    "avgGenre": "Dubstep",
-                    "consecutiveAudioType" : "RECORD",
-                    "consecutiveGenre": "HipHop"
-
-                    },
-                    "lastClassify":{
-                    "lastGenre": "Dubstep",
-                    "lastAudioType": "RECORD",
-                    "lastSampleTime": 180000
-                    }
-
-
-                    }
+            <con:response name="Response Loged USer" httpResponseStatus="200" id="be88327a-e4fe-4e74-b1cc-6ec15e198124" mediaType="application/json">
+                <con:settings/>
+                <con:responseContent>{         
+	"statsResponse":{
+	     "userId":11223344556677,
+	     "classifiyStats":{
+	     "avgSampleTime": 180000,
+	     "avgAudioType": "PICK",
+	     "avgGenre": "Dubstep",
+	     "consecutiveAudioType" : "RECORD",
+	     "consecutiveGenre": "HipHop"
+	
+	     },
+	     "lastClassify":{
+	     "lastGenre": "Dubstep",
+	     "lastAudioType": "RECORD",
+	     "lastSampleTime": 180000
+	     }
+     }
 }</con:responseContent></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

@@ -32,12 +32,12 @@ public class ClassifyRequest implements Parcelable {
     private User user;
     @SerializedName("date")
     @Expose
-    private Integer date;
+    private Long date;
 
     protected ClassifyRequest(Parcel in) {
         this.songInfo = ((SongInfo) in.readValue((SongInfo.class.getClassLoader())));
         this.user = ((User) in.readValue((User.class.getClassLoader())));
-        this.date = ((Integer) in.readValue((Integer.class.getClassLoader())));
+        this.date = ((Long) in.readValue((Long.class.getClassLoader())));
     }
 
     /**
@@ -51,7 +51,7 @@ public class ClassifyRequest implements Parcelable {
      * @param date
      * @param user
      */
-    public ClassifyRequest(SongInfo songInfo, User user, Integer date) {
+    public ClassifyRequest(SongInfo songInfo, User user, Long date) {
         super();
         this.songInfo = songInfo;
         this.user = user;
@@ -74,11 +74,11 @@ public class ClassifyRequest implements Parcelable {
         this.user = user;
     }
 
-    public Integer getDate() {
+    public Long getDate() {
         return date;
     }
 
-    public void setDate(Integer date) {
+    public void setDate(Long date) {
         this.date = date;
     }
 

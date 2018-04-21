@@ -8,12 +8,21 @@ import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.util.Base64;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.stream.MalformedJsonException;
+import com.p4r4d0x.clasificadormusical.rest.ClassifyRetrofitService;
+import com.p4r4d0x.clasificadormusical.rest.StatsRetrofitService;
+import com.p4r4d0x.clasificadormusical.rest.classify.CRequest;
+import com.p4r4d0x.clasificadormusical.rest.classify.CResponse;
+import com.p4r4d0x.clasificadormusical.rest.classify.ClassifyRequest;
+import com.p4r4d0x.clasificadormusical.rest.classify.SongInfo;
 import com.p4r4d0x.clasificadormusical.rest.old_rest.DataClassifySongRequest;
 import com.p4r4d0x.clasificadormusical.rest.old_rest.DataClassifySongResponse;
 import com.p4r4d0x.clasificadormusical.rest.old_rest.MusicGenres;
 import com.p4r4d0x.clasificadormusical.rest.old_rest.SongDescription;
+import com.p4r4d0x.clasificadormusical.rest.stats.SResponse;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,136 +38,87 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 /**
  * AsyncTask to send the audio to the server
  */
-public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataClassifySongResponse> {
+public class AsynkTaskClasifySong extends AsyncTask<ClassifyRequest, Void, CResponse> {
+
+
+    /**
+     * Base URL of the service
+     */
+    private final String baseUrl;
+
+    /**
+     * By default null. Is setted in case of any error
+     */
+    private String errorMessage ;
+
+    /**
+     * Callback to notify the events holded by this asynctask
+     */
 
     private OnSongClassified callbackListener;
 
 
     public interface OnSongClassified{
-        void onSongClassifiedSuccess(MusicGenres genre);
+        void onSongClassifiedSuccess(CResponse classifyResponse);
         void onSongClassifiedError(String errorMessage);
 
     }
 
-    public AsynkTaskClasifySong(OnSongClassified listener){
+    public AsynkTaskClasifySong(OnSongClassified listener, String baseUrl){
         this.callbackListener =listener;
+        this.baseUrl=baseUrl;
     }
 
     @Override
-    protected DataClassifySongResponse doInBackground(SongDescription... songDescriptions) {
-        URL url;
-        DataClassifySongResponse pojoResponse = null;
-        StringBuilder sb = new StringBuilder();
-        String name="The island", song="Dubstep";
-        String boundary = "*****";
-        String lineEnd = "\r\n";
-        String twoHyphens = "--";
+    protected CResponse doInBackground(ClassifyRequest... classifyRequest) {
+        try{
 
 
-        int bytesRead, bytesAvailable, bufferSize;
-        byte[] buffer;
-        int maxBufferSize = 1 * 1024 * 1024;
-        try {
+            Gson gson = new GsonBuilder()
+                    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                    .setLenient()
+                    .create();
 
-            /*
-             * Build the JSON from the GSON from the POJO
-             */
-            File sourceFile = new File(/*getPath(songDescriptions[0].getSongURI()*/songDescriptions[0].getSongStringUri()/*, songDescriptions[0].getParentContext())*/);
-            String fileName = sourceFile.getName() ;
-            FileInputStream fileInputStream = new FileInputStream(sourceFile);
-            String request = "http://192.168.1.129:8081/clasify";
-            byte[] bytes = readFileToByteArray(sourceFile);
+            Retrofit retrofit = new Retrofit.Builder()
+                    .addConverterFactory(GsonConverterFactory.create(gson))
+                    .baseUrl(baseUrl)
+                    .build();
 
-            String audioEncoded = Base64.encodeToString(bytes, 0);
+            ClassifyRetrofitService service = retrofit.create(ClassifyRetrofitService.class);
 
-            Gson gsonBuilder                     = new GsonBuilder().create();
-            DataClassifySongRequest pojoClasifySongRequest   = new DataClassifySongRequest(name,audioEncoded);
-            String stringJSONClasifySongRequest             = gsonBuilder.toJson(pojoClasifySongRequest);
-            JSONObject JSONClassifySongRequest              = new JSONObject(stringJSONClasifySongRequest);
-
-
-
-
-
-            //byte[] decoded = Base64.decode(encoded, 0);
-
-            /*
-             * Build the connection
-             */
-            url = new URL(request);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-                //connection.setUseCaches (false);
-                connection.setDoOutput(true);
-                connection.setDoInput(true);
-                connection.setRequestMethod("POST");
-                //connection.setInstanceFollowRedirects(false);
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.setRequestProperty("charset", "utf-8");
-               // connection.setRequestProperty("Connection", "Keep-Alive");
-
-
-                /*
-                 * Build the dataoutputstream with the json and aditional info
-                 */
-                DataOutputStream wr = new DataOutputStream(connection.getOutputStream ());
-                wr.writeBytes(JSONClassifySongRequest.toString());
-                wr.flush();
-                wr.close();
-
-
-                if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                    BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
-                    String line = null;
-                    while ((line = br.readLine()) != null) {
-                        sb.append(line + "\n");
-                    }
-                    br.close();
-
-                    System.out.println("" + sb.toString());
-                    try {
-                        pojoResponse = gsonBuilder.fromJson(sb.toString(), DataClassifySongResponse.class);
-                    } catch (Exception e) {
-                        return null;
-                    }
-                }
-
-
-            return pojoResponse;
+            Response<CResponse> response = service.classifySong(new CRequest(classifyRequest[0])).execute();
+            if (response.isSuccessful()) {
+                return response.body();
+            }
+            else{
+                return null;
+            }
         }
-        catch(IOException e){
-            e.printStackTrace();
+        //The json is malformed. Catch and log to track the dev error
+            catch (MalformedJsonException exMalformed) {
+            exMalformed.printStackTrace();
+            errorMessage = exMalformed.getMessage();
             return null;
-
-        } catch (JSONException e) {
-            e.printStackTrace();
+        }
+            catch (IllegalArgumentException | IOException exIllegalIO){
+            errorMessage = exIllegalIO.getMessage();
+            return null;
+        }
+        //General catch exception
+            catch (Exception ex) {
+            errorMessage= ex.getMessage();
+            ex.printStackTrace();
             return null;
         }
 
-
     }
-
-    private byte[] readFileToByteArray(File sourceFile) {
-
-        int size = (int) sourceFile.length();
-        byte[] bytes = new byte[size];
-        try {
-            BufferedInputStream buf = new BufferedInputStream(new FileInputStream(sourceFile));
-            buf.read(bytes, 0, bytes.length);
-            buf.close();
-            return bytes;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            return bytes;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return bytes;
-        }
-    }
-
 
     @Override
     protected void onPreExecute(){
@@ -167,13 +127,22 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
     }
 
     @Override
-    protected void onPostExecute(DataClassifySongResponse dataClassifySongResponse) {
-        super.onPostExecute(dataClassifySongResponse);
-        if(dataClassifySongResponse !=null){
-            callbackListener.onSongClassifiedSuccess(dataClassifySongResponse.getSonGenre());
+    protected void onPostExecute(CResponse serviceResponse) {
+        super.onPostExecute(serviceResponse);
+        //Check if the response is not null
+        if(serviceResponse!=null){
+            callbackListener.onSongClassifiedSuccess(serviceResponse);
         }
+        //If its null, there is an error
         else{
-            callbackListener.onSongClassifiedError("Song couldn't be classified");
+            //Check if the error is not null
+            if(errorMessage!=null){
+                callbackListener.onSongClassifiedError(errorMessage);
+            }
+            //If null, return a general error
+            else{
+                callbackListener.onSongClassifiedError("GENERAL_ERROR");
+            }
         }
 
     }
@@ -195,7 +164,6 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
         cursor.moveToFirst();
 
 
-
         String s= cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
         Long id             = cursor.getLong( cursor.getColumnIndex( MediaStore.Audio.Media._ID ));
         String path         = cursor.getString( cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
@@ -209,9 +177,7 @@ public class AsynkTaskClasifySong extends AsyncTask<SongDescription, Void, DataC
         Uri urir            = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id);
 
 
-
         cursor.close();
-
 
 
         return s;

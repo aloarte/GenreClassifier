@@ -26,7 +26,7 @@ public class StatsResponse implements Parcelable {
     };
     @SerializedName("userId")
     @Expose
-    private Integer userId;
+    private Long userId;
     @SerializedName("classifiyStats")
     @Expose
     private ClassifiyStats classifiyStats;
@@ -35,7 +35,7 @@ public class StatsResponse implements Parcelable {
     private LastClassify lastClassify;
 
     protected StatsResponse(Parcel in) {
-        this.userId = ((Integer) in.readValue((Integer.class.getClassLoader())));
+        this.userId = ((Long) in.readValue((Long.class.getClassLoader())));
         this.classifiyStats = ((ClassifiyStats) in.readValue((ClassifiyStats.class.getClassLoader())));
         this.lastClassify = ((LastClassify) in.readValue((LastClassify.class.getClassLoader())));
     }
@@ -51,18 +51,18 @@ public class StatsResponse implements Parcelable {
      * @param userId
      * @param lastClassify
      */
-    public StatsResponse(Integer userId, ClassifiyStats classifiyStats, LastClassify lastClassify) {
+    public StatsResponse(Long userId, ClassifiyStats classifiyStats, LastClassify lastClassify) {
         super();
         this.userId = userId;
         this.classifiyStats = classifiyStats;
         this.lastClassify = lastClassify;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

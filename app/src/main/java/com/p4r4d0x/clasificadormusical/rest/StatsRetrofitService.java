@@ -9,7 +9,7 @@ import retrofit2.http.Path;
 public interface StatsRetrofitService {
 
     @GET("/classifier/stats/{userID}")
-    Call<SResponse> userStats(@Path("userID") String userId);
+    Call<SResponse> userStats(@Path("userID") Long userId);
 
 
 }
