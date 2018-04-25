@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.p4r4d0x.clasificadormusical.fragments.ClassifierGetAudioFragment">
+    tools:context="com.p4r4d0x.genreclassifier.fragments.ClassifierGetAudioFragment">
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_pick_song"
@@ -23,7 +23,7 @@
         android:id="@+id/ll_song_picked"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorGreyBackground"
+        android:background="@color/colorPrimaryMedium"
         android:elevation="10dp"
         android:orientation="vertical"
         android:visibility="gone"
@@ -113,7 +113,7 @@
             android:id="@+id/ll_get_song"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorGreyBackground"
+            android:background="@color/colorPrimaryMedium"
             android:elevation="10dp"
             android:orientation="vertical"
             android:visibility="visible"

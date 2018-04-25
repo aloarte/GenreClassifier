@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project name="REST Project 2" abortOnError="false" activeEnvironment="Default" id="7a26ce05-f487-48f2-a87d-0c30515035b0" resourceRoot="" runType="SEQUENTIAL" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project xmlns:con="http://eviware.com/soapui/config" name="REST Genre Classifier"
+    abortOnError="false" activeEnvironment="Default" id="7a26ce05-f487-48f2-a87d-0c30515035b0"
+    resourceRoot="" runType="SEQUENTIAL" soapui-version="5.3.0">
     <con:settings/>
     <con:interface name="http://localhost:8080" id="d61b6daf-498f-49fa-a741-1bde1af19ed1" type="rest" wadlVersion="http://wadl.dev.java.net/2009/02" xsi:type="con:RestService" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <con:settings/>

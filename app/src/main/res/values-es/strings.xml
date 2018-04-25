@@ -8,8 +8,6 @@
     <string name="btn_txt_stop_recording">Parar la grabación</string>
     <string name="btn_txt_start_recording">Empezar la grabación</string>
     <string name="playing_song">Reproduciendo…</string>
-    <string name="status_classified_OK">¡Éxito! La canción ha sido clasificada.</string>
-    <string name="status_classified_KO">¡Error! La canción no pudo ser clasificada. Por favor, intentalo de nuevo.</string>
 
     <string name="starter_banner_try_app_descr">Prueba la aplicación sin loguearte </string>
     <string name="starter_banner_try_app_link">aquí</string>
@@ -25,6 +23,17 @@
     <string name="about_social_media_label">O siguenos en nuestras redes sociales</string>
     <string name="info_descr_text">La aplicación clasifica en un género del EDM el audio mediante la grabación de tu micrófono o mediante la carga de una canción existente en tu teléfono.</string>
 
+
+    <string name="status_classified_OK">¡Éxito! La canción ha sido clasificada.</string>
+    <string name="status_classified_OK_title">¡Éxito!</string>
+    <string name="status_classified_OK_subtitle">La canción ha sido clasificada como:</string>
+    <string name="status_classified_KO">Error! The song couldnt be classified. Please try again.</string>
+    <string name="status_classified_KO_title">¡Error!</string>
+    <string name="status_classified_KO_subtitle">La canción no pudo ser clasificada. Por favor, intentalo de nuevo.</string>
+
+
+    <string name="record_time_desc">Graba audio durante 2\'</string>
+    <string name="reclasify_audio">Volver a clasificar audio</string>
     <string name="acc_album_image">Imáaen de un disco de música</string>
     <string name="acc_microphone_image">Imagen de un micrófono</string>
     <string name="acc_application_logo">Logo de la aplicación</string>

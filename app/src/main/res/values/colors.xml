@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303f9f</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#29434e</color>
+    <color name="colorAccent">#ffc246</color>
     <color name="backgroundLight">#FAFAFA</color>
     <color name="backgroundSelected">#E0E0E0</color>
 
+
+    <color name="colorPrimaryDark">#29434e</color>
+    <color name="colorPrimaryMedium">#546e7a</color>
+    <color name="colorPrimaryLight">#819ca9</color>
+    <color name="colorSecondaryDark">#c56200</color>
+    <color name="colorSecondaryMedium">#ff9100</color>
+    <color name="colorSecondaryLight">#ffc246</color>
 
     <color name="backgroundRecordTheme">#006064</color>
     <color name="backgroundLoadSongTheme">#004D40</color>

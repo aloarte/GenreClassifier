@@ -8,8 +8,6 @@
     <string name="btn_txt_stop_recording">Stop recording</string>
     <string name="btn_txt_start_recording">Start recording</string>
     <string name="playing_song">Playing…</string>
-    <string name="status_classified_OK">Success! The song have been classified.</string>
-    <string name="status_classified_KO">Error! The song couldnt be classified. Please try again.</string>
     <string name="starter_banner_try_app_descr">Try the app without a login </string>
     <string name="starter_banner_try_app_link">here</string>
     <string name="load_song_descr">Load song from your phone</string>
@@ -23,6 +21,14 @@
     <string name="about_social_media_label">Or follow us in our social media</string>
     <string name="info_descr_text">This application recovers audio media from your microphone or by an existing song from your phone to retrieve its EDM genre.</string>
 
+    <string name="status_classified_OK">Success! The song have been classified.</string>
+    <string name="status_classified_OK_title">Success!</string>
+    <string name="status_classified_OK_subtitle">The song have been classified as:</string>
+    <string name="status_classified_KO">Error! The song couldnt be classified. Please try again.</string>
+    <string name="status_classified_KO_title">Error!</string>
+    <string name="status_classified_KO_subtitle">Song could not be classified. Please, try again.</string>
+    <string name="record_time_desc">Record audio at least 2\'</string>
+    <string name="reclasify_audio">Classify audio again</string>
 
     <string name="acc_album_image">Album image</string>
     <string name="acc_microphone_image">Microphone image</string>

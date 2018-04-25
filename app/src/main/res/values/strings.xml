@@ -8,27 +8,22 @@
     <string name="btn_txt_stop_recording">Parar la grabación</string>
     <string name="btn_txt_start_recording">Empezar la grabación</string>
     <string name="playing_song">Reproduciendo…</string>
-    <string name="status_classified_OK_title">¡Éxito!</string>
-    <string name="status_classified_OK_subtitle">La canción ha sido clasificada como:</string>
-    <string name="status_classified_KO_title">¡Error!</string>
-    <string name="status_classified_KO_subtitle">La canción no pudo ser clasificada. Por favor, intentalo de nuevo.</string>
+
+    <string name="status_classified_OK">Success! The song have been classified.</string>
+    <string name="status_classified_OK_title">Success!</string>
+    <string name="status_classified_OK_subtitle">The song have been classified as:</string>
+    <string name="status_classified_KO">Error! The song couldnt be classified. Please try again.</string>
+    <string name="status_classified_KO_title">Error!</string>
+    <string name="status_classified_KO_subtitle">Song could not be classified. Please, try again.</string>
 
 
     <string name="record_time_desc">Graba audio durante 2\'</string>
-    <string name="img_desc">img</string>
     <string name="reclasify_audio">Volver a clasificar audio</string>
-    <string name="title_activity_starter">StarterActivity</string>
+
 
 
     <string name="starter_banner_try_app_descr">Try the app without a login </string>
     <string name="starter_banner_try_app_link">here</string>
-
-    <string name="starter_dots_login" translatable="false">*        ·        ·</string>
-    <string name="starter_dots_info" translatable="false">·        *        ·</string>
-    <string name="starter_dots_about" translatable="false">·        ·        *</string>
-    <string name="record_audio_initial_time" translatable="false">00:00</string>
-    <string name="record_audio_slash_time" translatable="false">/</string>
-    <string name="record_audio_max_time" translatable="false">02:00</string>
 
 
     <string name="load_song_descr">Load song from your phone</string>
@@ -37,13 +32,10 @@
     <string name="load_audio_title">Load Audio</string>
     <string name="application_brief_description">Clasifica everywhere</string>
     <string name="application_title">Classifikeitor</string>
-    <string name="none_str" translatable="false">NONE</string>
     <string name="about_mail_label">Contact us on the following mail:</string>
     <string name="about_mail">example@examplemail.com</string>
     <string name="about_social_media_label">Or follow us in our social media</string>
     <string name="info_descr_text">This application recovers audio media from your microphone or by an existing song from your phone to retrieve its EDM genre.</string>
-    <string name="btn_google_login" translatable="false">Google Login</string>
-    <string name="btn_facebook_login" translatable="false">Facebook Login</string>
 
 
     <string name="acc_album_image">Album image</string>
@@ -55,7 +47,19 @@
     <string name="acc_about_twitter_icon">Twitter icon</string>
     <string name="acc_about_youtube_icon">YouTube icon</string>
     <string name="acc_about_facebook_icon">Facebook icon</string>
-    <string name="title_activity_profile">ProfileActivity</string>
+
+
+    <string name="starter_dots_login" translatable="false">*        ·        ·</string>
+    <string name="starter_dots_info" translatable="false">·        *        ·</string>
+    <string name="starter_dots_about" translatable="false">·        ·        *</string>
+    <string name="record_audio_initial_time" translatable="false">00:00</string>
+    <string name="record_audio_slash_time" translatable="false">/</string>
+    <string name="record_audio_max_time" translatable="false">02:00</string>
+    <string name="none_str" translatable="false">NONE</string>
+    <string name="btn_google_login" translatable="false">Google Login</string>
+    <string name="btn_facebook_login" translatable="false">Facebook Login</string>
+    <string name="title_activity_profile" translatable="false">ProfileActivity</string>
+    <string name="title_activity_starter" translatable="false">StarterActivity</string>
 
 
 </resources>

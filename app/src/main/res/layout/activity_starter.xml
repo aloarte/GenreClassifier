@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGenreBlueGrey"
+    android:background="@color/colorPrimaryDark"
     tools:context=".StarterActivity">
 
 
@@ -94,6 +94,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 tools:ignore="UselessParent">
+
                 <TextView
                     android:id="@+id/tv_banner_text"
                     android:text="@string/starter_banner_try_app_descr"
