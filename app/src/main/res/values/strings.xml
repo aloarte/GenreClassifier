@@ -60,6 +60,7 @@
     <string name="btn_facebook_login" translatable="false">Facebook Login</string>
     <string name="title_activity_profile" translatable="false">ProfileActivity</string>
     <string name="title_activity_starter" translatable="false">StarterActivity</string>
+    <string name="google_oauth_key" translatable="false">242800975591-nfflbh6qsagp24580vs0teia7napflqp.apps.googleusercontent.com</string>
 
 
 </resources>

@@ -56,7 +56,7 @@ public class StarterLoginFragment extends Fragment {
         googleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                parentActivity.loginAnonymously();
+                parentActivity.loginGoogleAccount();
 
 
             }

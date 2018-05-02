@@ -12,11 +12,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:ignore="UselessParent">
+
         <LinearLayout
             android:id="@+id/ll_title_container_info"
             android:layout_width="match_parent"
             android:layout_height="0sp"
-            android:layout_weight="0.45"
+            android:layout_weight="0.35"
             android:orientation="vertical">
 
             <RelativeLayout
@@ -28,88 +29,124 @@
                 tools:ignore="NestedWeights">
 
                 <ImageView
-                    android:layout_marginTop="80sp"
                     android:id="@+id/app_logo_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80sp"
                     android:contentDescription="@string/acc_application_logo"
                     android:src="@drawable/ic_arrow_drop_down_circle_white_24dp" />
+
                 <TextView
                     android:id="@+id/app_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_below="@+id/app_logo_medium"
                     android:layout_centerInParent="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:text="@string/application_title"
                     android:textAllCaps="true"
-                    android:textStyle="bold"
                     android:textSize="30sp"
-                    android:text="@string/application_title" />
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/app_description"
-                    android:layout_below="@+id/app_title"
-                    android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/app_title"
+                    android:layout_centerInParent="true"
                     android:text="@string/application_brief_description" />
             </RelativeLayout>
 
 
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="0.65">
+
             <LinearLayout
-                android:id="@+id/ll_section_dots"
-                android:gravity="center"
+                android:id="@+id/ll_loading"
                 android:layout_width="match_parent"
-                android:layout_height="0sp"
-                android:layout_weight="0.15"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="*        ·        ·"
-                    tools:ignore="HardcodedText" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <android.support.v4.view.ViewPager
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/vp_starter_fragments"
-            android:layout_width="match_parent"
-            android:layout_height="0sp"
-            android:layout_weight="0.40" />
-
-        <LinearLayout
-            android:id="@+id/ll_banner_info"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="0sp"
-            android:layout_weight="0.15"
-            android:orientation="vertical">
-            <LinearLayout
-                android:id="@+id/ll_banner_content"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
-                tools:ignore="UselessParent">
+                android:padding="100sp"
+                android:visibility="gone">
 
-                <TextView
-                    android:id="@+id/tv_banner_text"
-                    android:text="@string/starter_banner_try_app_descr"
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-                <TextView
-                    android:id="@+id/tv_banner_link"
-                    android:layout_marginStart="5sp"
-                    android:textStyle="bold"
-                    android:text="@string/starter_banner_try_app_link"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
             </LinearLayout>
 
-        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_perform_login"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_section_dots"
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="0.10"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*        ·        ·"
+                        android:textStyle="bold"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/vp_starter_fragments"
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="0.80">
+
+                </android.support.v4.view.ViewPager>
+
+                <LinearLayout
+                    android:id="@+id/ll_banner_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="0sp"
+                    android:layout_weight="0.10"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_banner_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/tv_banner_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/starter_banner_try_app_descr" />
+
+                        <TextView
+                            android:id="@+id/tv_banner_link"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="5sp"
+                            android:text="@string/starter_banner_try_app_link"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
     </LinearLayout>
 
 
