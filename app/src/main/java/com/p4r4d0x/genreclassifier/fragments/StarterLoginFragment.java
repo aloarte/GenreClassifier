@@ -1,12 +1,21 @@
 package com.p4r4d0x.genreclassifier.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.p4r4d0x.genreclassifier.R;
 import com.p4r4d0x.genreclassifier.StarterActivity;
 import com.p4r4d0x.genreclassifier.rest.stats.SResponse;
@@ -17,6 +26,8 @@ import com.p4r4d0x.genreclassifier.rest.stats.SResponse;
  */
 public class StarterLoginFragment extends Fragment {
 
+    final String TAG = StarterActivity.class.getSimpleName();
+
     /**
      * Reference to the parent activity
      */
@@ -25,11 +36,24 @@ public class StarterLoginFragment extends Fragment {
     /**
      * Loggin buttons from the UI
      */
-    Button fbButton, googleButton;
+    Button googleButton;
+
+    LoginButton faceboockLogginBtn;
     private SResponse userStats;
 
+    private CallbackManager callbackManager;
+
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        callbackManager = CallbackManager.Factory.create();
+
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View inflatedView = inflater.inflate(R.layout.fragment_starter_login, container, false);
         initLayoutElements(inflatedView);
@@ -42,16 +66,33 @@ public class StarterLoginFragment extends Fragment {
      * @param inflatedView  The inflated view from the fragment
      */
     private void initLayoutElements(View inflatedView) {
-        fbButton = inflatedView.findViewById(R.id.btn_facebook);
-        googleButton = inflatedView.findViewById(R.id.btn_google);
 
-        fbButton.setOnClickListener(new View.OnClickListener() {
+        faceboockLogginBtn = inflatedView.findViewById(R.id.btn_facebook);
+        faceboockLogginBtn.setReadPermissions("email");
+        faceboockLogginBtn.setFragment(this);
+
+        faceboockLogginBtn.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
-            public void onClick(View view) {
-               parentActivity.onLoginPerformed();
+            public void onSuccess(LoginResult loginResult) {
+                parentActivity.loginFaceboockFirebase(loginResult.getAccessToken());
+                Log.d(TAG, "<Login> Login Facebook Performed");
 
             }
+
+            @Override
+            public void onCancel() {
+                Log.d(TAG, "<Login> Login Facebook Cancelled");
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                Log.d(TAG, "<Login> Login Facebook error");
+            }
         });
+
+        googleButton = inflatedView.findViewById(R.id.btn_google);
+
+
 
         googleButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,4 +117,14 @@ public class StarterLoginFragment extends Fragment {
         this.parentActivity = parentActivity;
     }
 
+
+    public com.facebook.login.widget.LoginButton getFaceboockLogginBtn() {
+        return faceboockLogginBtn;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

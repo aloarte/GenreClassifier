@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -25,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
@@ -154,6 +156,7 @@ public class StarterActivity extends AppCompatActivity implements GoogleApiClien
                 .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions)
                 .build();
 
+
     }
 
     /**
@@ -176,6 +179,7 @@ public class StarterActivity extends AppCompatActivity implements GoogleApiClien
 
                 }
             });
+
 
         }
     }
@@ -239,6 +243,26 @@ public class StarterActivity extends AppCompatActivity implements GoogleApiClien
                 });
     }
 
+    public void loginFaceboockFirebase(AccessToken token) {
+        Log.d(TAG, "handleFacebookAccessToken:" + token);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "<Login> LoginFaceboockFirebase: Success");
+                            recoverProperties();
+                        }
+                        //If the login in firebase was succesful
+                        else {
+                            Log.d(TAG, "<Login> LoginFaceboockFirebase: Failed");
+                        }
+                    }
+                });
+    }
+
     /**
      * After a success login by any method, the user ID is used to recover the properties from firebase
      */
@@ -291,7 +315,6 @@ public class StarterActivity extends AppCompatActivity implements GoogleApiClien
         //Set the animation
         overridePendingTransition(R.anim.slide_up_info, R.anim.no_change);
     }
-
 
     /**
      * A page adapter that make appear the login fragments
