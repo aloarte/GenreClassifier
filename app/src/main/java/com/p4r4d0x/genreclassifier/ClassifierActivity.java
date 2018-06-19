@@ -16,26 +16,34 @@ import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
 
-import com.p4r4d0x.genreclassifier.async.AsynkTaskClasifySong;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierGetAudioFragment;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierResultFragment;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierSendingFragment;
+import com.p4r4d0x.genreclassifier.rest.RetrofitClient;
+import com.p4r4d0x.genreclassifier.rest.ServerErrorManager;
+import com.p4r4d0x.genreclassifier.rest.classify.CRequest;
 import com.p4r4d0x.genreclassifier.rest.classify.CResponse;
 import com.p4r4d0x.genreclassifier.rest.classify.ClassifyRequest;
 import com.p4r4d0x.genreclassifier.rest.classify.SongInfo;
 import com.p4r4d0x.genreclassifier.rest.classify.User;
 import com.p4r4d0x.genreclassifier.rest.old_rest.DataClassifySongResponse;
 import com.p4r4d0x.genreclassifier.rest.old_rest.MusicGenres;
+import com.p4r4d0x.genreclassifier.rest.stats.SResponse;
+import com.p4r4d0x.genreclassifier.utils.Constants;
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 /**
  * Activity that handles fragment to make the complete classify process
  */
-public class ClassifierActivity extends AppCompatActivity implements AsynkTaskClasifySong.OnSongClassified {
+public class ClassifierActivity extends AppCompatActivity {
 
     protected static final int INTENT_PICK_SONG = 101;
     protected static final int INTENT_RECORD_AUDIO = 102;
@@ -63,17 +71,6 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
         return true;
     }
 
-    @Override
-    public void onSongClassifiedSuccess(CResponse classifyResponse) {
-        doFragmentResult(MusicGenres.Dubstep);
-    }
-
-    @Override
-    public void onSongClassifiedError(String errorMessage) {
-        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
-        doFragmentResult(MusicGenres.NONE);
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +84,7 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
         toolbar.inflateMenu(R.menu.application_menu);
 
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
+
 
         doFragmentGetAudio();
     }
@@ -102,7 +100,7 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        //Check ifd the onActivityResult is for the intent_pick_song
+        //Check if the onActivityResult is for the intent_pick_song
         if (requestCode == INTENT_PICK_SONG) {
 
             //If its OK
@@ -232,12 +230,63 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
             long millisecondsSinceEpoch0 = currentTime.getTime();
 
 
-            new AsynkTaskClasifySong(this, "http://192.168.0.14:8081/").execute(new ClassifyRequest(requestSongInfo, user, millisecondsSinceEpoch0));
+            CRequest requestData = new CRequest(new ClassifyRequest(requestSongInfo, user, millisecondsSinceEpoch0));
+            RetrofitClient restClient = new RetrofitClient();
+            restClient.classifySong(((GenreClassificatorApplication) getApplicationContext()).getServiceURL(), requestData, new Callback<CResponse>() {
+                @Override
+                public void onResponse(Call<CResponse> call, Response<CResponse> response) {
+                    Log.d("RetroFit", "ClassifyService onResponse: " + response.code());
+
+                    if (response.code() >= Constants.SERVER_CONTENT_BOT && response.code() <= Constants.SERVER_CONTENT_TOP) {
+                        doFragmentResult(MusicGenres.Dubstep);
+                    } else {
+                        Log.e("RetroFit", "ClassifyService onResponse: " + response.code());
+                        ServerErrorManager.manageServerError(response.code(), ServerErrorManager.getServiceMethodClassify());
+                        doFragmentResult(MusicGenres.NONE);
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<CResponse> call, Throwable t) {
+                    Log.e("RetroFit", "ClassifyService onFailure: " + t.getMessage());
+                    ServerErrorManager.manageServerException(t, ServerErrorManager.getServiceMethodClassify(), (GenreClassificatorApplication) getApplicationContext());
+                    doFragmentResult(MusicGenres.NONE);
+                }
+            });
             doFragmentSending();
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void getUserData() {
+        RetrofitClient restClient = new RetrofitClient();
+        Long userId = 12341234234L;
+        restClient.userStats(((GenreClassificatorApplication) getApplicationContext()).getServiceURL(), userId, new Callback<SResponse>() {
+
+
+            @Override
+            public void onResponse(Call<SResponse> call, Response<SResponse> response) {
+                Log.d("RetroFit", "ClassifyService onResponse: " + response.code());
+
+                if (response.code() >= Constants.SERVER_CONTENT_BOT && response.code() <= Constants.SERVER_CONTENT_TOP) {
+                } else {
+                    Log.e("RetroFit", "ClassifyService onResponse: " + response.code());
+                    ServerErrorManager.manageServerError(response.code(), ServerErrorManager.getServiceMethodClassify());
+
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<SResponse> call, Throwable t) {
+                Log.e("RetroFit", "ClassifyService onFailure: " + t.getMessage());
+                ServerErrorManager.manageServerException(t, ServerErrorManager.getServiceMethodClassify(), (GenreClassificatorApplication) getApplicationContext());
+            }
+        });
     }
 
     @Override
@@ -257,6 +306,7 @@ public class ClassifierActivity extends AppCompatActivity implements AsynkTaskCl
 
         }
     }
+
 
     public enum AudioSelected {
         AUDIO_FROM_SONG,

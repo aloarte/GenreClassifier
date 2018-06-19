@@ -275,13 +275,10 @@ public class StarterActivity extends AppCompatActivity implements GoogleApiClien
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Log.d(TAG, "<Login> FetchProperties: Success");
+                                ((GenreClassificatorApplication) getApplicationContext()).setRemoteConfig(
+                                        firebaseRemoteConfig.getString(Constants.PROPERTY_BACK_ENDPOINT),
+                                        firebaseRemoteConfig.getString(Constants.PROPERTY_CRASH_REPORT_ENABLED));
 
-
-                                String fullUrlClassify = firebaseRemoteConfig.getString(Constants.PROPERTY_BACK_ENDPOINT) + firebaseRemoteConfig.getString(Constants.PROPERTY_BACK_CLASSIFY);
-                                String fullUrlStats = firebaseRemoteConfig.getString(Constants.PROPERTY_BACK_ENDPOINT) + firebaseRemoteConfig.getString(Constants.PROPERTY_BACK_STATS);
-
-                                Log.d("ALRALR", "fetch value: " + fullUrlClassify);
-                                Log.d("ALRALR", "fetch value: " + fullUrlStats);
 
                                 //Needs to be reactivated so the app can perform another fetch
                                 firebaseRemoteConfig.activateFetched();

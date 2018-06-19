@@ -8,14 +8,9 @@ public class Constants {
     public static final String PROPERTY_BACK_ENDPOINT = "endpoint";
 
     /**
-     * Remote Config key for the classify method in the backend
-     */
-    public static final String PROPERTY_BACK_CLASSIFY = "resourceClassify";
-
-    /**
      * Remote Config key for the user stats method in the backend
      */
-    public static final String PROPERTY_BACK_STATS = "resourceStats";
+    public static final String PROPERTY_CRASH_REPORT_ENABLED = "crashReportEnabled";
 
     /**
      * Value of the cache expiration in the firebase fetch phase. This allows that each fetch will retrieve values from the service.
@@ -26,4 +21,15 @@ public class Constants {
      * Constant to get the code for the StartActivityForResult in the google auth
      */
     public static final int GOOGLE_AUTH_SAFR = 8888;
+
+    /**
+     * Bottom limit of the response code for the OK status
+     */
+    public static final int SERVER_CONTENT_BOT = 200;
+
+    /**
+     * Upper limit of the response code for the OK status
+     */
+    public static final int SERVER_CONTENT_TOP = 299;
+
 }

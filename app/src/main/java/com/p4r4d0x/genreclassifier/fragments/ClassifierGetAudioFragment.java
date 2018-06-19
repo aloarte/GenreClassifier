@@ -30,7 +30,7 @@ public class ClassifierGetAudioFragment extends Fragment {
     private TextView tvCurrentTime, tvSongPickedTitle;
     private LinearLayout llSongPicked, llRecord;
     private ImageView ivRecord;
-    private Button btnClassify;
+    private Button btnClassify, btnServiceTestClassify, btnServiceTestStats;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +49,8 @@ public class ClassifierGetAudioFragment extends Fragment {
         tvSongPickedTitle = inflatedView.findViewById(R.id.tv_title);
         fabPickSong = inflatedView.findViewById(R.id.fab_pick_song);
         btnClassify = inflatedView.findViewById(R.id.btn_send_audio);
+        btnServiceTestClassify = inflatedView.findViewById(R.id.btn_send_classify);
+        btnServiceTestStats = inflatedView.findViewById(R.id.btn_send_stats);
         fabPickSong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +64,23 @@ public class ClassifierGetAudioFragment extends Fragment {
 
             }
         });
+
+        btnServiceTestClassify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                parentActivity.clasifySong(null, null, null);
+            }
+        });
+
+        btnServiceTestStats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                parentActivity.getUserData();
+            }
+        });
+
+
         llRecord.setVisibility(View.VISIBLE);
         llSongPicked.setVisibility(View.GONE);
         ivRecord.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +89,7 @@ public class ClassifierGetAudioFragment extends Fragment {
                 startRecording();
             }
         });
+
 
     }
 
