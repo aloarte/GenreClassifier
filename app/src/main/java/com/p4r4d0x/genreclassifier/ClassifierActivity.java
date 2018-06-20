@@ -32,6 +32,8 @@ import com.p4r4d0x.genreclassifier.rest.stats.SResponse;
 import com.p4r4d0x.genreclassifier.utils.Constants;
 
 import java.io.IOException;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,6 +41,8 @@ import java.util.Date;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.p4r4d0x.genreclassifier.utils.Constants.MAX_SERVICE_TIMEOUT_RETRIES;
 
 /**
  * Activity that handles fragment to make the complete classify process
@@ -64,6 +68,7 @@ public class ClassifierActivity extends AppCompatActivity {
     private boolean isFragmentMain = false;
 
     private boolean isLoadedAudioShowing = false;
+    private int serviceStatsTimeoutRetries = 0, serviceClassifyTimeoutRetries = 0;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -235,6 +240,7 @@ public class ClassifierActivity extends AppCompatActivity {
             restClient.classifySong(((GenreClassificatorApplication) getApplicationContext()).getServiceURL(), requestData, new Callback<CResponse>() {
                 @Override
                 public void onResponse(Call<CResponse> call, Response<CResponse> response) {
+                    serviceClassifyTimeoutRetries = 0;
                     Log.d("RetroFit", "ClassifyService onResponse: " + response.code());
 
                     if (response.code() >= Constants.SERVER_CONTENT_BOT && response.code() <= Constants.SERVER_CONTENT_TOP) {
@@ -249,9 +255,21 @@ public class ClassifierActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<CResponse> call, Throwable t) {
-                    Log.e("RetroFit", "ClassifyService onFailure: " + t.getMessage());
-                    ServerErrorManager.manageServerException(t, ServerErrorManager.getServiceMethodClassify(), (GenreClassificatorApplication) getApplicationContext());
-                    doFragmentResult(MusicGenres.NONE);
+
+                    //If its a SocketTimeoutException, enqueue again the call
+                    if (serviceClassifyTimeoutRetries < MAX_SERVICE_TIMEOUT_RETRIES && (t instanceof SocketTimeoutException || t instanceof SocketException)) {
+                        call.clone().enqueue(this);
+                        Log.d("RetroFit", "ClassifyService Enqueued: " + serviceClassifyTimeoutRetries);
+                        serviceClassifyTimeoutRetries++;
+
+                    }
+                    //Any other exception is treated as an error
+                    else {
+                        serviceClassifyTimeoutRetries = 0;
+                        Log.e("RetroFit", "ClassifyService onFailure: " + t.getMessage());
+                        ServerErrorManager.manageServerException(t, ServerErrorManager.getServiceMethodClassify(), (GenreClassificatorApplication) getApplicationContext());
+                        doFragmentResult(MusicGenres.NONE);
+                    }
                 }
             });
             doFragmentSending();
@@ -269,11 +287,12 @@ public class ClassifierActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call<SResponse> call, Response<SResponse> response) {
-                Log.d("RetroFit", "ClassifyService onResponse: " + response.code());
+                Log.d("RetroFit", "StatsService onResponse: " + response.code());
+                serviceStatsTimeoutRetries = 0;
 
                 if (response.code() >= Constants.SERVER_CONTENT_BOT && response.code() <= Constants.SERVER_CONTENT_TOP) {
                 } else {
-                    Log.e("RetroFit", "ClassifyService onResponse: " + response.code());
+                    Log.e("RetroFit", "StatsService onResponse: " + response.code());
                     ServerErrorManager.manageServerError(response.code(), ServerErrorManager.getServiceMethodClassify());
 
                 }
@@ -283,8 +302,19 @@ public class ClassifierActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SResponse> call, Throwable t) {
-                Log.e("RetroFit", "ClassifyService onFailure: " + t.getMessage());
-                ServerErrorManager.manageServerException(t, ServerErrorManager.getServiceMethodClassify(), (GenreClassificatorApplication) getApplicationContext());
+                //If its a SocketTimeoutException, enqueue again the call
+                if (serviceStatsTimeoutRetries < MAX_SERVICE_TIMEOUT_RETRIES && (t instanceof SocketTimeoutException || t instanceof SocketException)) {
+                    call.clone().enqueue(this);
+                    Log.d("RetroFit", "StatsService Enqueued: " + serviceStatsTimeoutRetries);
+                    serviceStatsTimeoutRetries++;
+
+                }
+                //Any other exception is treated as an error
+                else {
+                    serviceStatsTimeoutRetries = 0;
+                    Log.e("RetroFit", "StatsService onFailure: " + t.getMessage());
+                    ServerErrorManager.manageServerException(t, ServerErrorManager.getServiceMethodClassify(), (GenreClassificatorApplication) getApplicationContext());
+                }
             }
         });
     }

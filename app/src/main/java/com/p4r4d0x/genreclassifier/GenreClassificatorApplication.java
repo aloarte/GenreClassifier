@@ -3,9 +3,7 @@ package com.p4r4d0x.genreclassifier;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
-import com.crashlytics.android.Crashlytics;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.p4r4d0x.genreclassifier.utils.Constants;
@@ -29,8 +27,8 @@ public class GenreClassificatorApplication extends Application implements Thread
     @Override
     public void uncaughtException(Thread thread, Throwable throwable) {
         if (isCrashReportEnabled()) {
-            Crashlytics.log(Log.ERROR, "UncaugthException", "Reason " + throwable.getMessage());
-            Crashlytics.logException(throwable);
+//            Crashlytics.log(Log.ERROR, "UncaugthException", "Reason " + throwable.getMessage());
+//            Crashlytics.logException(throwable);
 
         }
 

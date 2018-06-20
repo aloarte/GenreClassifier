@@ -32,4 +32,9 @@ public class Constants {
      */
     public static final int SERVER_CONTENT_TOP = 299;
 
+    /**
+     * Max timeout retries of the services
+     */
+    public static final int MAX_SERVICE_TIMEOUT_RETRIES = 5;
+
 }
