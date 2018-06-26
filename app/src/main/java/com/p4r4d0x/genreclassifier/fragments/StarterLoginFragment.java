@@ -18,7 +18,6 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.p4r4d0x.genreclassifier.R;
 import com.p4r4d0x.genreclassifier.StarterActivity;
-import com.p4r4d0x.genreclassifier.rest.stats.SResponse;
 
 /**
  * Fragment associated with StarterActivity.
@@ -39,7 +38,6 @@ public class StarterLoginFragment extends Fragment {
     Button googleButton;
 
     LoginButton faceboockLogginBtn;
-    private SResponse userStats;
 
     private CallbackManager callbackManager;
 

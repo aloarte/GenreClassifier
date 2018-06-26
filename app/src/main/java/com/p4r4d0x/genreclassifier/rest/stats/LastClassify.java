@@ -9,6 +9,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class LastClassify implements Parcelable {
 
+    @SerializedName("lastGenre")
+    @Expose
+    private String lastGenre;
+    @SerializedName("lastAudioType")
+    @Expose
+    private String lastAudioType;
+    @SerializedName("lastSampleTime")
+    @Expose
+    private Integer lastSampleTime;
     public final static Creator<LastClassify> CREATOR = new Creator<LastClassify>() {
 
 
@@ -24,15 +33,6 @@ public class LastClassify implements Parcelable {
         }
 
     };
-    @SerializedName("lastGenre")
-    @Expose
-    private String lastGenre;
-    @SerializedName("lastAudioType")
-    @Expose
-    private String lastAudioType;
-    @SerializedName("lastSampleTime")
-    @Expose
-    private Integer lastSampleTime;
 
     protected LastClassify(Parcel in) {
         this.lastGenre = ((String) in.readValue((String.class.getClassLoader())));
@@ -42,11 +42,13 @@ public class LastClassify implements Parcelable {
 
     /**
      * No args constructor for use in serialization
+     * 
      */
     public LastClassify() {
     }
 
     /**
+     * 
      * @param lastGenre
      * @param lastAudioType
      * @param lastSampleTime

@@ -1,9 +1,9 @@
-package com.p4r4d0x.genreclassifier.rest.old_rest;
+package com.p4r4d0x.genreclassifier.rest.classify;
 
 /**
  * Enum to identify all the genres returned by the service
  */
-public enum MusicGenres {
+public enum MusicGenre {
     BigRoom,
     Breaks,
     Dance,

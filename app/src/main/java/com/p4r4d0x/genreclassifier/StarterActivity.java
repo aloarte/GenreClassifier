@@ -310,7 +310,7 @@ public class StarterActivity extends AppCompatActivity implements GoogleApiClien
         Intent classifierActivity = new Intent(this, ClassifierActivity.class);
         startActivity(classifierActivity);
         //Set the animation
-        overridePendingTransition(R.anim.slide_up_info, R.anim.no_change);
+//        overridePendingTransition(R.anim.slide_up_info, R.anim.no_change);
     }
 
     /**

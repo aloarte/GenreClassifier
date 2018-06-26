@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.p4r4d0x.genreclassifier.ClassifierActivity;
 import com.p4r4d0x.genreclassifier.R;
-import com.p4r4d0x.genreclassifier.rest.old_rest.MusicGenres;
+import com.p4r4d0x.genreclassifier.rest.classify.MusicGenre;
 
 /**
  * Fragment associated with ClassifierActivity.
@@ -19,7 +19,7 @@ import com.p4r4d0x.genreclassifier.rest.old_rest.MusicGenres;
  */
 public class ClassifierResultFragment extends Fragment {
 
-    private MusicGenres resultSongGenre = MusicGenres.NONE;
+    private MusicGenre resultSongGenre = MusicGenre.NONE;
 
     private ClassifierActivity parentActivity;
 
@@ -59,7 +59,7 @@ public class ClassifierResultFragment extends Fragment {
     }
 
 
-    private void changeColorByGenre(MusicGenres resultSongGenre, View inflatedView) {
+    private void changeColorByGenre(MusicGenre resultSongGenre, View inflatedView) {
         LinearLayout llColored= inflatedView.findViewById(R.id.ll_square_genre);
         Button btnReclassifyAudio = inflatedView.findViewById(R.id.btnReclassifyAudio);
 
@@ -181,7 +181,7 @@ public class ClassifierResultFragment extends Fragment {
         this.parentActivity = parentActivity;
     }
 
-    public void setGenre(MusicGenres songGenre){
+    public void setGenre(MusicGenre songGenre) {
         this.resultSongGenre = songGenre;
     }
 

@@ -27,6 +27,11 @@
     <string name="status_classified_KO">Error! The song couldnt be classified. Please try again.</string>
     <string name="status_classified_KO_title">Error!</string>
     <string name="status_classified_KO_subtitle">Song could not be classified. Please, try again.</string>
+    <string name="status_send_classify_error">Oops!</string>
+    <string name="status_send_classify_error_descr1">An error occurred while classifiyng the audio.</string>
+    <string name="status_send_classify_error_descr2">Please check your network connection and try again.</string>
+    <string name="status_send_classify_error_rotative">Dont worry, we save your recording so you can classify it after.</string>
+
     <string name="record_time_desc">Record audio at least 2\'</string>
     <string name="reclasify_audio">Classify audio again</string>
 

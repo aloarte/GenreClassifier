@@ -9,21 +9,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class ClassifiyStats implements Parcelable {
 
-    public final static Creator<ClassifiyStats> CREATOR = new Creator<ClassifiyStats>() {
-
-
-        @SuppressWarnings({
-                "unchecked"
-        })
-        public ClassifiyStats createFromParcel(Parcel in) {
-            return new ClassifiyStats(in);
-        }
-
-        public ClassifiyStats[] newArray(int size) {
-            return (new ClassifiyStats[size]);
-        }
-
-    };
     @SerializedName("avgSampleTime")
     @Expose
     private Integer avgSampleTime;
@@ -39,6 +24,21 @@ public class ClassifiyStats implements Parcelable {
     @SerializedName("consecutiveGenre")
     @Expose
     private String consecutiveGenre;
+    public final static Creator<ClassifiyStats> CREATOR = new Creator<ClassifiyStats>() {
+
+
+        @SuppressWarnings({
+                "unchecked"
+        })
+        public ClassifiyStats createFromParcel(Parcel in) {
+            return new ClassifiyStats(in);
+        }
+
+        public ClassifiyStats[] newArray(int size) {
+            return (new ClassifiyStats[size]);
+        }
+
+    };
 
     protected ClassifiyStats(Parcel in) {
         this.avgSampleTime = ((Integer) in.readValue((Integer.class.getClassLoader())));
@@ -50,11 +50,13 @@ public class ClassifiyStats implements Parcelable {
 
     /**
      * No args constructor for use in serialization
+     * 
      */
     public ClassifiyStats() {
     }
 
     /**
+     * 
      * @param consecutiveAudioType
      * @param consecutiveGenre
      * @param avgAudioType

@@ -129,6 +129,12 @@
                     <con:params />
                     <con:element>data</con:element>
                 </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
                 <con:request name="Request wUser/Picked" id="e9f6bbf4-de8c-4a9d-83e3-d336b5977906"
                     mediaType="application/json" postQueryString="false">
                     <con:settings>
@@ -138,18 +144,21 @@
                     </con:settings>
                     <con:endpoint>http://localhost:8081/</con:endpoint>
                     <con:request>{
-                        "classifyRequest":{
+                        "classifyRequest": {
                         "songInfo": {
                         "sampleType": "AUDIO_PICKED",
-                        "songName":"The island",
                         "sampleTime": 180000,
-                        "songData":"AAAAGGZ0eXAzZ3A0AAAAAGlzb20zZ3A0AAAC+G1vb3YAAABsbXZoZAAAAADVcGWe1XBlngAAA+gA\nAAIIAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAB3bWV0YQAAACFoZGxyAAAAAAAAAABtZHRhAAAA\nAAAAAAAAAAAAAAAAACtrZXlzAAAAAAAAAAEAAAAbbWR0YWNvbS5hbmRyb2lkLnZlcnNpb24AAAAj\naWxzdAAAABsAAAABAAAAE2RhdGEAAAABAAAAADcuMAAAAg10cmFrAAAAXHRraGQAAAAH1XBlntVw\nZZ4AAAABAAAAAAAAAggAAAAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA\nAAAAAABAAAAAAAAAAAAAAAAAAAGpbWRpYQAAACBtZGhkAAAAANVwZZ7VcGWeAAAfQAAAEEAAAAAA\nAAAALGhkbHIAAAAAAAAAAHNvdW4AAAAAAAAAAAAAAABTb3VuZEhhbmRsZQAAAAFVbWluZgAAABBz\nbWhkAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEZc3RibAAA\nAEVzdHNkAAAAAAAAAAEAAAA1c2FtcgAAAAAAAAABAAAAAAAAAAAAAQAQAAAAAB9AAAAAAAARZGFt\nciAgIAAAg/8AAQAAACBzdHRzAAAAAAAAAAIAAAABAAAAoAAAABkAAACgAAAAfHN0c3oAAAAAAAAA\nAAAAABoAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAg\nAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAABxz\ndHNjAAAAAAAAAAEAAAABAAAAGgAAAAEAAAAUc3RjbwAAAAAAAAABAAAMmQAACYFmcmVlAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0htZGF0PAi4WIiaY4PISoJ/wgABUUAAbzD3mqN8\nAAArVlZCpRA8UkIlPKjIS+F5iPdXT3JrTctgC461tx9PS86UDLIPMDwaNi1GqaqH4N7Tz3j+tdiB\nRxf8jo0+dW6LsjwkI1JAPDrHbI/6lC0B7Md+iXaBhPR9hW+LLemYsuFp++pXJQA8IEt2j98tH2Hl\nkDpP58iSjaHTiVqTRMv3Z0W6OxtY8Dw+XC+z/ciHAeuSOR6x2p2lQscjmHWO1/6AoT3JvfhAPB5S\nhbffLAlh9ta41aik0OKQHxFll9SUMgqB0WIJ1BA8YEIw/3eOH4HvlV+8aNLqf53KHdGWvkg6U7D2\npPtC8DzgU2yeUEwQ4f2CeEfoIXlT9QUMzMgdzeejElWxvRIAPGRSMvvyCh4B/sBaAwJKuUnvCSzu\n40SZjQbw8+OJLgA84DZYNzP6Q6HtNtm7LjOjjFgR37vrCYB/XIuJVBV50DxWVC9GAxAcZbNwWQTd\n3PqpLdNYxFzSsk6yTV7ZmsuAPN5UWD//jYDh7yoebTWuRNYbMjbDfZz5uueIro6mq2A8SlNwP/+S\nMOPYevoWVucavivrA4UEEjbGRkf1rsGVwDzeVFo//4UCwf+imQe5hKqgnAuA2AZQ+ZtOzME05iqg\nPEQ+h6//hhah/sEKIlZ/HFDMVmD1yFx0+rDv4Y6yYVA8HmNzP/3AWaH/hloPit8mgjQkPgSUTFcH\nkajetpwr0DwOs3uJhoEDsOd+yXWfexy4z5Y48AtM9EWfGhB4KYbAPCxLdEScOLDJZkk/+yGNZ2Ng\nBaViC+AJp1QJYG7PX7A8FjN4Mw0OEuH+Pdqsu3jmrKp5ZzwTgM8WdVw3b27X0DwicXtGHMgp4fyT\nvv+sXlrM9n9+Vdql/iKlwBxykoiwPCS6YUQWghLQ7vIohXchqPe14a8E8CM4iJBv5RSMBAA8GlWj\nhhgpAuH3wrl2r+KYix2P+013Mz4IMSTxouVP4DwgaSVEOGAY0O+Kp0PZlNiBqnLecdPad7AIsA1i\naHrwPNg9bZJYlhhh/4oPTvYTFLDx/ctI6mkgHUFBGx3LKuA8JGd4Oq6eEMl2XtmQRXR9gLgh0+J4\nm4ms+agVPLNf8A=="
+                        "songName": "The island",
+                        "songData":
+                        "AAAAGGZ0eXAzZ3A0AAAAAGlzb20zZ3A0AAAC+G1vb3YAAABsbXZoZAAAAADVcGWe1XBlngAAA+gA\nAAIIAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAB3bWV0YQAAACFoZGxyAAAAAAAAAABtZHRhAAAA\nAAAAAAAAAAAAAAAAACtrZXlzAAAAAAAAAAEAAAAbbWR0YWNvbS5hbmRyb2lkLnZlcnNpb24AAAAj\naWxzdAAAABsAAAABAAAAE2RhdGEAAAABAAAAADcuMAAAAg10cmFrAAAAXHRraGQAAAAH1XBlntVw\nZZ4AAAABAAAAAAAAAggAAAAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAA\nAAAAAABAAAAAAAAAAAAAAAAAAAGpbWRpYQAAACBtZGhkAAAAANVwZZ7VcGWeAAAfQAAAEEAAAAAA\nAAAALGhkbHIAAAAAAAAAAHNvdW4AAAAAAAAAAAAAAABTb3VuZEhhbmRsZQAAAAFVbWluZgAAABBz\nbWhkAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAEZc3RibAAA\nAEVzdHNkAAAAAAAAAAEAAAA1c2FtcgAAAAAAAAABAAAAAAAAAAAAAQAQAAAAAB9AAAAAAAARZGFt\nciAgIAAAg/8AAQAAACBzdHRzAAAAAAAAAAIAAAABAAAAoAAAABkAAACgAAAAfHN0c3oAAAAAAAAA\nAAAAABoAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAg\nAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAABxz\ndHNjAAAAAAAAAAEAAAABAAAAGgAAAAEAAAAUc3RjbwAAAAAAAAABAAAMmQAACYFmcmVlAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0htZGF0PAi4WIiaY4PISoJ/wgABUUAAbzD3mqN8\nAAArVlZCpRA8UkIlPKjIS+F5iPdXT3JrTctgC461tx9PS86UDLIPMDwaNi1GqaqH4N7Tz3j+tdiB\nRxf8jo0+dW6LsjwkI1JAPDrHbI/6lC0B7Md+iXaBhPR9hW+LLemYsuFp++pXJQA8IEt2j98tH2Hl\nkDpP58iSjaHTiVqTRMv3Z0W6OxtY8Dw+XC+z/ciHAeuSOR6x2p2lQscjmHWO1/6AoT3JvfhAPB5S\nhbffLAlh9ta41aik0OKQHxFll9SUMgqB0WIJ1BA8YEIw/3eOH4HvlV+8aNLqf53KHdGWvkg6U7D2\npPtC8DzgU2yeUEwQ4f2CeEfoIXlT9QUMzMgdzeejElWxvRIAPGRSMvvyCh4B/sBaAwJKuUnvCSzu\n40SZjQbw8+OJLgA84DZYNzP6Q6HtNtm7LjOjjFgR37vrCYB/XIuJVBV50DxWVC9GAxAcZbNwWQTd\n3PqpLdNYxFzSsk6yTV7ZmsuAPN5UWD//jYDh7yoebTWuRNYbMjbDfZz5uueIro6mq2A8SlNwP/+S\nMOPYevoWVucavivrA4UEEjbGRkf1rsGVwDzeVFo//4UCwf+imQe5hKqgnAuA2AZQ+ZtOzME05iqg\nPEQ+h6//hhah/sEKIlZ/HFDMVmD1yFx0+rDv4Y6yYVA8HmNzP/3AWaH/hloPit8mgjQkPgSUTFcH\nkajetpwr0DwOs3uJhoEDsOd+yXWfexy4z5Y48AtM9EWfGhB4KYbAPCxLdEScOLDJZkk/+yGNZ2Ng\nBaViC+AJp1QJYG7PX7A8FjN4Mw0OEuH+Pdqsu3jmrKp5ZzwTgM8WdVw3b27X0DwicXtGHMgp4fyT\nvv+sXlrM9n9+Vdql/iKlwBxykoiwPCS6YUQWghLQ7vIohXchqPe14a8E8CM4iJBv5RSMBAA8GlWj\nhhgpAuH3wrl2r+KYix2P+013Mz4IMSTxouVP4DwgaSVEOGAY0O+Kp0PZlNiBqnLecdPad7AIsA1i\naHrwPNg9bZJYlhhh/4oPTvYTFLDx/ctI6mkgHUFBGx3LKuA8JGd4Oq6eEMl2XtmQRXR9gLgh0+J4\nm4ms+agVPLNf8A==",
+                        "songFormat" :"MP3"
                         },
+                        "accuracy":0.5,
                         "user": {
                         "userLogged": true,
                         "clientId": "aaaaaaaaabbbbbbbcccccccccc"
                         },
-                        "date" : 1524161523
+                        "date": 1524161523
                         }
                         }
                     </con:request>
@@ -245,6 +254,151 @@
                 </con:request>
             </con:method>
         </con:resource>
+        <con:resource name="FragmentClassifier" id="bdc27357-75ef-41d2-95f7-91e3b01351c1"
+            path="/classifier/clasifygenre/fragment/">
+            <con:settings />
+            <con:parameters />
+            <con:method name="Method 1" id="0300f0dd-f2a3-4c9b-818e-bf41c21437b2" method="POST">
+                <con:settings />
+                <con:parameters />
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params />
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/xml</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params />
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:status>200 201</con:status>
+                    <con:params />
+                    <con:element xmlns:mus="http://localhost/MusicClasifier">mus:Response
+                    </con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>text/html</con:mediaType>
+                    <con:status>400 500 404</con:status>
+                    <con:params />
+                    <con:element>html</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params />
+                    <con:element xmlns:mus="http://localhost/MusicClasifier">mus:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>text/html; charset=iso-8859-1</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params />
+                    <con:element>html</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>404</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>404</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Request wUser/Picked" id="e9f6bbf4-de8c-4a9d-83e3-d336b5977906"
+                    mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">
+                            &lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8081/</con:endpoint>
+                    <con:request />
+                    <con:originalUri>http://192.168.1.130/clasify/clasify</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT" />
+                    <con:jmsPropertyConfig />
+                    <con:parameters />
+                </con:request>
+
+            </con:method>
+        </con:resource>
     </con:interface>
     <con:restMockService name="REST MockService 1" docroot="" host="DESKTOP-5JJIR34" id="4d91ccb4-b8a5-4eca-8822-b0b4837ef69f" path="/" port="8081">
         <con:settings/>
@@ -306,16 +460,31 @@ if( requestBody.contains("some data") )
 }
 */
 </con:dispatchPath><con:response name="Response 1" id="bb1d9fc9-6abe-4a4a-b36d-d053aa6d81aa" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{
-            "classifyResponse":{
+            "classifyResponse": {
             "genres": [
-            { "songGenre":"BigRoom", "precision": 0.99},
-            { "songGenre":"BigRoom", "precision": 0.99},
-            { "songGenre":"BigRoom", "precision": 0.99}
-            ],
-            "songName":"The island"
+            {
+            "songGenre": "BigRoom",
+            "precision": 0.90
+            },
+            {
+            "songGenre": "Dubstep",
+            "precision": 0.50
+            },
+            {
+            "songGenre": "BigRoom",
+            "precision": 0.60
             }
+            ],
+            "genre":"BigRoom",
+            "songDetail":{
+            "bpm":180,
+            "songName": "The island",
+            "danceability": true,
+            "singableRate": 0.5
             }
 
+            }
+            }
         </con:responseContent>
         </con:response>
             <con:response name="Response 2" httpResponseStatus="200" id="2d2e7a29-b399-4db7-a142-372a9b909af7" mediaType="application/json">
@@ -458,13 +627,22 @@ if( requestBody.contains("some data") )
                 <con:responseContent>{         
 	"statsResponse":{
 	     "userId":11223344556677,
-	     "classifiyStats":{
-	     "avgSampleTime": 180000,
-	     "avgAudioType": "PICK",
-	     "avgGenre": "Dubstep",
-	     "consecutiveAudioType" : "RECORD",
-	     "consecutiveGenre": "HipHop"
-	
+                    "classifiyStats":{
+                    "avgSampleTime": 180000,
+                    "avgAudioType": "PICK",
+                    "avgGenre": "Dubstep",
+                    "consecutiveAudioType" : "RECORD",
+                    "consecutiveGenre": "HipHop"
+                    },
+                    "relatedGenre":{
+                    "Trap",
+                    "HipHop",
+                    "House",
+                    "Dance"
+                    },
+                    "relatedSongName":{
+                    "The island",
+                    "Centipede"
 	     },
 	     "lastClassify":{
 	     "lastGenre": "Dubstep",

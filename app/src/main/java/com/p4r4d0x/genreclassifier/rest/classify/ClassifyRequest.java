@@ -9,6 +9,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class ClassifyRequest implements Parcelable {
 
+    @SerializedName("songInfo")
+    @Expose
+    private SongInfo songInfo;
     public final static Creator<ClassifyRequest> CREATOR = new Creator<ClassifyRequest>() {
 
 
@@ -24,36 +27,34 @@ public class ClassifyRequest implements Parcelable {
         }
 
     };
-    @SerializedName("songInfo")
-    @Expose
-    private SongInfo songInfo;
     @SerializedName("user")
     @Expose
     private User user;
+    @SerializedName("accuracy")
+    @Expose
+    private Double accuracy;
     @SerializedName("date")
     @Expose
-    private Long date;
+    private long date;
 
     protected ClassifyRequest(Parcel in) {
         this.songInfo = ((SongInfo) in.readValue((SongInfo.class.getClassLoader())));
+        this.accuracy = ((Double) in.readValue((Double.class.getClassLoader())));
         this.user = ((User) in.readValue((User.class.getClassLoader())));
-        this.date = ((Long) in.readValue((Long.class.getClassLoader())));
+        this.date = ((Long) in.readValue((Integer.class.getClassLoader())));
     }
 
     /**
-     * No args constructor for use in serialization
-     */
-    public ClassifyRequest() {
-    }
-
-    /**
+     * 
      * @param songInfo
      * @param date
      * @param user
+     * @param accuracy
      */
-    public ClassifyRequest(SongInfo songInfo, User user, Long date) {
+    public ClassifyRequest(SongInfo songInfo, Double accuracy, User user, long date) {
         super();
         this.songInfo = songInfo;
+        this.accuracy = accuracy;
         this.user = user;
         this.date = date;
     }
@@ -66,6 +67,14 @@ public class ClassifyRequest implements Parcelable {
         this.songInfo = songInfo;
     }
 
+    public Double getAccuracy() {
+        return accuracy;
+    }
+
+    public void setAccuracy(Double accuracy) {
+        this.accuracy = accuracy;
+    }
+
     public User getUser() {
         return user;
     }
@@ -74,16 +83,17 @@ public class ClassifyRequest implements Parcelable {
         this.user = user;
     }
 
-    public Long getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Long date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(songInfo);
+        dest.writeValue(accuracy);
         dest.writeValue(user);
         dest.writeValue(date);
     }

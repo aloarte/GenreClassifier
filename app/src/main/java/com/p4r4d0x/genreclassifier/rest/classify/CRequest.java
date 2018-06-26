@@ -34,11 +34,13 @@ public class CRequest implements Parcelable {
 
     /**
      * No args constructor for use in serialization
+     * 
      */
     public CRequest() {
     }
 
     /**
+     * 
      * @param classifyRequest
      */
     public CRequest(ClassifyRequest classifyRequest) {

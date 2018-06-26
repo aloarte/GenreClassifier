@@ -5,5 +5,69 @@
     android:background="@color/colorPrimaryMedium"
     tools:context="com.p4r4d0x.genreclassifier.fragments.ClassifierSendingFragment">
 
+    <LinearLayout
+        android:id="@+id/llClasifySong"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryMedium"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/ll_sending_top_margin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_sending_body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.70"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="40sp">
+
+            <LinearLayout
+                android:id="@+id/ll_sending_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="0sp"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_sending_message"
+                android:layout_width="match_parent"
+                android:layout_height="0sp"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_error_rotative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10sp"
+                    android:text="@string/status_send_classify_error_rotative"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_sending_bot_margin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:gravity="center"
+            android:padding="30sp">
+
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

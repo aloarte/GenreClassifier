@@ -26,37 +26,39 @@ public class Genre implements Parcelable {
     };
     @SerializedName("songGenre")
     @Expose
-    private String songGenre;
+    private MusicGenre songGenre;
     @SerializedName("precision")
     @Expose
     private Double precision;
 
     protected Genre(Parcel in) {
-        this.songGenre = ((String) in.readValue((String.class.getClassLoader())));
+        this.songGenre = ((MusicGenre) in.readValue((MusicGenre.class.getClassLoader())));
         this.precision = ((Double) in.readValue((Double.class.getClassLoader())));
     }
 
     /**
      * No args constructor for use in serialization
+     * 
      */
     public Genre() {
     }
 
     /**
+     * 
      * @param songGenre
      * @param precision
      */
-    public Genre(String songGenre, Double precision) {
+    public Genre(MusicGenre songGenre, Double precision) {
         super();
         this.songGenre = songGenre;
         this.precision = precision;
     }
 
-    public String getSongGenre() {
+    public MusicGenre getSongGenre() {
         return songGenre;
     }
 
-    public void setSongGenre(String songGenre) {
+    public void setSongGenre(MusicGenre songGenre) {
         this.songGenre = songGenre;
     }
 

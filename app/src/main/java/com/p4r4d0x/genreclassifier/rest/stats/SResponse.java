@@ -34,11 +34,13 @@ public class SResponse implements Parcelable {
 
     /**
      * No args constructor for use in serialization
+     * 
      */
     public SResponse() {
     }
 
     /**
+     * 
      * @param statsResponse
      */
     public SResponse(StatsResponse statsResponse) {

@@ -14,9 +14,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.p4r4d0x.genreclassifier.fragments.ClassifierGetAudioFragment;
+import com.p4r4d0x.genreclassifier.fragments.ClassifierResultErrorFragment;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierResultFragment;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierSendingFragment;
 import com.p4r4d0x.genreclassifier.rest.RetrofitClient;
@@ -24,11 +26,13 @@ import com.p4r4d0x.genreclassifier.rest.ServerErrorManager;
 import com.p4r4d0x.genreclassifier.rest.classify.CRequest;
 import com.p4r4d0x.genreclassifier.rest.classify.CResponse;
 import com.p4r4d0x.genreclassifier.rest.classify.ClassifyRequest;
+import com.p4r4d0x.genreclassifier.rest.classify.ClassifyResponse;
+import com.p4r4d0x.genreclassifier.rest.classify.Genre;
+import com.p4r4d0x.genreclassifier.rest.classify.MusicGenre;
+import com.p4r4d0x.genreclassifier.rest.classify.SongDetail;
 import com.p4r4d0x.genreclassifier.rest.classify.SongInfo;
 import com.p4r4d0x.genreclassifier.rest.classify.User;
 import com.p4r4d0x.genreclassifier.rest.old_rest.DataClassifySongResponse;
-import com.p4r4d0x.genreclassifier.rest.old_rest.MusicGenres;
-import com.p4r4d0x.genreclassifier.rest.stats.SResponse;
 import com.p4r4d0x.genreclassifier.utils.Constants;
 
 import java.io.IOException;
@@ -37,6 +41,7 @@ import java.net.SocketTimeoutException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -62,13 +67,14 @@ public class ClassifierActivity extends AppCompatActivity {
     ClassifierResultFragment classifierResultFragment;
     ClassifierGetAudioFragment classifierGetAudioFragment;
     ClassifierSendingFragment classifierSendingFragment;
+    private ClassifierResultErrorFragment classifierResultErrorFragment;
     private MediaRecorder mediaRecorder = null;
     private boolean permissionToRecordAccepted = false;
     private String[] permissions = {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private boolean isFragmentMain = false;
 
     private boolean isLoadedAudioShowing = false;
-    private int serviceStatsTimeoutRetries = 0, serviceClassifyTimeoutRetries = 0;
+    private int serviceClassifyTimeoutRetries = 0;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -76,6 +82,19 @@ public class ClassifierActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_profile:
+                Intent profileActivity = new Intent(this, ProfileActivity.class);
+                startActivity(profileActivity);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +166,7 @@ public class ClassifierActivity extends AppCompatActivity {
         classifierGetAudioFragment.setParentActivity(this);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right);
         transaction.replace(R.id.flFragmentContainer, classifierGetAudioFragment);
         transaction.commit();
 
@@ -158,22 +178,42 @@ public class ClassifierActivity extends AppCompatActivity {
         classifierSendingFragment.setParentActivity(this);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
         transaction.replace(R.id.flFragmentContainer, classifierSendingFragment);
         transaction.commit();
         overridePendingTransition(R.anim.slide_up_info, R.anim.no_change);
 
     }
 
-    public void doFragmentResult(MusicGenres genre) {
+    public void doFragmentResult(List<Genre> relatedGenres, MusicGenre mainGenre, SongDetail songDetail) {
         isFragmentMain = false;
         classifierResultFragment = new ClassifierResultFragment();
-        classifierResultFragment.setGenre(genre);
+        classifierResultFragment.setGenre(mainGenre);
         classifierResultFragment.setParentActivity(this);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
         transaction.replace(R.id.flFragmentContainer, classifierResultFragment);
         transaction.commit();
         overridePendingTransition(R.anim.slide_up_info, R.anim.no_change);
+
+    }
+
+
+    public void doFragmentResultError() {
+        isFragmentMain = false;
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        classifierResultErrorFragment = new ClassifierResultErrorFragment();
+        classifierResultErrorFragment.setParentActivity(this);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
+        transaction.replace(R.id.flFragmentContainer, classifierResultErrorFragment);
+        transaction.commit();
 
     }
 
@@ -235,7 +275,7 @@ public class ClassifierActivity extends AppCompatActivity {
             long millisecondsSinceEpoch0 = currentTime.getTime();
 
 
-            CRequest requestData = new CRequest(new ClassifyRequest(requestSongInfo, user, millisecondsSinceEpoch0));
+            CRequest requestData = new CRequest(new ClassifyRequest(requestSongInfo, 0.5, user, millisecondsSinceEpoch0));
             RetrofitClient restClient = new RetrofitClient();
             restClient.classifySong(((GenreClassificatorApplication) getApplicationContext()).getServiceURL(), requestData, new Callback<CResponse>() {
                 @Override
@@ -244,11 +284,13 @@ public class ClassifierActivity extends AppCompatActivity {
                     Log.d("RetroFit", "ClassifyService onResponse: " + response.code());
 
                     if (response.code() >= Constants.SERVER_CONTENT_BOT && response.code() <= Constants.SERVER_CONTENT_TOP) {
-                        doFragmentResult(MusicGenres.Dubstep);
+                        ClassifyResponse songResponse = response.body().getClassifyResponse();
+                        doFragmentResult(songResponse.getGenres(), songResponse.getGenre(), songResponse.getSongDetail());
                     } else {
                         Log.e("RetroFit", "ClassifyService onResponse: " + response.code());
                         ServerErrorManager.manageServerError(response.code(), ServerErrorManager.getServiceMethodClassify());
-                        doFragmentResult(MusicGenres.NONE);
+                        doFragmentResult(null, MusicGenre.NONE, null);
+
 
                     }
                 }
@@ -268,7 +310,7 @@ public class ClassifierActivity extends AppCompatActivity {
                         serviceClassifyTimeoutRetries = 0;
                         Log.e("RetroFit", "ClassifyService onFailure: " + t.getMessage());
                         ServerErrorManager.manageServerException(t, ServerErrorManager.getServiceMethodClassify(), (GenreClassificatorApplication) getApplicationContext());
-                        doFragmentResult(MusicGenres.NONE);
+                        doFragmentResultError();
                     }
                 }
             });
@@ -279,60 +321,18 @@ public class ClassifierActivity extends AppCompatActivity {
         return null;
     }
 
-    public void getUserData() {
-        RetrofitClient restClient = new RetrofitClient();
-        Long userId = 12341234234L;
-        restClient.userStats(((GenreClassificatorApplication) getApplicationContext()).getServiceURL(), userId, new Callback<SResponse>() {
-
-
-            @Override
-            public void onResponse(Call<SResponse> call, Response<SResponse> response) {
-                Log.d("RetroFit", "StatsService onResponse: " + response.code());
-                serviceStatsTimeoutRetries = 0;
-
-                if (response.code() >= Constants.SERVER_CONTENT_BOT && response.code() <= Constants.SERVER_CONTENT_TOP) {
-                } else {
-                    Log.e("RetroFit", "StatsService onResponse: " + response.code());
-                    ServerErrorManager.manageServerError(response.code(), ServerErrorManager.getServiceMethodClassify());
-
-                }
-
-
-            }
-
-            @Override
-            public void onFailure(Call<SResponse> call, Throwable t) {
-                //If its a SocketTimeoutException, enqueue again the call
-                if (serviceStatsTimeoutRetries < MAX_SERVICE_TIMEOUT_RETRIES && (t instanceof SocketTimeoutException || t instanceof SocketException)) {
-                    call.clone().enqueue(this);
-                    Log.d("RetroFit", "StatsService Enqueued: " + serviceStatsTimeoutRetries);
-                    serviceStatsTimeoutRetries++;
-
-                }
-                //Any other exception is treated as an error
-                else {
-                    serviceStatsTimeoutRetries = 0;
-                    Log.e("RetroFit", "StatsService onFailure: " + t.getMessage());
-                    ServerErrorManager.manageServerException(t, ServerErrorManager.getServiceMethodClassify(), (GenreClassificatorApplication) getApplicationContext());
-                }
-            }
-        });
-    }
 
     @Override
     public void onBackPressed() {
         if (isFragmentMain) {
             if (!isLoadedAudioShowing) {
                 super.onBackPressed();
-                overridePendingTransition(R.anim.no_change, R.anim.slide_down_info);
             } else {
                 doFragmentGetAudio();
-                overridePendingTransition(R.anim.no_change, R.anim.slide_down_info);
 
             }
         } else {
             doFragmentGetAudio();
-            overridePendingTransition(R.anim.no_change, R.anim.slide_down_info);
 
         }
     }

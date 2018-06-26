@@ -35,6 +35,6 @@ public class Constants {
     /**
      * Max timeout retries of the services
      */
-    public static final int MAX_SERVICE_TIMEOUT_RETRIES = 5;
+    public static final int MAX_SERVICE_TIMEOUT_RETRIES = 1;
 
 }

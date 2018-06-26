@@ -38,11 +38,13 @@ public class User implements Parcelable {
 
     /**
      * No args constructor for use in serialization
+     * 
      */
     public User() {
     }
 
     /**
+     * 
      * @param userLogged
      * @param clientId
      */

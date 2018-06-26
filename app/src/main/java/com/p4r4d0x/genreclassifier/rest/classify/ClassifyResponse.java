@@ -29,29 +29,37 @@ public class ClassifyResponse implements Parcelable {
     @SerializedName("genres")
     @Expose
     private List<Genre> genres = null;
-    @SerializedName("songName")
+    @SerializedName("genre")
     @Expose
-    private String songName;
+    private MusicGenre genre;
+    @SerializedName("songDetail")
+    @Expose
+    private SongDetail songDetail;
 
     protected ClassifyResponse(Parcel in) {
         in.readList(this.genres, (Genre.class.getClassLoader()));
-        this.songName = ((String) in.readValue((String.class.getClassLoader())));
+        this.genre = ((MusicGenre) in.readValue((MusicGenre.class.getClassLoader())));
+        this.songDetail = ((SongDetail) in.readValue((SongDetail.class.getClassLoader())));
     }
 
     /**
      * No args constructor for use in serialization
+     * 
      */
     public ClassifyResponse() {
     }
 
     /**
+     *
+     * @param genre
      * @param genres
-     * @param songName
+     * @param songDetail
      */
-    public ClassifyResponse(List<Genre> genres, String songName) {
+    public ClassifyResponse(List<Genre> genres, MusicGenre genre, SongDetail songDetail) {
         super();
         this.genres = genres;
-        this.songName = songName;
+        this.genre = genre;
+        this.songDetail = songDetail;
     }
 
     public List<Genre> getGenres() {
@@ -62,17 +70,26 @@ public class ClassifyResponse implements Parcelable {
         this.genres = genres;
     }
 
-    public String getSongName() {
-        return songName;
+    public MusicGenre getGenre() {
+        return genre;
     }
 
-    public void setSongName(String songName) {
-        this.songName = songName;
+    public void setGenre(MusicGenre genre) {
+        this.genre = genre;
+    }
+
+    public SongDetail getSongDetail() {
+        return songDetail;
+    }
+
+    public void setSongDetail(SongDetail songDetail) {
+        this.songDetail = songDetail;
     }
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeList(genres);
-        dest.writeValue(songName);
+        dest.writeValue(genre);
+        dest.writeValue(songDetail);
     }
 
     public int describeContents() {

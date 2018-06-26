@@ -2,6 +2,7 @@ package com.p4r4d0x.genreclassifier.rest.old_rest;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.p4r4d0x.genreclassifier.rest.classify.MusicGenre;
 
 
 /**
@@ -15,9 +16,9 @@ public class DataClassifySongResponse {
 
     @SerializedName("songGenre")
     @Expose
-    public MusicGenres songGenre;
+    public MusicGenre songGenre;
 
-    public DataClassifySongResponse(String name, MusicGenres genre){
+    public DataClassifySongResponse(String name, MusicGenre genre) {
         this.songName= name;
         this.songGenre = genre;
     }
@@ -31,11 +32,11 @@ public class DataClassifySongResponse {
         this.songName = songName;
     }
 
-    public MusicGenres getSonGenre() {
+    public MusicGenre getSonGenre() {
         return songGenre;
     }
 
-    public void setSongGenre(MusicGenres sonGenre) {
+    public void setSongGenre(MusicGenre sonGenre) {
         this.songGenre = sonGenre;
     }
 }

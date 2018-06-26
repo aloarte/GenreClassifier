@@ -34,11 +34,13 @@ public class CResponse implements Parcelable {
 
     /**
      * No args constructor for use in serialization
+     * 
      */
     public CResponse() {
     }
 
     /**
+     * 
      * @param classifyResponse
      */
     public CResponse(ClassifyResponse classifyResponse) {
