@@ -6,8 +6,9 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.p4r4d0x.genreclassifier.rest.classify.MusicGenre;
 
-public class ClassifiyStats implements Parcelable {
+public class ClassifyStats implements Parcelable {
 
     @SerializedName("avgSampleTime")
     @Expose
@@ -15,55 +16,56 @@ public class ClassifiyStats implements Parcelable {
     @SerializedName("avgAudioType")
     @Expose
     private String avgAudioType;
-    @SerializedName("avgGenre")
-    @Expose
-    private String avgGenre;
-    @SerializedName("consecutiveAudioType")
-    @Expose
-    private String consecutiveAudioType;
-    @SerializedName("consecutiveGenre")
-    @Expose
-    private String consecutiveGenre;
-    public final static Creator<ClassifiyStats> CREATOR = new Creator<ClassifiyStats>() {
+    public final static Creator<ClassifyStats> CREATOR = new Creator<ClassifyStats>() {
 
 
         @SuppressWarnings({
                 "unchecked"
         })
-        public ClassifiyStats createFromParcel(Parcel in) {
-            return new ClassifiyStats(in);
+        public ClassifyStats createFromParcel(Parcel in) {
+            return new ClassifyStats(in);
         }
 
-        public ClassifiyStats[] newArray(int size) {
-            return (new ClassifiyStats[size]);
+        public ClassifyStats[] newArray(int size) {
+            return (new ClassifyStats[size]);
         }
 
     };
+    @SerializedName("consecutiveAudioType")
+    @Expose
+    private String consecutiveAudioType;
+    @SerializedName("avgGenre")
+    @Expose
+    private MusicGenre avgGenre;
+    @SerializedName("consecutiveGenre")
+    @Expose
+    private MusicGenre consecutiveGenre;
 
-    protected ClassifiyStats(Parcel in) {
+    private ClassifyStats(Parcel in) {
         this.avgSampleTime = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.avgAudioType = ((String) in.readValue((String.class.getClassLoader())));
-        this.avgGenre = ((String) in.readValue((String.class.getClassLoader())));
+        this.avgGenre = ((MusicGenre) in.readValue((MusicGenre.class.getClassLoader())));
         this.consecutiveAudioType = ((String) in.readValue((String.class.getClassLoader())));
-        this.consecutiveGenre = ((String) in.readValue((String.class.getClassLoader())));
+        this.consecutiveGenre = ((MusicGenre) in.readValue((MusicGenre.class.getClassLoader())));
+
     }
 
     /**
      * No args constructor for use in serialization
      * 
      */
-    public ClassifiyStats() {
+    public ClassifyStats() {
     }
 
     /**
-     * 
-     * @param consecutiveAudioType
-     * @param consecutiveGenre
-     * @param avgAudioType
-     * @param avgGenre
-     * @param avgSampleTime
+     *
+     * @param consecutiveAudioType  Consecutive type of classify request that the user does
+     * @param consecutiveGenre      Consecutive genre of classify request that the user does
+     * @param avgAudioType          Avg of the type of classify request that the user does
+     * @param avgGenre              Avg of the genre of classify request that the user does
+     * @param avgSampleTime         Avg of the time of classify request that the user does
      */
-    public ClassifiyStats(Integer avgSampleTime, String avgAudioType, String avgGenre, String consecutiveAudioType, String consecutiveGenre) {
+    public ClassifyStats(Integer avgSampleTime, String avgAudioType, MusicGenre avgGenre, String consecutiveAudioType, MusicGenre consecutiveGenre) {
         super();
         this.avgSampleTime = avgSampleTime;
         this.avgAudioType = avgAudioType;
@@ -88,11 +90,11 @@ public class ClassifiyStats implements Parcelable {
         this.avgAudioType = avgAudioType;
     }
 
-    public String getAvgGenre() {
+    public MusicGenre getAvgGenre() {
         return avgGenre;
     }
 
-    public void setAvgGenre(String avgGenre) {
+    public void setAvgGenre(MusicGenre avgGenre) {
         this.avgGenre = avgGenre;
     }
 
@@ -104,11 +106,11 @@ public class ClassifiyStats implements Parcelable {
         this.consecutiveAudioType = consecutiveAudioType;
     }
 
-    public String getConsecutiveGenre() {
+    public MusicGenre getConsecutiveGenre() {
         return consecutiveGenre;
     }
 
-    public void setConsecutiveGenre(String consecutiveGenre) {
+    public void setConsecutiveGenre(MusicGenre consecutiveGenre) {
         this.consecutiveGenre = consecutiveGenre;
     }
 

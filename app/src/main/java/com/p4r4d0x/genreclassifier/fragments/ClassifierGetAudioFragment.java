@@ -2,6 +2,7 @@ package com.p4r4d0x.genreclassifier.fragments;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -32,8 +33,46 @@ public class ClassifierGetAudioFragment extends Fragment {
     private ImageView ivRecord;
     private Button btnClassify, btnServiceTestClassify;
 
+    private CountDownTimer countDownTimer =
+            new CountDownTimer(/*120*/1000, 100) { //120000 (02:00)
+                public void onTick(long millisUntilFinished) {
+                    //Get the time in seconds and invert it
+                    long timeInSeconds = millisUntilFinished / 1000;
+                    long timeInSecondReversed = 120 - timeInSeconds;
+                    //Get the minutes and the seconds
+                    long minutes = timeInSecondReversed / 60;
+                    long seconds = timeInSecondReversed % 60;
+                    String substrMinutes;
+                    String substrSeconds;
+                    //If the minutes number have only 1 digit, add a 0 in front
+                    if (Math.abs(minutes / 10) >= 1) {
+                        substrMinutes = "" + minutes;
+                    } else {
+                        substrMinutes = "0" + minutes;
+                    }
+                    //If the seconds number have only 1 digit, add a 0 in front
+                    if (Math.abs(seconds / 10) >= 1) {
+                        substrSeconds = "" + seconds;
+                    } else {
+                        substrSeconds = "0" + seconds;
+                    }
+                    //Join both substrings
+                    String currentTime = substrMinutes + ":" + substrSeconds;
+
+                    //Put the text and the progress in the layout
+                    tvCurrentTime.setText(currentTime);
+                    pbhStatusAudioRecorded.setProgress(Math.abs((int) millisUntilFinished / 1200 - 100));
+
+                }
+
+                @Override
+                public void onFinish() {
+                    parentActivity.onRecordRecorded(false);
+                }
+            };
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View inflatedView = inflater.inflate(R.layout.fragment_classifier_get_audio, container, false);
         initLayoutElements(inflatedView);
@@ -68,6 +107,7 @@ public class ClassifierGetAudioFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 parentActivity.clasifySong(null, null, null);
+//                parentActivity.classifyRoot();
             }
         });
 
@@ -82,46 +122,6 @@ public class ClassifierGetAudioFragment extends Fragment {
 
 
     }
-
-    private CountDownTimer countDownTimer =
-            new CountDownTimer(/*120*/1000, 100) { //120000 (02:00)
-                public void onTick(long millisUntilFinished) {
-                    //Get the time in seconds and invert it
-                    long timeInSeconds = millisUntilFinished /1000;
-                    long timeInSecondReversed = 120-  timeInSeconds;
-                    //Get the minutes and the seconds
-                    long minutes = timeInSecondReversed / 60;
-                    long seconds = timeInSecondReversed % 60;
-                    String substrMinutes ="";
-                    String substrSeconds = "";
-                    //If the minutes number have only 1 digit, add a 0 in front
-                    if(Math.abs(minutes/10)>=1){
-                        substrMinutes=""+minutes;
-                    }
-                    else{
-                        substrMinutes="0"+minutes;
-                    }
-                    //If the seconds number have only 1 digit, add a 0 in front
-                    if(Math.abs(seconds/10)>=1){
-                        substrSeconds=""+seconds;
-                    }
-                    else{
-                        substrSeconds="0"+seconds;
-                    }
-                    //Join both substrings
-                    String currentTime = substrMinutes+":"+substrSeconds;
-
-                    //Put the text and the progress in the layout
-                    tvCurrentTime.setText(currentTime);
-                    pbhStatusAudioRecorded.setProgress(Math.abs((int) millisUntilFinished / 1200 - 100));
-
-                }
-
-                @Override
-                public void onFinish() {
-                    parentActivity.onRecordRecorded(false);
-                }
-            };
 
 
     public void startRecording(){
@@ -151,6 +151,5 @@ public class ClassifierGetAudioFragment extends Fragment {
     public void setGetAudioPicked() {
         llRecord.setVisibility(View.GONE);
         llSongPicked.setVisibility(View.VISIBLE);
-        tvSongPickedTitle.setText("Song Picked");
     }
 }

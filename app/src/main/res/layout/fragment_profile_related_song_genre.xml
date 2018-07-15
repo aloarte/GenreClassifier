@@ -1,0 +1,73 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryMedium"
+    android:orientation="vertical"
+    tools:context="com.p4r4d0x.genreclassifier.fragments.ProfileDataHistoryFragment">
+
+
+    <LinearLayout
+        android:id="@+id/ll_related_song"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="0.6"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_desc_related_songs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical"
+            android:padding="30sp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Por los géneros que sueles consultar te recomendamos las siguientes canciones:" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_related_songs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:orientation="vertical"></LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_genres_reviewed"
+        android:layout_width="match_parent"
+        android:layout_height="0sp"
+        android:layout_weight="0.4"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_descr_genres"
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="0.4"
+            android:orientation="vertical"
+            android:padding="30sp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Los géneros que más has consultado." />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_genres"
+            android:layout_width="match_parent"
+            android:layout_height="0sp"
+            android:layout_weight="0.6"
+            android:orientation="vertical"></LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

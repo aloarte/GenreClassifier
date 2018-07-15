@@ -1,6 +1,7 @@
 package com.p4r4d0x.genreclassifier.fragments;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +14,16 @@ import com.p4r4d0x.genreclassifier.R;
  * Fragment associated with ClassifierActivity.
  * Shows a wait view while the multimedia is sended to the server
  */
-public class ProfileUserDataFragment extends Fragment {
+public class ProfileLastClassifyFragment extends Fragment {
 
     private ProfileActivity parentActivity;
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View inflatedView = inflater.inflate(R.layout.fragment_profile_user_data, container, false);
+        View inflatedView = inflater.inflate(R.layout.fragment_profile_last_classify, container, false);
         initLayoutElements(inflatedView);
         return inflatedView;
     }

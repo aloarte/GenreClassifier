@@ -47,5 +47,11 @@
     <string name="acc_about_twitter_icon">Icono de Twitter</string>
     <string name="acc_about_facebook_icon">Icono de Facebook</string>
 
+    <string name="label_data_history_descr">Un histórico con medias de las acciones realizadas.</string>
+    <string name="label_data_history_capture_mode">Modo de captura:</string>
+    <string name="label_data_history_genre_avg">Género más consultado:</string>
+    <string name="label_data_history_genre_row">Género por racha:</string>
+    <string name="label_data_history_capture_time">Tiempo por captura:</string>
+
 
 </resources>

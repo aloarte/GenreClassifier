@@ -35,23 +35,23 @@ public class ClassifyRequest implements Parcelable {
     private Double accuracy;
     @SerializedName("date")
     @Expose
-    private long date;
+    private String date;
 
-    protected ClassifyRequest(Parcel in) {
+    private ClassifyRequest(Parcel in) {
         this.songInfo = ((SongInfo) in.readValue((SongInfo.class.getClassLoader())));
         this.accuracy = ((Double) in.readValue((Double.class.getClassLoader())));
         this.user = ((User) in.readValue((User.class.getClassLoader())));
-        this.date = ((Long) in.readValue((Integer.class.getClassLoader())));
+        this.date = ((String) in.readValue((String.class.getClassLoader())));
     }
 
     /**
-     * 
-     * @param songInfo
-     * @param date
-     * @param user
-     * @param accuracy
+     *
+     * @param songInfo  Object with the data of the song
+     * @param date      Date of the query
+     * @param user      User that made the query
+     * @param accuracy  Accuracy requested for the algorithm
      */
-    public ClassifyRequest(SongInfo songInfo, Double accuracy, User user, long date) {
+    public ClassifyRequest(SongInfo songInfo, Double accuracy, User user, String date) {
         super();
         this.songInfo = songInfo;
         this.accuracy = accuracy;
@@ -83,11 +83,11 @@ public class ClassifyRequest implements Parcelable {
         this.user = user;
     }
 
-    public long getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(long date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

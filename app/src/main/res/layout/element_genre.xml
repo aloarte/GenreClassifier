@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150sp"
+    android:layout_height="30sp"
+    android:background="@drawable/no_rounded_square"
+    android:padding="1sp">
+
+    <LinearLayout
+        android:id="@+id/element_genre_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGenreAmber"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/element_genre_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lorem_ipsum"
+            android:textColor="@color/colorPrimaryMedium"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

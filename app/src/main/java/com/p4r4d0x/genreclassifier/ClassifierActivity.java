@@ -23,8 +23,6 @@ import com.p4r4d0x.genreclassifier.fragments.ClassifierResultFragment;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierSendingFragment;
 import com.p4r4d0x.genreclassifier.rest.RetrofitClient;
 import com.p4r4d0x.genreclassifier.rest.ServerErrorManager;
-import com.p4r4d0x.genreclassifier.rest.classify.CRequest;
-import com.p4r4d0x.genreclassifier.rest.classify.CResponse;
 import com.p4r4d0x.genreclassifier.rest.classify.ClassifyRequest;
 import com.p4r4d0x.genreclassifier.rest.classify.ClassifyResponse;
 import com.p4r4d0x.genreclassifier.rest.classify.Genre;
@@ -32,15 +30,12 @@ import com.p4r4d0x.genreclassifier.rest.classify.MusicGenre;
 import com.p4r4d0x.genreclassifier.rest.classify.SongDetail;
 import com.p4r4d0x.genreclassifier.rest.classify.SongInfo;
 import com.p4r4d0x.genreclassifier.rest.classify.User;
-import com.p4r4d0x.genreclassifier.rest.old_rest.DataClassifySongResponse;
 import com.p4r4d0x.genreclassifier.utils.Constants;
 
 import java.io.IOException;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -266,25 +261,28 @@ public class ClassifierActivity extends AppCompatActivity {
 
     }
 
-    public DataClassifySongResponse clasifySong(String name, Uri song, String uristring) {
-        try {
+    public ClassifyResponse clasifySong(String name, Uri song, String uristring) {
+
             SongInfo requestSongInfo = new SongInfo();
             User user = new User();
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZZZZ");
-            Date currentTime = formatter.parse("2011-07-19T18:23:20+0000");
-            long millisecondsSinceEpoch0 = currentTime.getTime();
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ssZZZZ");
+        //Date currentTime = formatter.parse("2011-07-19T18:23:20+0000");
+        //long millisecondsSinceEpoch0 = currentTime.getTime();
 
 
-            CRequest requestData = new CRequest(new ClassifyRequest(requestSongInfo, 0.5, user, millisecondsSinceEpoch0));
+        ClassifyRequest requestData = new ClassifyRequest(requestSongInfo, 0.5, user, "2018-06-29T21:51:43.851615+00:00");
+//            requestData.setSongInfo(new SongInfo("AUDIO_PICKED",180000,"The island","AAAAGGZ0eXAzZ3A","MP3"));
+//            requestData.setUser(new User(true,"aaa"));
+
             RetrofitClient restClient = new RetrofitClient();
-            restClient.classifySong(((GenreClassificatorApplication) getApplicationContext()).getServiceURL(), requestData, new Callback<CResponse>() {
+        restClient.classifySong(((GenreClassificatorApplication) getApplicationContext()).getServiceURL(), requestData, new Callback<ClassifyResponse>() {
                 @Override
-                public void onResponse(Call<CResponse> call, Response<CResponse> response) {
+                public void onResponse(Call<ClassifyResponse> call, Response<ClassifyResponse> response) {
                     serviceClassifyTimeoutRetries = 0;
                     Log.d("RetroFit", "ClassifyService onResponse: " + response.code());
 
                     if (response.code() >= Constants.SERVER_CONTENT_BOT && response.code() <= Constants.SERVER_CONTENT_TOP) {
-                        ClassifyResponse songResponse = response.body().getClassifyResponse();
+                        ClassifyResponse songResponse = response.body();
                         doFragmentResult(songResponse.getGenres(), songResponse.getGenre(), songResponse.getSongDetail());
                     } else {
                         Log.e("RetroFit", "ClassifyService onResponse: " + response.code());
@@ -296,7 +294,7 @@ public class ClassifierActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<CResponse> call, Throwable t) {
+                public void onFailure(Call<ClassifyResponse> call, Throwable t) {
 
                     //If its a SocketTimeoutException, enqueue again the call
                     if (serviceClassifyTimeoutRetries < MAX_SERVICE_TIMEOUT_RETRIES && (t instanceof SocketTimeoutException || t instanceof SocketException)) {
@@ -315,9 +313,6 @@ public class ClassifierActivity extends AppCompatActivity {
                 }
             });
             doFragmentSending();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         return null;
     }
 
@@ -336,7 +331,6 @@ public class ClassifierActivity extends AppCompatActivity {
 
         }
     }
-
 
     public enum AudioSelected {
         AUDIO_FROM_SONG,

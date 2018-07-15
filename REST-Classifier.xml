@@ -11,7 +11,8 @@
             <con:endpoint>http://DESKTOP-5JJIR34:8089/</con:endpoint>
             <con:endpoint>http://localhost:8081/</con:endpoint>
         </con:endpoints>
-        <con:resource name="MusicClasifier" id="bdc27357-75ef-41d2-95f7-91e3b01351c1" path="/classifier/clasifygenre/">
+        <con:resource name="MusicClasifier" id="bdc27357-75ef-41d2-95f7-91e3b01351c1"
+            path="/classifier/clasifygenre">
             <con:settings/>
             <con:parameters/>
             <con:method name="Method 1" id="0300f0dd-f2a3-4c9b-818e-bf41c21437b2" method="POST">
@@ -71,7 +72,7 @@
                 </con:representation>
                 <con:representation type="FAULT">
                     <con:mediaType>application/json</con:mediaType>
-                    <con:status>400</con:status>
+                    <con:status>400 404</con:status>
                     <con:params/>
                     <con:element xmlns:mus="http://localhost/MusicClasifier">mus:Fault</con:element>
                 </con:representation>
@@ -142,9 +143,10 @@
                             &lt;xml-fragment/>
                         </con:setting>
                     </con:settings>
-                    <con:endpoint>http://localhost:8081/</con:endpoint>
+                    <con:endpoint>https://q6s8txbyaa.execute-api.eu-west-3.amazonaws.com/dev
+                    </con:endpoint>
                     <con:request>{
-                        "classifyRequest": {
+
                         "songInfo": {
                         "sampleType": "AUDIO_PICKED",
                         "sampleTime": 180000,
@@ -159,7 +161,7 @@
                         "clientId": "aaaaaaaaabbbbbbbcccccccccc"
                         },
                         "date": 1524161523
-                        }
+
                         }
                     </con:request>
                     <con:originalUri>http://192.168.1.130/clasify/clasify</con:originalUri>
@@ -203,16 +205,11 @@
                 </con:request>
             </con:method>
         </con:resource>
-        <con:resource name="UserStats" id="37da020a-b4db-44d4-ad24-219934bc9e96" path="/classifier/stats/">
+        <con:resource name="UserStats" id="37da020a-b4db-44d4-ad24-219934bc9e96"
+            path="/classifier/stats">
             <con:settings/>
             <con:parameters>
-                <con:parameter>
-                    <con:name>userID</con:name>
-                    <con:value/>
-                    <con:style>QUERY</con:style>
-                    <con:default/>
-                    <con:description xsi:nil="true"/>
-                </con:parameter>
+
             </con:parameters>
             <con:method name="Method 1" id="6b485520-a0c3-4158-824b-7a007b3d2a2d" method="GET">
                 <con:settings/>
@@ -225,10 +222,22 @@
                 </con:representation>
                 <con:representation type="RESPONSE">
                     <con:mediaType>application/json</con:mediaType>
-                    <con:status>200</con:status>
+                    <con:status>200 299</con:status>
                     <con:params />
                     <con:element xmlns:stat="http://localhost/classifier/stats/">stat:Response
                     </con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true" />
+                    <con:status>0</con:status>
+                    <con:params />
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>text/html</con:mediaType>
+                    <con:status>404</con:status>
+                    <con:params />
+                    <con:element>html</con:element>
                 </con:representation>
                 <con:request name="Request 1" id="c8103c6c-974e-488b-80b8-05737fadc38e"
                     mediaType="application/json">
@@ -237,7 +246,8 @@
                             &lt;xml-fragment/>
                         </con:setting>
                     </con:settings>
-                    <con:endpoint>http://localhost:8081/</con:endpoint>
+                    <con:endpoint>https://q6s8txbyaa.execute-api.eu-west-3.amazonaws.com/dev
+                    </con:endpoint>
                     <con:request/>
                     <con:originalUri>http://localhost/classifier/stats/</con:originalUri>
                     <con:credentials>
@@ -245,12 +255,8 @@
                     </con:credentials>
                     <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
                     <con:jmsPropertyConfig/>
-                    <con:parameters>
-                        <entry key="userID" value="11223344556677" xmlns="http://eviware.com/soapui/config"/>
-                    </con:parameters>
-                    <con:parameterOrder>
-                        <con:entry>userID</con:entry>
-                    </con:parameterOrder>
+                    <con:parameters />
+                    <con:parameterOrder />
                 </con:request>
             </con:method>
         </con:resource>
@@ -624,30 +630,30 @@ if( requestBody.contains("some data") )
             </con:dispatchPath>
             <con:response name="Response Loged USer" httpResponseStatus="200" id="be88327a-e4fe-4e74-b1cc-6ec15e198124" mediaType="application/json">
                 <con:settings/>
-                <con:responseContent>{         
-	"statsResponse":{
-	     "userId":11223344556677,
-                    "classifiyStats":{
+                <con:responseContent>{
+                    "statsResponse": {
+                    "userId": 11223344556677,
+                    "classifiyStats": {
                     "avgSampleTime": 180000,
                     "avgAudioType": "PICK",
                     "avgGenre": "Dubstep",
-                    "consecutiveAudioType" : "RECORD",
+                    "consecutiveAudioType": "RECORD",
                     "consecutiveGenre": "HipHop"
                     },
-                    "relatedGenre":{
+                    "relatedGenre": [
                     "Trap",
                     "HipHop",
                     "House",
                     "Dance"
-                    },
-                    "relatedSongName":{
+                    ],
+                    "relatedSongName": [
                     "The island",
                     "Centipede"
-	     },
-	     "lastClassify":{
-	     "lastGenre": "Dubstep",
-	     "lastAudioType": "RECORD",
-	     "lastSampleTime": 180000
-	     }
-     }
+                    ],
+                    "lastClassify": {
+                    "lastGenre": "Dubstep",
+                    "lastAudioType": "RECORD",
+                    "lastSampleTime": 180000
+                    }
+                    }
 }</con:responseContent></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

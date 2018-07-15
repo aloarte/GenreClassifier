@@ -6,6 +6,9 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.p4r4d0x.genreclassifier.rest.Error;
+import com.p4r4d0x.genreclassifier.rest.classify.MusicGenre;
+import com.p4r4d0x.genreclassifier.rest.classify.SongDetail;
 
 import java.util.List;
 
@@ -26,28 +29,33 @@ public class StatsResponse implements Parcelable {
         }
 
     };
-    @SerializedName("classifiyStats")
+    @SerializedName("classifyStats")
     @Expose
-    private ClassifiyStats classifiyStats;
+    private ClassifyStats classifyStats;
     @SerializedName("userId")
     @Expose
-    private Integer userId;
+    private String userId;
     @SerializedName("relatedGenre")
     @Expose
-    private List<String> relatedGenre = null;
+    private List<MusicGenre> relatedGenre = null;
     @SerializedName("lastClassify")
     @Expose
     private LastClassify lastClassify;
     @SerializedName("relatedSongName")
     @Expose
     private List<String> relatedSongName = null;
+    @SerializedName("error")
+    @Expose
+    private Error error;
 
-    protected StatsResponse(Parcel in) {
-        this.userId = ((Integer) in.readValue((Integer.class.getClassLoader())));
-        this.classifiyStats = ((ClassifiyStats) in.readValue((ClassifiyStats.class.getClassLoader())));
+    private StatsResponse(Parcel in) {
+        this.userId = ((String) in.readValue((String.class.getClassLoader())));
+        this.classifyStats = ((ClassifyStats) in.readValue((ClassifyStats.class.getClassLoader())));
         in.readList(this.relatedGenre, (String.class.getClassLoader()));
         in.readList(this.relatedSongName, (String.class.getClassLoader()));
         this.lastClassify = ((LastClassify) in.readValue((LastClassify.class.getClassLoader())));
+        this.error = ((Error) in.readValue((SongDetail.class.getClassLoader())));
+
     }
 
     /**
@@ -57,44 +65,36 @@ public class StatsResponse implements Parcelable {
     public StatsResponse() {
     }
 
-    /**
-     *
-     * @param relatedSongName
-     * @param classifiyStats
-     * @param relatedGenre
-     * @param userId
-     * @param lastClassify
-     */
-    public StatsResponse(Integer userId, ClassifiyStats classifiyStats, List<String> relatedGenre, List<String> relatedSongName, LastClassify lastClassify) {
+    public StatsResponse(String userId, ClassifyStats classifiyStats, List<MusicGenre> relatedGenre, List<String> relatedSongName, LastClassify lastClassify) {
         super();
         this.userId = userId;
-        this.classifiyStats = classifiyStats;
+        this.classifyStats = classifiyStats;
         this.relatedGenre = relatedGenre;
         this.relatedSongName = relatedSongName;
         this.lastClassify = lastClassify;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public ClassifiyStats getClassifiyStats() {
-        return classifiyStats;
+    public ClassifyStats getClassifyStats() {
+        return classifyStats;
     }
 
-    public void setClassifiyStats(ClassifiyStats classifiyStats) {
-        this.classifiyStats = classifiyStats;
+    public void setClassifyStats(ClassifyStats classifyStats) {
+        this.classifyStats = classifyStats;
     }
 
-    public List<String> getRelatedGenre() {
+    public List<MusicGenre> getRelatedGenre() {
         return relatedGenre;
     }
 
-    public void setRelatedGenre(List<String> relatedGenre) {
+    public void setRelatedGenre(List<MusicGenre> relatedGenre) {
         this.relatedGenre = relatedGenre;
     }
 
@@ -114,12 +114,22 @@ public class StatsResponse implements Parcelable {
         this.lastClassify = lastClassify;
     }
 
+    public Error getError() {
+        return error;
+    }
+
+    public void setError(Error error) {
+        this.error = error;
+    }
+
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(userId);
-        dest.writeValue(classifiyStats);
+        dest.writeValue(classifyStats);
         dest.writeList(relatedGenre);
         dest.writeList(relatedSongName);
         dest.writeValue(lastClassify);
+        dest.writeValue(error);
+
     }
 
     public int describeContents() {
