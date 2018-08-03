@@ -4,8 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import com.p4r4d0x.genreclassifier.utils.Constants;
 
 public class GenreClassificatorApplication extends Application implements Thread.UncaughtExceptionHandler {
@@ -14,8 +12,6 @@ public class GenreClassificatorApplication extends Application implements Thread
     @Override
     public void onCreate() {
         super.onCreate();
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
     }
 
     /**

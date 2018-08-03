@@ -36,6 +36,10 @@ import com.p4r4d0x.genreclassifier.fragments.StarterInfoFragment;
 import com.p4r4d0x.genreclassifier.fragments.StarterLoginFragment;
 import com.p4r4d0x.genreclassifier.utils.Constants;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import static com.p4r4d0x.genreclassifier.utils.Constants.GOOGLE_AUTH_SAFR;
 
 /**
@@ -75,11 +79,34 @@ public class StarterActivity extends AppCompatActivity implements GoogleApiClien
      */
     private GoogleApiClient googleApiClient;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_starter);
-        initLoginElements();
+    public static List<Integer> getNumbers(String text) {
+        List<Integer> retValues = new ArrayList<>();
+        String auxNumberStr = "";
+        char auxChar;
+        int numberValue;
+        for (int i = 0; i < text.length(); i++) {
+            //Recover the char at the position of the string
+            auxChar = text.charAt(i);
+            //if its anything different from a number, skip it
+            if (auxChar >= 48 && auxChar <= 57) {
+                auxNumberStr += auxChar;
+            }
+            //if its not a number, check if any number was obtained
+            else if (!auxNumberStr.isEmpty()) {
+                //Parse the number
+                numberValue = Integer.parseInt(auxNumberStr);
+                //Ignore duplicated values
+                if (!retValues.contains(numberValue)) {
+                    //If the number is not already in the arraylist, insert on it
+                    retValues.add(Integer.parseInt(auxNumberStr));
+                }
+                //Reset the aux varaible
+                auxNumberStr = "";
+            }
+        }
+        //Sort the values
+        Collections.sort(retValues);
+        return retValues;
     }
 
     @Override
@@ -350,6 +377,14 @@ public class StarterActivity extends AppCompatActivity implements GoogleApiClien
         public int getCount() {
             return 3;
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getNumbers("A56B455VB23GTY23J");
+        setContentView(R.layout.activity_starter);
+        initLoginElements();
     }
 
 }

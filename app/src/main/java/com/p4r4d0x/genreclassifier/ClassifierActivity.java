@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.p4r4d0x.audiofeatures.FeaturesExtractor;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierGetAudioFragment;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierResultErrorFragment;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierResultFragment;
@@ -96,6 +97,9 @@ public class ClassifierActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classifier);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        int[] features = new int[345];
+        List<Double> featuresExtracted = FeaturesExtractor.extractAllAudioFeatures(features, 48000);
+
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Main Page");

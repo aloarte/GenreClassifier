@@ -25,7 +25,6 @@
     <string name="reclasify_audio">Classify audio again</string>
 
 
-
     <string name="starter_banner_try_app_descr">Try the app without a login </string>
     <string name="starter_banner_try_app_link">here</string>
 
@@ -79,6 +78,7 @@
     <string name="fb_login_protocol_scheme" translatable="false">fb983291628514144</string>
     <string name="lorem_ipsum" translatable="false">lorem ipsum</string>
     <string name="void_text" translatable="false"> </string>
+    <string name="title_activity_extract_audio_features">ExtractAudioFeaturesActivity</string>
 
 
 </resources>
