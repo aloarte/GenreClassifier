@@ -60,7 +60,6 @@
     <string name="record_audio_max_time" translatable="false">02:00</string>
     <string name="none_str" translatable="false">NONE</string>
     <string name="btn_google_login" translatable="false">Google Login</string>
-    <string name="btn_facebook_login" translatable="false">Facebook Login</string>
     <string name="title_activity_profile" translatable="false">ProfileActivity</string>
     <string name="title_activity_starter" translatable="false">StarterActivity</string>
 
@@ -74,11 +73,15 @@
 
 
     <string name="google_oauth_key" translatable="false">242800975591-nfflbh6qsagp24580vs0teia7napflqp.apps.googleusercontent.com</string>
-    <string name="facebook_app_id" translatable="false">983291628514144</string>
-    <string name="fb_login_protocol_scheme" translatable="false">fb983291628514144</string>
     <string name="lorem_ipsum" translatable="false">lorem ipsum</string>
     <string name="void_text" translatable="false"> </string>
     <string name="title_activity_extract_audio_features">ExtractAudioFeaturesActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="title_classify">Classificar</string>
+    <string name="title_history">Historial</string>
+    <string name="title_profile">Perfil</string>
+    <string name="anonymous_user">Anonymous User</string>
 
 
 </resources>

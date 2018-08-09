@@ -67,4 +67,6 @@ public class GenreClassificatorApplication extends Application implements Thread
         SharedPreferences sharedPref = getSharedPreferences("GenreClassificatorApplication", Context.MODE_PRIVATE);
         return sharedPref.getBoolean(Constants.PROPERTY_CRASH_REPORT_ENABLED, true);
     }
+
+
 }

@@ -6,12 +6,17 @@
     <color name="backgroundSelected">#E0E0E0</color>
 
 
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorPrimaryMedium">#212121</color>
-    <color name="colorPrimaryLight">#484848</color>
-    <color name="colorSecondaryDark">#a7a09d</color>
-    <color name="colorSecondaryMedium">#d8d1ce</color>
-    <color name="colorSecondaryLight">#ffffff</color>
+    <color name="colorPrimaryDark">#0088a3</color>
+    <color name="colorPrimaryMedium">#0097a7</color>
+    <color name="colorPrimaryLight">#56c8d8</color>
+    <color name="colorBackgroundDark">#c7c7c7</color>
+    <color name="colorBackgroundMedium">#fafafa</color>
+    <color name="colorBackgroundLight">#ffffff</color>
+
+
+    <color name="colorSecondaryDark">#c67100</color>
+    <color name="colorSecondaryMedium">#ffa000</color>
+    <color name="colorSecondaryLight">#ffd149</color>
 
 
 
@@ -76,6 +81,19 @@
     <color name="colorGreyBackground">#212121</color>
 
 
+    <!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+    <!--<item android:state_checked="false" android:color="@color/colorPrimaryDark"/>-->
+    <!--<item android:color="@color/colorSecondaryDark"/>-->
+    <!--</selector>-->
+
+    <!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+    <!--<item android:state_pressed="true" android:drawable="@android:color/white"/>-->
+    <!--<item android:drawable="@android:color/transparent"/>-->
+    <!--</selector>-->
+
+    <!--<ripple xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:color="@android:color/white">-->
+    <!--</ripple>-->
 
 
 </resources>

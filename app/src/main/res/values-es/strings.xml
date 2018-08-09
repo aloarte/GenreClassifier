@@ -52,6 +52,6 @@
     <string name="label_data_history_genre_avg">Género más consultado:</string>
     <string name="label_data_history_genre_row">Género por racha:</string>
     <string name="label_data_history_capture_time">Tiempo por captura:</string>
-
+    <string name="anonymous_user">Usuario Anónimo</string>
 
 </resources>

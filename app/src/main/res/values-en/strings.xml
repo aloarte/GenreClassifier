@@ -50,5 +50,6 @@
     <string name="label_data_history_genre_avg">Most classified Genre:</string>
     <string name="label_data_history_genre_row">Genre in a row:</string>
     <string name="label_data_history_capture_time">Capture time:</string>
+    <string name="anonymous_user">Anonymous User</string>
 
 </resources>

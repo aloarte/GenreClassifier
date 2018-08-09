@@ -38,8 +38,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.0.2'
     implementation 'com.google.firebase:firebase-config:16.0.0'
     implementation 'com.google.android.gms:play-services-auth:15.0.1'
-    implementation 'com.facebook.android:facebook-android-sdk:4.33.0'
     implementation 'com.crashlytics.sdk.android:crashlytics:2.9.4'
+    implementation 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
 
     //implementation files('libs/TarsosDSP-Android-2.4.jar')
 

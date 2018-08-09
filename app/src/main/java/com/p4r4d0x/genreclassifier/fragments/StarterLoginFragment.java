@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.facebook.CallbackManager;
-import com.facebook.login.widget.LoginButton;
 import com.p4r4d0x.genreclassifier.R;
 import com.p4r4d0x.genreclassifier.StarterActivity;
 
@@ -33,17 +31,11 @@ public class StarterLoginFragment extends Fragment {
      */
     Button googleButton;
 
-    LoginButton faceboockLogginBtn;
-
-    private CallbackManager callbackManager;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        callbackManager = CallbackManager.Factory.create();
-
     }
 
     @Override
@@ -89,13 +81,8 @@ public class StarterLoginFragment extends Fragment {
     }
 
 
-    public com.facebook.login.widget.LoginButton getFaceboockLogginBtn() {
-        return faceboockLogginBtn;
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 }

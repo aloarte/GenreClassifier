@@ -16,14 +16,12 @@
         android:layout_marginRight="@dimen/fab_margin"
         android:layout_marginStart="@dimen/fab_margin"
         android:layout_marginTop="@dimen/fab_margin"
-        app:backgroundTint="@color/colorPrimaryDark"
-        app:srcCompat="@drawable/ic_arrow_drop_down_circle_white_24dp" />
+        app:srcCompat="@drawable/ic_album_black_48" />
 
     <LinearLayout
         android:id="@+id/ll_song_picked"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryMedium"
         android:elevation="10dp"
         android:orientation="vertical"
         android:visibility="gone"
@@ -62,7 +60,7 @@
                     android:layout_alignParentTop="false"
                     android:layout_centerInParent="true"
                     android:contentDescription="@string/acc_microphone_image"
-                    android:src="@drawable/ic_album_white_48dp" />
+                    android:src="@drawable/ic_mic_black_48" />
             </RelativeLayout>
 
         </LinearLayout>
@@ -172,7 +170,7 @@
                         android:layout_alignParentTop="false"
                         android:layout_centerInParent="true"
                         android:contentDescription="@string/acc_microphone_image"
-                        android:src="@drawable/ic_mic_white_48dp" />
+                        android:src="@drawable/ic_mic_black_48" />
 
                 </RelativeLayout>
 

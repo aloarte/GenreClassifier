@@ -23,13 +23,6 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_google_login" />
 
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/btn_facebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_facebook_login" />
-
     </LinearLayout>
 
 </FrameLayout>

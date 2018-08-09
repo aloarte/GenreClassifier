@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/acc_about_facebook_icon"
-                android:src="@drawable/ic_play_circle_filled_white_24dp" />
+                android:src="@drawable/ic_person_black_24" />
 
             <ImageView
                 android:id="@+id/iv_yt_icon"
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/acc_about_youtube_icon"
-                android:src="@drawable/ic_play_circle_filled_white_24dp" />
+                android:src="@drawable/ic_person_black_24" />
 
             <ImageView
                 android:id="@+id/iv_tw_icon"
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/acc_about_twitter_icon"
-                android:src="@drawable/ic_play_circle_filled_white_24dp" />
+                android:src="@drawable/ic_person_black_24" />
         </LinearLayout>
 
     </LinearLayout>

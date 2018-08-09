@@ -1,0 +1,151 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.p4r4d0x.genreclassifier.fragments.HistoryFragment"
+    tools:layout_editor_absoluteY="25dp">
+
+
+    <TextView
+        android:id="@+id/tv_avg_capture_mode"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical|center"
+        android:text="@string/void_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gl_vertical_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_label_avg_capture_mode"
+        app:layout_constraintTop_toBottomOf="@+id/tv_avg_capture_time" />
+
+    <TextView
+        android:id="@+id/tv_label_avg_capture_mode"
+        android:layout_width="160sp"
+        android:layout_height="30sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/label_data_history_capture_mode"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_avg_capture_mode"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_avg_capture_time" />
+
+    <TextView
+        android:id="@+id/tv_history_descr"
+        android:layout_width="256dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/label_data_history_descr"
+        app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+        app:layout_constraintTop_toTopOf="@+id/gl_horizontal_top" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_vertical_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_vertical_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <TextView
+        android:id="@+id/tv_label_avg_genre"
+        android:layout_width="160sp"
+        android:layout_height="30sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/label_data_history_genre_avg"
+        app:layout_constraintBottom_toTopOf="@+id/tv_label_inarow_genre"
+        app:layout_constraintEnd_toStartOf="@+id/il_avg_genre"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_history_descr" />
+
+    <TextView
+        android:id="@+id/tv_label_inarow_genre"
+        android:layout_width="160sp"
+        android:layout_height="30sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/label_data_history_genre_row"
+        app:layout_constraintBottom_toTopOf="@+id/tv_label_avg_capture_time"
+        app:layout_constraintEnd_toStartOf="@+id/il_inarow_genre"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_avg_genre" />
+
+    <include
+        android:id="@+id/il_inarow_genre"
+        layout="@layout/element_genre"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_avg_capture_time"
+        app:layout_constraintEnd_toStartOf="@+id/gl_vertical_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_label_inarow_genre"
+        app:layout_constraintTop_toBottomOf="@+id/il_avg_genre" />
+
+    <include
+        android:id="@+id/il_avg_genre"
+        layout="@layout/element_genre"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/il_inarow_genre"
+        app:layout_constraintEnd_toStartOf="@+id/gl_vertical_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_label_avg_genre"
+        app:layout_constraintTop_toBottomOf="@+id/tv_history_descr" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_horizontal_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <TextView
+        android:id="@+id/tv_avg_capture_time"
+        android:layout_width="150sp"
+        android:layout_height="30sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical|center"
+        android:text="@string/avg_capture_time_default"
+        app:layout_constraintBottom_toTopOf="@+id/tv_avg_capture_mode"
+        app:layout_constraintEnd_toStartOf="@+id/gl_vertical_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_label_avg_capture_time"
+        app:layout_constraintTop_toBottomOf="@+id/il_inarow_genre" />
+
+    <TextView
+        android:id="@+id/tv_label_avg_capture_time"
+        android:layout_width="160sp"
+        android:layout_height="30sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/label_data_history_capture_time"
+        app:layout_constraintBottom_toTopOf="@+id/tv_label_avg_capture_mode"
+        app:layout_constraintEnd_toStartOf="@+id/tv_avg_capture_time"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/gl_vertical_left"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_inarow_genre" />
+
+</android.support.constraint.ConstraintLayout>

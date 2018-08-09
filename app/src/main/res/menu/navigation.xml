@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_classify"
+        android:icon="@drawable/ic_mic_24"
+        android:title="@string/title_classify"></item>
+
+    <item
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/ic_library_music_24"
+        android:title="@string/title_history" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_person_24"
+        android:title="@string/title_profile" />
+
+</menu>

@@ -17,4 +17,12 @@
 
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+
+    <style name="BottomNavigation">
+        <!--<item name="android:elevation">200dp</item>-->
+        <item name="itemBackground">@color/colorBackgroundMedium</item>
+        <item name="itemIconTint">@drawable/navigation_bar_item_bg</item>
+        <item name="itemTextColor">@drawable/navigation_bar_item_bg</item>
+    </style>
+
 </resources>

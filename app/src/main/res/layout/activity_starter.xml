@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".StarterActivity">
 
 
@@ -36,7 +35,7 @@
                     android:layout_centerInParent="true"
                     android:layout_marginTop="80sp"
                     android:contentDescription="@string/acc_application_logo"
-                    android:src="@drawable/ic_arrow_drop_down_circle_white_24dp" />
+                    android:src="@drawable/ic_album_black_48" />
 
                 <TextView
                     android:id="@+id/app_title"

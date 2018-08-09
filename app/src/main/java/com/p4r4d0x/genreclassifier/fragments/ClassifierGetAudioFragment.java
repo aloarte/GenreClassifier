@@ -2,6 +2,7 @@ package com.p4r4d0x.genreclassifier.fragments;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import com.p4r4d0x.genreclassifier.ClassifierActivity;
 import com.p4r4d0x.genreclassifier.R;
+import com.p4r4d0x.genreclassifier.utils.AudioRecorder;
 
 /**
  * Fragment associated with ClassifierActivity.
@@ -106,8 +108,23 @@ public class ClassifierGetAudioFragment extends Fragment {
         btnServiceTestClassify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                parentActivity.clasifySong(null, null, null);
+                //parentActivity.clasifySong(null, null, null);
 //                parentActivity.classifyRoot();
+
+//                Audio.startRecording(parentActivity);
+                final AudioRecorder audioRecorder = new AudioRecorder(parentActivity);
+                audioRecorder.startRecording();
+                Handler audiotimerhandler = new Handler();
+                Runnable runnablehandler = new Runnable() {
+                    @Override
+                    public void run() {
+                        audioRecorder.stopRecording();
+//                        Audio.stopRecording();
+                    }
+                };
+
+                audiotimerhandler.postDelayed(runnablehandler, 5000);
+
             }
         });
 

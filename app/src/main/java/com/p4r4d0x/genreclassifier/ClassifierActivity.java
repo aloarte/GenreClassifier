@@ -14,10 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.p4r4d0x.audiofeatures.FeaturesExtractor;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierGetAudioFragment;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierResultErrorFragment;
 import com.p4r4d0x.genreclassifier.fragments.ClassifierResultFragment;
@@ -79,26 +77,13 @@ public class ClassifierActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_profile:
-                Intent profileActivity = new Intent(this, ProfileActivity.class);
-                startActivity(profileActivity);
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_classifier);
         Toolbar toolbar = findViewById(R.id.toolbar);
         int[] features = new int[345];
-        List<Double> featuresExtracted = FeaturesExtractor.extractAllAudioFeatures(features, 48000);
+        //List<Double> featuresExtracted = FeaturesExtractor.extractAllAudioFeatures(features, 48000);
+
 
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
