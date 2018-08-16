@@ -6,12 +6,13 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.p4r4d0x.genreclassifier.rest.classify.MusicGenre;
 
 public class LastClassify implements Parcelable {
 
     @SerializedName("lastGenre")
     @Expose
-    private String lastGenre;
+    private MusicGenre lastGenre;
     @SerializedName("lastAudioType")
     @Expose
     private String lastAudioType;
@@ -35,7 +36,7 @@ public class LastClassify implements Parcelable {
     };
 
     protected LastClassify(Parcel in) {
-        this.lastGenre = ((String) in.readValue((String.class.getClassLoader())));
+        this.lastGenre = ((MusicGenre) in.readValue((MusicGenre.class.getClassLoader())));
         this.lastAudioType = ((String) in.readValue((String.class.getClassLoader())));
         this.lastSampleTime = ((Integer) in.readValue((Integer.class.getClassLoader())));
     }
@@ -52,19 +53,19 @@ public class LastClassify implements Parcelable {
      * @param lastGenre
      * @param lastAudioType
      * @param lastSampleTime
-     */
-    public LastClassify(String lastGenre, String lastAudioType, Integer lastSampleTime) {
+     */    public LastClassify(MusicGenre lastGenre, String lastAudioType, Integer lastSampleTime) {
+
         super();
         this.lastGenre = lastGenre;
         this.lastAudioType = lastAudioType;
         this.lastSampleTime = lastSampleTime;
     }
 
-    public String getLastGenre() {
+    public MusicGenre getLastGenre() {
         return lastGenre;
     }
 
-    public void setLastGenre(String lastGenre) {
+    public void setLastGenre(MusicGenre lastGenre) {
         this.lastGenre = lastGenre;
     }
 

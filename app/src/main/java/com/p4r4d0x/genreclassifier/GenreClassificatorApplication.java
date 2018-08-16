@@ -4,9 +4,16 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.p4r4d0x.genreclassifier.utils.Constants;
 
 public class GenreClassificatorApplication extends Application implements Thread.UncaughtExceptionHandler {
+
+    /**
+     * Google api client to get the google oauth id from the google acount
+     */
+    private GoogleApiClient googleApiClient;
+
 
 
     @Override
@@ -68,5 +75,11 @@ public class GenreClassificatorApplication extends Application implements Thread
         return sharedPref.getBoolean(Constants.PROPERTY_CRASH_REPORT_ENABLED, true);
     }
 
+    public GoogleApiClient getGoogleApiClient() {
+        return googleApiClient;
+    }
 
+    public void setGoogleApiClient(GoogleApiClient googleApiClient) {
+        this.googleApiClient = googleApiClient;
+    }
 }

@@ -7,6 +7,8 @@
     <string name="recording_audio">Recording…</string>
     <string name="btn_txt_stop_recording">Stop recording</string>
     <string name="btn_txt_start_recording">Start recording</string>
+    <string name="btn_anonymous_login">Try it!</string>
+
     <string name="playing_song">Playing…</string>
     <string name="starter_banner_try_app_descr">Try the app without a login </string>
     <string name="starter_banner_try_app_link">here</string>
@@ -45,11 +47,21 @@
     <string name="acc_about_youtube_icon">YouTube icon</string>
     <string name="acc_about_facebook_icon">Facebook icon</string>
 
+    <string name="label_history_title">History</string>
     <string name="label_data_history_descr">A history with some data of your captures averages:</string>
     <string name="label_data_history_capture_mode">Capture Mode:</string>
     <string name="label_data_history_genre_avg">Most classified Genre:</string>
     <string name="label_data_history_genre_row">Genre in a row:</string>
     <string name="label_data_history_capture_time">Capture time:</string>
+    <string name="label_last_request_title">Your last query</string>
+    <string name="label_last_request_genre">Captured genre:</string>
+    <string name="label_last_request_time">Captured time:</string>
+    <string name="label_last_request_mode">Captured mode:</string>
+
     <string name="anonymous_user">Anonymous User</string>
+    <string name="dialog_exit_message">Close your session and return to login page</string>
+    <string name="dialog_exit_yes">Yes</string>
+    <string name="dialog_exit_no">No</string>
+    <string name="dialog_exit_title">Do you want to exit?</string>
 
 </resources>

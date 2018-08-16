@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.google.android.gms.common.SignInButton;
 import com.p4r4d0x.genreclassifier.R;
 import com.p4r4d0x.genreclassifier.StarterActivity;
 
@@ -26,10 +27,6 @@ public class StarterLoginFragment extends Fragment {
      */
     StarterActivity parentActivity;
 
-    /**
-     * Loggin buttons from the UI
-     */
-    Button googleButton;
 
 
 
@@ -43,6 +40,7 @@ public class StarterLoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         View inflatedView = inflater.inflate(R.layout.fragment_starter_login, container, false);
         initLayoutElements(inflatedView);
+        //parentActivity.fillDotsView(StarterActivity.C_STARTER_LOGO);
         return inflatedView;
 
     }
@@ -53,18 +51,7 @@ public class StarterLoginFragment extends Fragment {
      */
     private void initLayoutElements(View inflatedView) {
 
-        googleButton = inflatedView.findViewById(R.id.btn_google);
 
-
-
-        googleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                parentActivity.loginGoogleAccount();
-
-
-            }
-        });
     }
 
     @Override

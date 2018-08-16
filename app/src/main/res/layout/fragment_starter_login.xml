@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     tools:context="com.p4r4d0x.genreclassifier.fragments.StarterLoginFragment">
 
-
     <LinearLayout
         android:id="@+id/ll_body_login"
         android:layout_width="match_parent"
@@ -17,11 +16,55 @@
         android:paddingTop="50sp"
         tools:ignore="UselessParent">
 
-        <Button
-            android:id="@+id/btn_google"
+        <LinearLayout
+            android:id="@+id/ll_title_container_info"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_google_login" />
+            android:layout_height="0sp"
+            android:layout_weight="0.35"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/ll_login_body"
+                android:layout_width="match_parent"
+                android:layout_height="0sp"
+                android:layout_weight="0.85"
+                android:orientation="vertical"
+                tools:ignore="NestedWeights">
+
+                <ImageView
+                    android:id="@+id/app_logo_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="80sp"
+                    android:contentDescription="@string/acc_application_logo"
+                    android:src="@drawable/ic_album_black_48" />
+
+                <TextView
+                    android:id="@+id/app_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/app_logo_medium"
+                    android:layout_centerInParent="true"
+                    android:text="@string/application_title"
+                    android:textAllCaps="true"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/app_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/app_title"
+                    android:layout_centerInParent="true"
+                    android:text="@string/application_brief_description" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 

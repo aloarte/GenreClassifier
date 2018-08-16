@@ -37,6 +37,7 @@
 
     <string name="record_time_desc">Graba audio durante 2\'</string>
     <string name="reclasify_audio">Volver a clasificar audio</string>
+
     <string name="acc_album_image">Imáaen de un disco de música</string>
     <string name="acc_microphone_image">Imagen de un micrófono</string>
     <string name="acc_application_logo">Logo de la aplicación</string>
@@ -47,11 +48,23 @@
     <string name="acc_about_twitter_icon">Icono de Twitter</string>
     <string name="acc_about_facebook_icon">Icono de Facebook</string>
 
+    <string name="label_history_title">Historial</string>
     <string name="label_data_history_descr">Un histórico con medias de las acciones realizadas.</string>
     <string name="label_data_history_capture_mode">Modo de captura:</string>
     <string name="label_data_history_genre_avg">Género más consultado:</string>
     <string name="label_data_history_genre_row">Género por racha:</string>
     <string name="label_data_history_capture_time">Tiempo por captura:</string>
+    <string name="label_last_request_title">Tu última consulta</string>
+    <string name="label_last_request_genre">Género capturado:</string>
+    <string name="label_last_request_time">Tiempo de la captura:</string>
+    <string name="label_last_request_mode">Modo de la captura:</string>
+
     <string name="anonymous_user">Usuario Anónimo</string>
+    <string name="dialog_exit_message">Se cerrará la sesión iniciada para volver a la pantalla de inicio.</string>
+    <string name="dialog_exit_yes">Aceptar</string>
+    <string name="dialog_exit_no">Cancelar</string>
+    <string name="dialog_exit_title">¿Cerrar sesión?</string>
+    <string name="btn_anonymous_login">Prueba sin registrar</string>
+
 
 </resources>

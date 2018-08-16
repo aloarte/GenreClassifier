@@ -21,6 +21,7 @@ import com.p4r4d0x.genreclassifier.utils.Constants;
 
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -67,8 +68,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doFragmentHistory() {
-
-        getUserData();
+        //Check if the data is not already loaded in the fragment, so the fragment doesnt call several times to the service
+        if(!historyFragment.isDataLoaded()){
+            getUserData();
+        }
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.main_fragment_container, historyFragment);
         transaction.addToBackStack(null);
@@ -121,8 +124,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<StatsResponse> call, Throwable t) {
-                //If its a SocketTimeoutException, enqueue again the call
-                if (serviceStatsTimeoutRetries < MAX_SERVICE_TIMEOUT_RETRIES && (t instanceof SocketTimeoutException || t instanceof SocketException)) {
+                //If its a SocketTimeoutException,SocketException or UnknownHostException (timeout ,bad network or no network) enqueue again the call after 2 seconds of sleeping
+                if ((t instanceof SocketTimeoutException || t instanceof SocketException || t instanceof UnknownHostException)) {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     call.clone().enqueue(this);
                     Log.d("RetroFit", "StatsService Enqueued: " + serviceStatsTimeoutRetries);
                     serviceStatsTimeoutRetries++;

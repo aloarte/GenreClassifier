@@ -25,12 +25,15 @@ public class StarterInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View inflatedView = inflater.inflate(R.layout.fragment_starter_info, container, false);
         initLayoutElements(inflatedView);
+        //parentActivity.fillDotsView(StarterActivity.C_STARTER_INFO);
+
         return inflatedView;
     }
 
     private void initLayoutElements(View inflatedView) {
 
     }
+
     /**
      * Set the value of the parent activity when the fragment is created by the activity
      * @param parentActivity    parent Activity that hold this fragment

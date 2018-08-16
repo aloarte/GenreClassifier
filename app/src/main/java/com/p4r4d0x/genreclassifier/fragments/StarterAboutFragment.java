@@ -23,6 +23,7 @@ public class StarterAboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         View inflatedView = inflater.inflate(R.layout.fragment_starter_about, container, false);
         initLayoutElements(inflatedView);
+        //parentActivity.fillDotsView(StarterActivity.C_STARTER_ABOUT);
         return inflatedView;
     }
 

@@ -2,6 +2,8 @@ package com.p4r4d0x.genreclassifier.utils;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,13 +14,15 @@ public class ElementGenre {
 
     public static boolean fillViewElementGenre(Activity context, View parentIncludeLayout, MusicGenre genre) {
         int backgroundColor = getElementGenreColor(context, genre);
-        LinearLayout llGenreLayout;
+        FrameLayout llGenreLayout;
         TextView tvGenreName;
+        ImageView ivGenreColor;
         try {
             llGenreLayout = parentIncludeLayout.findViewById(R.id.element_genre_layout);
             tvGenreName = parentIncludeLayout.findViewById(R.id.element_genre_name);
+            ivGenreColor = parentIncludeLayout.findViewById(R.id.iv_color_genre);
             tvGenreName.setText(genre.toString());
-            llGenreLayout.setBackgroundColor(backgroundColor);
+            ivGenreColor.setBackgroundColor(backgroundColor);
 
         } catch (Exception e) {
             return false;
@@ -76,9 +80,9 @@ public class ElementGenre {
             case Trance:
                 return context.getResources().getColor(R.color.colorGenrePink);
             case NONE:
-                return context.getResources().getColor(R.color.colorPrimaryDark);
+                return context.getResources().getColor(R.color.colorPrimaryMedium);
             default:
-                return context.getResources().getColor(R.color.colorPrimaryDark);
+                return context.getResources().getColor(R.color.colorPrimaryMedium);
 
         }
     }
