@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            tools:context="com.p4r4d0x.genreclassifier.fragments.HistoryFragment">
+            tools:context="com.p4r4d0x.edmgenreclassifier.fragments.HistoryFragment">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cv_last_classify"

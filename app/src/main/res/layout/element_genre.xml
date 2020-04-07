@@ -16,8 +16,11 @@
             android:id="@+id/iv_color_genre"
             android:layout_width="50sp"
             android:layout_height="25sp"
-            android:layout_gravity="right|center"
-            android:src="@drawable/genre_background"/>
+            android:layout_gravity="right|center" />
+        <!--
+                    android:src="@drawable/genre_background"
+        -->
+
 
         <TextView
             android:id="@+id/element_genre_name"

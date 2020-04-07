@@ -1,1 +1,2 @@
-include ':app', ':AudioFeatures'
+include ':app'
+rootProject.name='EDM Genre Classifier'

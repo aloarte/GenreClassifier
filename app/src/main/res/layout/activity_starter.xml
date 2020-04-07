@@ -23,13 +23,14 @@
             android:layout_weight="0.65"
             android:orientation="vertical">
 
-            <android.support.v4.view.ViewPager
+
+            <androidx.viewpager2.widget.ViewPager2
+
                 android:id="@+id/vp_starter_fragments"
                 android:layout_width="match_parent"
                 android:layout_height="0sp"
-                android:layout_weight="0.70">
+                android:layout_weight="0.70"></androidx.viewpager2.widget.ViewPager2>
 
-            </android.support.v4.view.ViewPager>
 
             <LinearLayout
                 android:id="@+id/ll_section_dots"
@@ -69,11 +70,11 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <com.google.android.gms.common.SignInButton
-                    android:id="@+id/btn_google"
-                    android:layout_width="180sp"
-                    android:layout_height="50sp"
-                    android:text="@string/btn_google_login" />
+                <!--                <com.google.android.gms.common.SignInButton-->
+                <!--                    android:id="@+id/btn_google"-->
+                <!--                    android:layout_width="180sp"-->
+                <!--                    android:layout_height="50sp"-->
+                <!--                    android:text="@string/btn_google_login" />-->
 
                 <Button
                     android:id="@+id/btn_login_anonymous"

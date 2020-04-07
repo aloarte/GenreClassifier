@@ -1,24 +1,17 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
 
 buildscript {
+    ext.kotlinVersion = '1.3.71'
+    ext.gradleVersion = '3.6.1'
 
     repositories {
         google()
         jcenter()
-        mavenCentral()
-        maven {
-            url 'https://maven.fabric.io/public'
-        }
-        maven {
-            url "https://maven.google.com"
-        }
-
+        
     }
     dependencies {
-        classpath 'io.fabric.tools:gradle:1.25.1'
-        classpath 'com.android.tools.build:gradle:3.1.4'
-        classpath 'com.google.gms:google-services:3.2.0' // google-services plugin
-
+        classpath "com.android.tools.build:gradle:$gradleVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
 
@@ -26,17 +19,35 @@ allprojects {
     repositories {
         google()
         jcenter()
-        mavenCentral()
-        maven {
-            url 'https://maven.fabric.io/public'
-        }
-        maven {
-            url "https://maven.google.com"
-        }
-
+        
     }
 }
 
+
+
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    roomVersion = '2.2.4'
+    archLifecycleVersion = '2.2.0'
+    androidxArchVersion = '2.1.0'
+    coroutines = '1.3.2'
+    materialVersion = "1.1.0"
+    espressoVersion = '3.1.1'
+    testExtJunit = '1.1.0'
+    appCompatVersion = '1.1.0'
+    constraintLayoutVersion = '2.0.0-beta4'
+    coreTestingVersion = '2.0.0'
+    espressoVersion = '3.1.1'
+    gsonVersion = '2.8.6'
+    junitVersion = '4.12'
+    ktxVersion = '1.2.0'
+    roomVersion = '2.2.5'
+    testExtJunit = '1.1.0'
+    okhttpVersion='4.3.0'
+    retrofitVersion = '2.7.1'
+    daggerVersion = '2.5'
 }
