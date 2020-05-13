@@ -2,7 +2,7 @@
 
 buildscript {
     ext.kotlinVersion = '1.3.71'
-    ext.gradleVersion = '3.6.1'
+    ext.gradleVersion = '3.6.3'
 
     repositories {
         google()
@@ -49,5 +49,6 @@ ext {
     testExtJunit = '1.1.0'
     okhttpVersion='4.3.0'
     retrofitVersion = '2.7.1'
-    daggerVersion = '2.5'
+    koinVersion = '2.1.5'
+
 }
